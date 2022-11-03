@@ -4,7 +4,7 @@
    "type":"project",
    "license":"GPL-2.0+",
    "require":{
-      "ycloudyusa/yusaopeny":"dev-9.x-2.x",
+      "ycloudyusa/yusaopeny":"dev-lb_migration",
       "cweagans/composer-patches":"~1.0 || ^2",
       "mglaman/composer-drupal-lenient": "^1.0"
    },

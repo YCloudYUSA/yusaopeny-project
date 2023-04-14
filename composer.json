@@ -10,7 +10,7 @@
       "ycloudyusa/yusaopeny": "dev-drupal10"
    },
    "require-dev": {
-      "consolidation/robo": "^1.1.5 || ^2 || ^3.0",
+      "consolidation/robo": "^3 || ^4",
       "drush/drush": "^10.5.0 || ^11",
       "ymcatwincities/openy-cibox-build": "dev-ansible4",
       "ymcatwincities/openy-cibox-vm": "dev-master",

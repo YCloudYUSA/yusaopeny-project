@@ -9,7 +9,7 @@
       "mglaman/composer-drupal-lenient": "^1.0"
    },
    "require-dev":{
-      "ymcatwincities/openy-cibox-build":"dev-ansible4",
+      "ymcatwincities/openy-cibox-build":"dev-ansible4-y_fonts",
       "ymcatwincities/openy-cibox-vm":"dev-master",
       "ymcatwincities/openy-docksal":"dev-master",
       "consolidation/robo":"^3.0 || ^4",

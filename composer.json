@@ -8,20 +8,11 @@
       "cweagans/composer-patches": "^1.0 || ^2.0",
       "drush/drush": "^13"
    },
-<<<<<<< HEAD
    "require-dev": {
       "ymcatwincities/openy-docksal": "dev-master",
       "ymcatwincities/openy-cibox-vm": "dev-master",
       "consolidation/robo": "^4 || ~5.0",
       "podarok/openy-cibox-build": "dev-main"
-=======
-   "require-dev":{
-      "ymcatwincities/openy-cibox-build":"dev-ansible4",
-      "ymcatwincities/openy-cibox-vm":"dev-master",
-      "ymcatwincities/openy-docksal":"dev-master",
-      "consolidation/robo":"^3.0 || ^4",
-      "drush/drush":"^10 || ^11 || ^12"
->>>>>>> d0a7d75 (feat: update robo)
    },
    "minimum-stability": "dev",
    "prefer-stable": true,

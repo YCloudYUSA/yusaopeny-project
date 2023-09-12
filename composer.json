@@ -4,12 +4,12 @@
    "type":"project",
    "license":"GPL-2.0+",
    "require":{
-      "ycloudyusa/yusaopeny":"dev-10.2.x || dev-main",
+      "ycloudyusa/yusaopeny":"dev-10.2.x || dev-10.2.x-y_fonts || 10.2.x-dev || dev-main",
       "cweagans/composer-patches":"~1.0 || ^2",
       "mglaman/composer-drupal-lenient": "^1.0"
    },
    "require-dev":{
-      "ymcatwincities/openy-cibox-build":"dev-ansible4",
+      "ymcatwincities/openy-cibox-build":"dev-ansible4-y_fonts",
       "ymcatwincities/openy-cibox-vm":"dev-master",
       "ymcatwincities/openy-docksal":"dev-master",
       "consolidation/robo":"^3.0 || ^4",

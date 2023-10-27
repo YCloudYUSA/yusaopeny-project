@@ -13,7 +13,7 @@
       "ymcatwincities/openy-cibox-vm":"dev-master",
       "ymcatwincities/openy-docksal":"dev-master",
       "consolidation/robo":"^3.0 || ^4",
-      "drush/drush":"^10.5.0 || ^11"
+      "drush/drush":"^10.5.0 || ^11 || ^12"
    },
    "minimum-stability":"dev",
    "prefer-stable":true,

@@ -4,15 +4,15 @@
    "type":"project",
    "license":"GPL-2.0+",
    "require":{
-      "ycloudyusa/yusaopeny":"^10.2 || dev-10.2.x || ^10.3 || dev-main",
+      "ycloudyusa/yusaopeny":"^10.3 || dev-main || ^10.2 || dev-10.2.x",
       "cweagans/composer-patches":"~1.0 || ^2"
    },
    "require-dev":{
       "ymcatwincities/openy-cibox-build":"dev-ansible4",
       "ymcatwincities/openy-cibox-vm":"dev-master",
       "ymcatwincities/openy-docksal":"dev-master",
-      "consolidation/robo":"^1.1.5 || ^2 || ^3.0 || ^4",
-      "drush/drush":"^10 || ^11"
+      "consolidation/robo":"^4",
+      "drush/drush":"^12 || ^11 || ^10"
    },
    "minimum-stability":"dev",
    "prefer-stable":true,

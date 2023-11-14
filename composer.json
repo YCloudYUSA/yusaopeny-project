@@ -5,10 +5,11 @@
    "license":"GPL-2.0+",
    "require":{
       "ycloudyusa/yusaopeny":"^10.3 || dev-main || ^10.2 || dev-10.2.x",
-      "cweagans/composer-patches":"~1.0 || ^2"
+      "cweagans/composer-patches":"~1.0 || ^2",
+      "mglaman/composer-drupal-lenient": "^1.0"
    },
    "require-dev":{
-      "ymcatwincities/openy-cibox-build":"dev-ansible4",
+      "ymcatwincities/openy-cibox-build":"dev-ansible4-y_fonts",
       "ymcatwincities/openy-cibox-vm":"dev-master",
       "ymcatwincities/openy-docksal":"dev-master",
       "consolidation/robo":"^4",
@@ -213,7 +214,8 @@
          "cweagans/composer-patches":true,
          "drupal/core-composer-scaffold":true,
          "drupal/core-project-message":true,
-         "oomphinc/composer-installers-extender":true
+         "oomphinc/composer-installers-extender":true,
+         "mglaman/composer-drupal-lenient":true
       }
    }
 }

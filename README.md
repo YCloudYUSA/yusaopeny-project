@@ -39,13 +39,13 @@ cd MY_PROJECT
 
 
 
-#### Latest DEVELOPMENT version (Drupal 9 2.x)
+#### Latest DEVELOPMENT version (Drupal 10 2.x)
 ```
-composer create-project ycloudyusa/yusaopeny-project:9.2.x-development-dev MY_PROJECT --no-interaction --no-dev
+composer create-project ycloudyusa/yusaopeny-project:10.2.x-development-dev MY_PROJECT --no-interaction --no-dev
 cd MY_PROJECT
 ```
 
-This command will build project based on the [**Drupal 9 development branch**](https://github.com/ycloudyusa/yusaopeny/commits/9.x-2.x) release.
+This command will build project based on the [**Drupal 10 development branch**](https://github.com/ycloudyusa/yusaopeny/commits/10.2.x) release.
 
 See https://youtu.be/jRlinjpTl0c how to video for the whole process of this command usage.
 
@@ -56,7 +56,7 @@ You should use composer command without `--no-dev` if you would like to get envi
 So it should look like this:
 
 ```
-composer create-project ycloudyusa/yusaopeny-project:9.2.x-development-dev MY_PROJECT --no-interaction
+composer create-project ycloudyusa/yusaopeny-project:10.2.x-development-dev MY_PROJECT --no-interaction
 cd MY_PROJECT
 
 
@@ -96,13 +96,13 @@ All development happens in the [Open Y Drupal 9 installation profile](https://gi
 ]
 ```
 
-3. Change a version for `ycloudyusa/yusaopeny` to `dev-9.x-2.x` or any other branch. E.g.:
+3. Change a version for `ycloudyusa/yusaopeny` to `dev-10.2.x` or any other branch. E.g.:
 - branch name "bugfix" - version name `dev-bugfix`
 - branch name "feature/workflow" - version name `dev-feature/workflow`
 
 ```
 "require": {
-    "ycloudyusa/yusaopeny": "dev-9.x-2.x",
+    "ycloudyusa/yusaopeny": "dev-10.2.x",
 }
 ```
 ```
@@ -136,4 +136,4 @@ All development happens in the [Open Y Drupal 9 installation profile](https://gi
 # Documentation
 Documentation about Open Y is available at [docs](https://github.com/YCloudYUSA/yusaopeny_docs). For details please visit [https://ycloud.y.org/open-y-association-websites](https://ycloud.y.org/open-y-association-websites).
 # License
-Y USA OpenY Project is licensed under the [GPL-3.0](https://www.gnu.org/licenses/gpl-3.0-standalone.en.html). See the [License file](https://github.com/YCloudYUSA/yusaopeny-project/blob/9.2.x/LICENSE) for details.
+Y USA OpenY Project is licensed under the [GPL-3.0](https://www.gnu.org/licenses/gpl-3.0-standalone.en.html). See the [License file](https://github.com/YCloudYUSA/yusaopeny-project/blob/10.2.x/LICENSE) for details.

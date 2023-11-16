@@ -4,7 +4,7 @@
    "type":"project",
    "license":"GPL-2.0+",
    "require":{
-      "ycloudyusa/yusaopeny":"dev-main || main-dev",
+      "ycloudyusa/yusaopeny":"dev-main || main-dev || ^10.3",
       "cweagans/composer-patches":"~1.0 || ^2"
    },
    "require-dev":{
@@ -12,7 +12,7 @@
       "ymcatwincities/openy-cibox-vm":"dev-master",
       "ymcatwincities/openy-docksal":"dev-master",
       "consolidation/robo":"^3.0 || ^4",
-      "drush/drush":"^10 || ^11"
+      "drush/drush":"^12 || ^11"
    },
    "minimum-stability":"dev",
    "prefer-stable":true,

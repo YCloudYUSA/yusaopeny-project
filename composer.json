@@ -10,6 +10,7 @@
    "require-dev":{
       "ymcatwincities/openy-cibox-build":"dev-ansible4",
       "ymcatwincities/openy-docksal":"dev-master",
+      "ymcatwincities/openy-cibox-vm":"dev-master",
       "consolidation/robo":"^4",
       "drush/drush":"^12 || ^11"
    },

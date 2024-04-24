@@ -2,17 +2,17 @@
    "name":"ycloudyusa/yusaopeny-project",
    "description":"Project template for OpenY projects with composer",
    "type":"project",
-   "license":"GPL-2.0+",
+   "license":"GPL-2.0-or-later",
    "require":{
       "ycloudyusa/yusaopeny":"dev-10.2.x-af4",
       "cweagans/composer-patches":"~1.0 || ^2"
    },
    "require-dev":{
       "ymcatwincities/openy-cibox-build":"dev-ansible4",
-      "ymcatwincities/openy-cibox-vm":"dev-master",
       "ymcatwincities/openy-docksal":"dev-master",
-      "consolidation/robo":"^1.1.5 || ^2 || ^3.0 || ^4",
-      "drush/drush":"^10 || ^11"
+      "ymcatwincities/openy-cibox-vm":"dev-master",
+      "consolidation/robo":"^4",
+      "drush/drush":"^12 || ^11"
    },
    "minimum-stability":"dev",
    "prefer-stable":true,

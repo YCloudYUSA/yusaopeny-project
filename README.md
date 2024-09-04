@@ -5,7 +5,7 @@
 </p>
 
 <h1 align="center">
-  Y USA Open YMCA
+  Y USA Website Services
 </h1>
 <p align="center">
   https://ycloud.y.org/open-y-association-websites

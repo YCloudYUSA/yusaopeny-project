@@ -13,7 +13,7 @@
       "consolidation/robo":"^4",
       "drush/drush":"^12 || ^11",
       "mglaman/composer-drupal-lenient": "^1.0",
-      "ymcatwincities/openy-cibox-build":"dev-ansible4-y_fonts"
+      "podarok/openy-cibox-build":"dev-main"
    },
    "minimum-stability":"dev",
    "prefer-stable":true,

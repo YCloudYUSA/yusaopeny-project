@@ -4,7 +4,7 @@
    "type":"project",
    "license":"GPL-2.0-or-later",
    "require":{
-      "ycloudyusa/yusaopeny":"dev-DS-1545",
+      "ycloudyusa/yusaopeny":"dev-core-10.3",
       "cweagans/composer-patches":"~1.0 || ^2"
    },
    "require-dev":{

@@ -5,7 +5,9 @@
    "license":"GPL-2.0-or-later",
    "require":{
       "ycloudyusa/yusaopeny":"dev-core-10.3",
-      "cweagans/composer-patches":"~1.0 || ^2"
+      "cweagans/composer-patches":"~1.0 || ^2",
+      "ycloudyusa/y_lb": "dev-core-10.3 as 3.9.12",
+      "open-y-subprojects/openy_features": "dev-core-10.3 as 3.5.1"
    },
    "require-dev":{
       "ymcatwincities/openy-cibox-build":"dev-ansible4",

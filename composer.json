@@ -4,14 +4,14 @@
    "type":"project",
    "license":"GPL-2.0-or-later",
    "require":{
-      "ycloudyusa/yusaopeny":"dev-main",
+      "ycloudyusa/yusaopeny":"dev-main || dev-drupal11lenient",
       "cweagans/composer-patches":"~1.0 || ^2"
    },
    "require-dev":{
       "ymcatwincities/openy-docksal":"dev-master",
       "ymcatwincities/openy-cibox-vm":"dev-master",
-      "consolidation/robo":"^4",
-      "drush/drush":"^12 || ^11",
+      "consolidation/robo":"^4 || ~5.0",
+      "drush/drush":"^12 || ^11 || ^13",
       "mglaman/composer-drupal-lenient": "^1.0",
       "podarok/openy-cibox-build":"dev-main"
    },

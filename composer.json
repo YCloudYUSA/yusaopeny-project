@@ -5,6 +5,9 @@
    "license":"GPL-2.0-or-later",
    "require":{
       "ycloudyusa/yusaopeny":"dev-main || dev-drupal11lenient",
+      "drupal/core-recommended": "11.0.3",
+      "drupal/core-composer-scaffold": "11.0.3",
+      "drupal/core-project-message": "11.0.3",
       "cweagans/composer-patches":"~1.0 || ^2"
    },
    "require-dev":{

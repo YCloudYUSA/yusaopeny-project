@@ -125,16 +125,16 @@
         },
         {
             "name": "caxy/php-htmldiff",
-            "version": "v0.1.16",
+            "version": "v0.1.17",
             "source": {
                 "type": "git",
                 "url": "https://github.com/caxy/php-htmldiff.git",
-                "reference": "5c580b4f09285c078f0c5cb261573412a736a8cb"
+                "reference": "194feb154e32f585dd2ca8ae6929a53abfcebf9e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/caxy/php-htmldiff/zipball/5c580b4f09285c078f0c5cb261573412a736a8cb",
-                "reference": "5c580b4f09285c078f0c5cb261573412a736a8cb",
+                "url": "https://api.github.com/repos/caxy/php-htmldiff/zipball/194feb154e32f585dd2ca8ae6929a53abfcebf9e",
+                "reference": "194feb154e32f585dd2ca8ae6929a53abfcebf9e",
                 "shasum": ""
             },
             "require": {
@@ -180,9 +180,9 @@
             ],
             "support": {
                 "issues": "https://github.com/caxy/php-htmldiff/issues",
-                "source": "https://github.com/caxy/php-htmldiff/tree/v0.1.16"
+                "source": "https://github.com/caxy/php-htmldiff/tree/v0.1.17"
             },
-            "time": "2025-01-22T17:03:45+00:00"
+            "time": "2025-05-16T17:04:33+00:00"
         },
         {
             "name": "chi-teck/drupal-code-generator",
@@ -4428,32 +4428,6 @@
             "support": {
                 "source": "https://git.drupalcode.org/project/entity_reference_revisions"
             }
-        },
-        {
-            "name": "drupal/features",
-            "version": "dev-3447460-drupal-11-compatibility",
-            "source": {
-                "type": "git",
-                "url": "https://git.drupalcode.org/issue/features-3447460.git",
-                "reference": "7d952427fcb5cf6e22689700d8446880db8ce0ee"
-            },
-            "require": {
-                "drupal/config_update": "^2"
-            },
-            "type": "drupal-module",
-            "extra": {
-                "drush": {
-                    "services": {
-                        "drush.services.yml": "^10 || ^11"
-                    }
-                }
-            },
-            "license": [
-                "GPL-2.0-or-later"
-            ],
-            "description": "Enables administrators to package configuration into modules",
-            "homepage": "https://www.drupal.org/project/features",
-            "time": "2025-03-27T17:04:02+00:00"
         },
         {
             "name": "drupal/field_group",
@@ -18952,12 +18926,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/YCloudYUSA/ws_outsiders.git",
-                "reference": "3e0bcf0828f3223ce449a0db13fd9f9e1f612c1a"
+                "reference": "c33f949ed9599af34ab0ffe0630da6c4644e8504"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/YCloudYUSA/ws_outsiders/zipball/3e0bcf0828f3223ce449a0db13fd9f9e1f612c1a",
-                "reference": "3e0bcf0828f3223ce449a0db13fd9f9e1f612c1a",
+                "url": "https://api.github.com/repos/YCloudYUSA/ws_outsiders/zipball/c33f949ed9599af34ab0ffe0630da6c4644e8504",
+                "reference": "c33f949ed9599af34ab0ffe0630da6c4644e8504",
                 "shasum": ""
             },
             "replace": {
@@ -18970,6 +18944,7 @@
                 "drupal/ckeditor_font": "~1.0.0 || ~2.0.0",
                 "drupal/color": "~1.0.0",
                 "drupal/colorbutton": "~1.0.0",
+                "drupal/features": "dev-3447460-drupal-11-compatibility",
                 "drupal/groupexpro": "~1.0.0",
                 "drupal/media_library_bulk_upload": "~1.0.0",
                 "drupal/openy_addthis": "~1.0.0",
@@ -18995,20 +18970,20 @@
                 "issues": "https://github.com/YCloudYUSA/ws_outsiders/issues",
                 "source": "https://github.com/YCloudYUSA/ws_outsiders/tree/main"
             },
-            "time": "2025-05-15T11:27:23+00:00"
+            "time": "2025-05-15T11:58:48+00:00"
         },
         {
             "name": "ycloudyusa/y_lb",
-            "version": "3.10.5",
+            "version": "3.10.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/YCloudYUSA/y_lb.git",
-                "reference": "c9bf2124a49b99c3e530e7a6812da5c0957a18ca"
+                "reference": "8bc808ddd42d1102e62e50ef7a89022c0e3b7db8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/YCloudYUSA/y_lb/zipball/c9bf2124a49b99c3e530e7a6812da5c0957a18ca",
-                "reference": "c9bf2124a49b99c3e530e7a6812da5c0957a18ca",
+                "url": "https://api.github.com/repos/YCloudYUSA/y_lb/zipball/8bc808ddd42d1102e62e50ef7a89022c0e3b7db8",
+                "reference": "8bc808ddd42d1102e62e50ef7a89022c0e3b7db8",
                 "shasum": ""
             },
             "require": {
@@ -19086,9 +19061,9 @@
             "description": "Adds Layout Builder to Web Services project.",
             "support": {
                 "issues": "https://github.com/YCloudYUSA/y_lb/issues",
-                "source": "https://github.com/YCloudYUSA/y_lb/tree/3.10.5"
+                "source": "https://github.com/YCloudYUSA/y_lb/tree/3.10.6"
             },
-            "time": "2025-05-08T11:12:45+00:00"
+            "time": "2025-05-15T12:21:56+00:00"
         },
         {
             "name": "ycloudyusa/y_lb_demo_content",
@@ -19190,12 +19165,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/YCloudYUSA/yusaopeny.git",
-                "reference": "d27e498948b68af0d32d489237686f313c545e2a"
+                "reference": "d209049c6d0d24fc5912c226bd3aced5bff2309f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/YCloudYUSA/yusaopeny/zipball/d27e498948b68af0d32d489237686f313c545e2a",
-                "reference": "d27e498948b68af0d32d489237686f313c545e2a",
+                "url": "https://api.github.com/repos/YCloudYUSA/yusaopeny/zipball/d209049c6d0d24fc5912c226bd3aced5bff2309f",
+                "reference": "d209049c6d0d24fc5912c226bd3aced5bff2309f",
                 "shasum": ""
             },
             "require": {
@@ -19215,9 +19190,7 @@
                 "drupal/colorapi": "^1.1 || ^2.0",
                 "drupal/confi": "^3.1",
                 "drupal/config_update": "^1.6 || ^2 || ^2.0@alpha",
-                "drupal/core-composer-scaffold": "~11.0.13",
-                "drupal/core-project-message": "~11.0.13",
-                "drupal/core-recommended": "~11.0.13",
+                "drupal/core": "~11.0.13",
                 "drupal/crop": "^2",
                 "drupal/css_editor": "^1.3 || ^2",
                 "drupal/csv_serialization": "^3 || ^3.0@beta || ^4.0",
@@ -19235,7 +19208,6 @@
                 "drupal/entity_clone": ">=2.0.0-beta5 || ^2",
                 "drupal/entity_embed": "^1.5",
                 "drupal/entity_reference_revisions": "^1.6",
-                "drupal/features": "dev-3447460-drupal-11-compatibility",
                 "drupal/field_group": "^3.0",
                 "drupal/focal_point": "^2 || ^2.0@alpha",
                 "drupal/fontyourface": "^3.3 || 3.x-dev@dev || ^4.0 || ~5.0.0",
@@ -19556,7 +19528,7 @@
                 "issues": "https://github.com/YCloudYUSA/yusaopeny/issues",
                 "source": "https://github.com/YCloudYUSA/yusaopeny/tree/drupal11lenient"
             },
-            "time": "2025-05-15T11:43:03+00:00"
+            "time": "2025-05-19T07:27:18+00:00"
         },
         {
             "name": "ycloudyusa/yusaopeny_activity_finder",
@@ -19667,36 +19639,6 @@
         }
     ],
     "packages-dev": [
-        {
-            "name": "ymcatwincities/openy-cibox-build",
-            "version": "dev-ansible4",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/ymcatwincities/openy-cibox-build.git",
-                "reference": "69dce29cb974a77865029380f2907ba8bed3eeae"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/ymcatwincities/openy-cibox-build/zipball/69dce29cb974a77865029380f2907ba8bed3eeae",
-                "reference": "69dce29cb974a77865029380f2907ba8bed3eeae",
-                "shasum": ""
-            },
-            "require": {
-                "oomphinc/composer-installers-extender": "^1.1 || ^2"
-            },
-            "default-branch": true,
-            "type": "cibox-build",
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "GPL-2.0+"
-            ],
-            "description": "Build scripts based on open source project http://cibox.tools",
-            "support": {
-                "issues": "https://github.com/ymcatwincities/openy-cibox-build/issues",
-                "source": "https://github.com/ymcatwincities/openy-cibox-build/tree/ansible4"
-            },
-            "time": "2023-09-08T16:01:20+00:00"
-        },
         {
             "name": "ymcatwincities/openy-cibox-vm",
             "version": "dev-master",

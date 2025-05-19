@@ -23,17 +23,6 @@
     "prefer-stable": true,
     "repositories": [
         {
-            "type": "path",
-            "url": "./composer_dependency_hell",
-            "options": {
-                "symlink": true
-            }
-        },
-        {
-            "type": "path",
-            "url": "./itcare-composer-interactive"
-        },
-        {
             "type": "vcs",
             "url": "https://git.drupalcode.org/issue/features-3447460.git"
         },

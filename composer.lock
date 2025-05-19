@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "f05a12a9c5035fdea6cddd526642d66c",
+    "content-hash": "d146e2fef23b36f9487914b281398822",
     "packages": [
         {
             "name": "abraham/twitteroauth",
@@ -15199,6 +15199,35 @@
             "time": "2021-09-22T16:57:06+00:00"
         },
         {
+            "name": "podarok/openy-cibox-build",
+            "version": "dev-main",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/podarok/openy-cibox-build.git",
+                "reference": "0224bf0d03bb857f2af715f302bc2e5d19e28c40"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/podarok/openy-cibox-build/zipball/0224bf0d03bb857f2af715f302bc2e5d19e28c40",
+                "reference": "0224bf0d03bb857f2af715f302bc2e5d19e28c40",
+                "shasum": ""
+            },
+            "require": {
+                "oomphinc/composer-installers-extender": "^1.1 || ^2"
+            },
+            "default-branch": true,
+            "type": "cibox-build",
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "description": "Build scripts based on open source project http://cibox.tools",
+            "support": {
+                "source": "https://github.com/podarok/openy-cibox-build/tree/main"
+            },
+            "time": "2025-01-10T12:25:15+00:00"
+        },
+        {
             "name": "politsin/jquery-ui-touch-punch",
             "version": "1.0",
             "source": {
@@ -19732,6 +19761,7 @@
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
+        "podarok/openy-cibox-build": 20,
         "ycloudyusa/yusaopeny": 20,
         "ymcatwincities/openy-cibox-build": 20,
         "ymcatwincities/openy-cibox-vm": 20,

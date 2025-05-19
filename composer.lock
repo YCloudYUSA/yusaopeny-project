@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "d146e2fef23b36f9487914b281398822",
+    "content-hash": "310b67729a00fc277f80ae40ff4b5f38",
     "packages": [
         {
             "name": "abraham/twitteroauth",
@@ -19763,7 +19763,6 @@
     "stability-flags": {
         "podarok/openy-cibox-build": 20,
         "ycloudyusa/yusaopeny": 20,
-        "ymcatwincities/openy-cibox-build": 20,
         "ymcatwincities/openy-cibox-vm": 20,
         "ymcatwincities/openy-docksal": 20
     },

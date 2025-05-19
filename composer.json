@@ -10,10 +10,10 @@
         "ycloudyusa/yusaopeny_activity_finder": "^4 || ^5 || ^6",
         "drupal/core-recommended": "11.0.13",
         "drupal/core-composer-scaffold": "11.0.13",
-        "drupal/core-project-message": "11.0.13"
+        "drupal/core-project-message": "11.0.13",
+        "podarok/openy-cibox-build": "dev-main"
     },
     "require-dev": {
-        "ymcatwincities/openy-cibox-build": "dev-ansible4",
         "ymcatwincities/openy-cibox-vm": "dev-master",
         "ymcatwincities/openy-docksal": "dev-master",
         "consolidation/robo": "^4 || ^5",

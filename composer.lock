@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "310b67729a00fc277f80ae40ff4b5f38",
+    "content-hash": "da3e91dd31bf544e43079460914d2052",
     "packages": [
         {
             "name": "abraham/twitteroauth",
@@ -1727,17 +1727,17 @@
         },
         {
             "name": "drupal/admin_toolbar",
-            "version": "3.5.3",
+            "version": "3.6.0",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/admin_toolbar.git",
-                "reference": "3.5.3"
+                "reference": "3.6.0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/admin_toolbar-3.5.3.zip",
-                "reference": "3.5.3",
-                "shasum": "363cdd6e6ca47983900f40793edf9a8b26f132bb"
+                "url": "https://ftp.drupal.org/files/projects/admin_toolbar-3.6.0.zip",
+                "reference": "3.6.0",
+                "shasum": "ee03fd8e5394525f6e0aaf19db75624fbefc5b5d"
             },
             "require": {
                 "drupal/core": "^9.5 || ^10 || ^11"
@@ -1748,8 +1748,8 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "3.5.3",
-                    "datestamp": "1740156799",
+                    "version": "3.6.0",
+                    "datestamp": "1747981575",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -1875,30 +1875,27 @@
         },
         {
             "name": "drupal/better_exposed_filters",
-            "version": "6.0.6",
+            "version": "7.0.5",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/better_exposed_filters.git",
-                "reference": "6.0.6"
+                "reference": "7.0.5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/better_exposed_filters-6.0.6.zip",
-                "reference": "6.0.6",
-                "shasum": "558ca591d450fc64512cae7f98cb4b0241e15ba3"
+                "url": "https://ftp.drupal.org/files/projects/better_exposed_filters-7.0.5.zip",
+                "reference": "7.0.5",
+                "shasum": "a215444c39a6ae384710a6c707caf593f6dd1e2d"
             },
             "require": {
                 "drupal/core": "^8 || ^9 || ^10 || ^11 || ^12",
-                "drupal/jquery_ui": "*",
-                "drupal/jquery_ui_datepicker": "*",
-                "drupal/jquery_ui_slider": "*",
-                "drupal/jquery_ui_touch_punch": "*"
+                "drupal/nouislider_js": "^15.8"
             },
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "6.0.6",
-                    "datestamp": "1716397541",
+                    "version": "7.0.5",
+                    "datestamp": "1738353781",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -4430,6 +4427,32 @@
             }
         },
         {
+            "name": "drupal/features",
+            "version": "dev-3447460-drupal-11-compatibility",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/issue/features-3447460.git",
+                "reference": "7d952427fcb5cf6e22689700d8446880db8ce0ee"
+            },
+            "require": {
+                "drupal/config_update": "^2"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drush": {
+                    "services": {
+                        "drush.services.yml": "^10 || ^11"
+                    }
+                }
+            },
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "description": "Enables administrators to package configuration into modules",
+            "homepage": "https://www.drupal.org/project/features",
+            "time": "2025-03-27T17:04:02+00:00"
+        },
+        {
             "name": "drupal/field_group",
             "version": "3.6.0",
             "source": {
@@ -5148,6 +5171,65 @@
             }
         },
         {
+            "name": "drupal/inline_entity_menu_form-inline_entity_menu_form",
+            "version": "2.1.1",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/inline_entity_menu_form.git",
+                "reference": "2.1.1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/inline_entity_menu_form-2.1.1.zip",
+                "reference": "2.1.1",
+                "shasum": "9021d2aa370d7041b3e8387b8d288316cf75922e"
+            },
+            "require": {
+                "drupal/core": "^9.1 || ^10 || ^11"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "2.1.1",
+                    "datestamp": "1747990526",
+                    "security-coverage": {
+                        "status": "not-covered",
+                        "message": "Project has not opted into security advisory coverage!"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "anpolimus",
+                    "homepage": "https://www.drupal.org/user/2284606"
+                },
+                {
+                    "name": "danylevskyi",
+                    "homepage": "https://www.drupal.org/user/322039"
+                },
+                {
+                    "name": "froboy",
+                    "homepage": "https://www.drupal.org/user/271282"
+                },
+                {
+                    "name": "mkdok",
+                    "homepage": "https://www.drupal.org/user/3308753"
+                },
+                {
+                    "name": "podarok",
+                    "homepage": "https://www.drupal.org/user/116002"
+                }
+            ],
+            "homepage": "https://www.drupal.org/project/inline_entity_menu_form",
+            "support": {
+                "source": "https://git.drupalcode.org/project/inline_entity_menu_form"
+            }
+        },
+        {
             "name": "drupal/jquery_ui",
             "version": "1.7.0",
             "source": {
@@ -5310,71 +5392,6 @@
             }
         },
         {
-            "name": "drupal/jquery_ui_datepicker",
-            "version": "2.1.1",
-            "source": {
-                "type": "git",
-                "url": "https://git.drupalcode.org/project/jquery_ui_datepicker.git",
-                "reference": "2.1.1"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/jquery_ui_datepicker-2.1.1.zip",
-                "reference": "2.1.1",
-                "shasum": "29e56e8fa351fefd34e80529768ddc69a460149d"
-            },
-            "require": {
-                "drupal/core": "^9.2 || ^10 || ^11",
-                "drupal/jquery_ui": "^1.7"
-            },
-            "type": "drupal-module",
-            "extra": {
-                "drupal": {
-                    "version": "2.1.1",
-                    "datestamp": "1730932612",
-                    "security-coverage": {
-                        "status": "covered",
-                        "message": "Covered by Drupal's security advisory policy"
-                    }
-                }
-            },
-            "notification-url": "https://packages.drupal.org/8/downloads",
-            "license": [
-                "GPL-2.0-or-later"
-            ],
-            "authors": [
-                {
-                    "name": "bnjmnm",
-                    "homepage": "https://www.drupal.org/user/2369194"
-                },
-                {
-                    "name": "jrockowitz",
-                    "homepage": "https://www.drupal.org/user/371407"
-                },
-                {
-                    "name": "lauriii",
-                    "homepage": "https://www.drupal.org/user/1078742"
-                },
-                {
-                    "name": "nod_",
-                    "homepage": "https://www.drupal.org/user/598310"
-                },
-                {
-                    "name": "phenaproxima",
-                    "homepage": "https://www.drupal.org/user/205645"
-                },
-                {
-                    "name": "zrpnr",
-                    "homepage": "https://www.drupal.org/user/1448368"
-                }
-            ],
-            "description": "Provides jQuery UI Datepicker library.",
-            "homepage": "https://www.drupal.org/project/jquery_ui_datepicker",
-            "support": {
-                "source": "https://git.drupalcode.org/project/jquery_ui_datepicker"
-            }
-        },
-        {
             "name": "drupal/jquery_ui_menu",
             "version": "2.1.0",
             "source": {
@@ -5437,59 +5454,6 @@
             "homepage": "https://www.drupal.org/project/jquery_ui_menu",
             "support": {
                 "source": "https://git.drupalcode.org/project/jquery_ui_menu"
-            }
-        },
-        {
-            "name": "drupal/jquery_ui_slider",
-            "version": "2.1.0",
-            "source": {
-                "type": "git",
-                "url": "https://git.drupalcode.org/project/jquery_ui_slider.git",
-                "reference": "2.1.0"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/jquery_ui_slider-2.1.0.zip",
-                "reference": "2.1.0",
-                "shasum": "89e54ccf787ad3eb11fb2ca9e25ea4bfce3df5b1"
-            },
-            "require": {
-                "drupal/core": "^9.2 || ^10 || ^11",
-                "drupal/jquery_ui": "^1.7"
-            },
-            "type": "drupal-module",
-            "extra": {
-                "drupal": {
-                    "version": "2.1.0",
-                    "datestamp": "1717031321",
-                    "security-coverage": {
-                        "status": "covered",
-                        "message": "Covered by Drupal's security advisory policy"
-                    }
-                }
-            },
-            "notification-url": "https://packages.drupal.org/8/downloads",
-            "license": [
-                "GPL-2.0-or-later"
-            ],
-            "authors": [
-                {
-                    "name": "bnjmnm",
-                    "homepage": "https://www.drupal.org/user/2369194"
-                },
-                {
-                    "name": "lauriii",
-                    "homepage": "https://www.drupal.org/user/1078742"
-                },
-                {
-                    "name": "zrpnr",
-                    "homepage": "https://www.drupal.org/user/1448368"
-                }
-            ],
-            "description": "Provides jQuery UI Slider library.",
-            "homepage": "https://www.drupal.org/project/jquery_ui_slider",
-            "support": {
-                "source": "https://git.drupalcode.org/project/jquery_ui_slider"
             }
         },
         {
@@ -5781,31 +5745,26 @@
         },
         {
             "name": "drupal/layout_builder_restrictions",
-            "version": "2.20.0",
+            "version": "3.0.3",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/layout_builder_restrictions.git",
-                "reference": "8.x-2.20"
+                "reference": "3.0.3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/layout_builder_restrictions-8.x-2.20.zip",
-                "reference": "8.x-2.20",
-                "shasum": "cd5c87869a0843f91fae0600f74b6c2ed102e398"
+                "url": "https://ftp.drupal.org/files/projects/layout_builder_restrictions-3.0.3.zip",
+                "reference": "3.0.3",
+                "shasum": "a0f455859005754e965bc1c625c56b1dbadf4f13"
             },
             "require": {
                 "drupal/core": "^8 || ^9 || ^10 || ^11 || ^12"
             },
-            "require-dev": {
-                "drupal/dashboards": "^2",
-                "drupal/layout_library": "dev-1.x",
-                "drupal/mini_layouts": "dev-2.0.x"
-            },
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "8.x-2.20",
-                    "datestamp": "1715895237",
+                    "version": "3.0.3",
+                    "datestamp": "1739482816",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -6071,30 +6030,26 @@
         },
         {
             "name": "drupal/lb_branch_hours_blocks",
-            "version": "1.2.11",
+            "version": "1.1.0",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/lb_branch_hours_blocks.git",
-                "reference": "1.2.11"
+                "reference": "1.1.0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/lb_branch_hours_blocks-1.2.11.zip",
-                "reference": "1.2.11",
-                "shasum": "f6854cff82280fc7d316060c3914e24fa0723a0d"
+                "url": "https://ftp.drupal.org/files/projects/lb_branch_hours_blocks-1.1.0.zip",
+                "reference": "1.1.0",
+                "shasum": "c4659f23a405af4e6aa5e5ad4d9dfe00958685fa"
             },
             "require": {
-                "drupal/core": "^8 || ^9 || ^10 || ^11 || ^12",
-                "drupal/y_branch": "^1.0.14",
-                "open-y-subprojects/openy_custom": "^2.3.0",
-                "php": ">=8.1",
-                "ycloudyusa/y_lb": "^3.2.0"
+                "drupal/core": "^8 || ^9 || ^10 || ^11 || ^12"
             },
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "1.2.11",
-                    "datestamp": "1723472461",
+                    "version": "1.1.0",
+                    "datestamp": "1689346045",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -6103,7 +6058,7 @@
             },
             "notification-url": "https://packages.drupal.org/8/downloads",
             "license": [
-                "GPL-2.0+"
+                "GPL-2.0-or-later"
             ],
             "authors": [
                 {
@@ -6131,7 +6086,7 @@
                     "homepage": "https://www.drupal.org/user/116002"
                 }
             ],
-            "description": "Adds Branch Hours block for Branch nodes with Layout Builder.",
+            "description": "Helper module for the custom \"Branch Hours\" block type",
             "homepage": "https://www.drupal.org/project/lb_branch_hours_blocks",
             "support": {
                 "source": "https://git.drupalcode.org/project/lb_branch_hours_blocks",
@@ -6347,17 +6302,17 @@
         },
         {
             "name": "drupal/lb_claro",
-            "version": "1.0.0-beta4",
+            "version": "2.0.0-alpha1",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/lb_claro.git",
-                "reference": "8.x-1.0-beta4"
+                "reference": "2.0.0-alpha1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/lb_claro-8.x-1.0-beta4.zip",
-                "reference": "8.x-1.0-beta4",
-                "shasum": "05e922afdc31a8daaaa46ebcb23087089e921b32"
+                "url": "https://ftp.drupal.org/files/projects/lb_claro-2.0.0-alpha1.zip",
+                "reference": "2.0.0-alpha1",
+                "shasum": "58fa081fb021c2159ba8eb87186fd8fe197b9503"
             },
             "require": {
                 "drupal/core": "^8 || ^9 || ^10 || ^11 || ^12"
@@ -6365,11 +6320,11 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "8.x-1.0-beta4",
-                    "datestamp": "1643168090",
+                    "version": "2.0.0-alpha1",
+                    "datestamp": "1676588279",
                     "security-coverage": {
                         "status": "not-covered",
-                        "message": "Beta releases are not covered by Drupal security advisories."
+                        "message": "Alpha releases are not covered by Drupal security advisories."
                     }
                 }
             },
@@ -7518,17 +7473,23 @@
         },
         {
             "name": "drupal/media_directories",
-            "version": "dev-2.1.x",
+            "version": "2.2.0-beta1",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/media_directories.git",
-                "reference": "2dee8d5df390afbd6056c9ce301db43d9b770ef6"
+                "reference": "2.2.0-beta1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/media_directories-2.2.0-beta1.zip",
+                "reference": "2.2.0-beta1",
+                "shasum": "64839dae87b786d8933a86b680f0fd702b830076"
             },
             "require": {
-                "drupal/core": ">=9.5",
-                "drupal/embed": ">=1.6",
-                "drupal/entity_browser": ">=2.8",
-                "drupal/entity_embed": ">=1.3"
+                "drupal/core": ">=10.2",
+                "drupal/embed": ">=1.10",
+                "drupal/entity_browser": ">=2.12",
+                "drupal/entity_embed": ">=1.7"
             },
             "require-dev": {
                 "drupal/embed": "^1.6",
@@ -7538,15 +7499,12 @@
             },
             "type": "drupal-module",
             "extra": {
-                "branch-alias": {
-                    "dev-2.1.x": "2.1.x-dev"
-                },
                 "drupal": {
-                    "version": "2.1.0-beta5+2-dev",
-                    "datestamp": "1740437220",
+                    "version": "2.2.0-beta1",
+                    "datestamp": "1740437432",
                     "security-coverage": {
                         "status": "not-covered",
-                        "message": "Dev releases are not covered by Drupal security advisories."
+                        "message": "Beta releases are not covered by Drupal security advisories."
                     }
                 }
             },
@@ -8047,6 +8005,35 @@
                 "source": "http://cgit.drupalcode.org/node_revision_delete",
                 "issues": "https://www.drupal.org/project/issues/node_revision_delete"
             }
+        },
+        {
+            "name": "drupal/nouislider_js",
+            "version": "15.8.1",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/nouislider_js.git",
+                "reference": "b5610d5842784581e4c766cd1c3852ca0b355ed5"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://git.drupalcode.org/api/v4/projects/project%2Fnouislider_js/repository/archive.zip?sha=b5610d5842784581e4c766cd1c3852ca0b355ed5",
+                "reference": "b5610d5842784581e4c766cd1c3852ca0b355ed5",
+                "shasum": ""
+            },
+            "type": "drupal-library",
+            "extra": {
+                "installer-name": "nouislider"
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT License"
+            ],
+            "description": "Mirror of the noUiSlider javascript library tagged as a Drupal library.",
+            "homepage": "https://github.com/leongersen/noUiSlider",
+            "support": {
+                "source": "https://git.drupalcode.org/project/nouislider_js/-/tree/15.8.0"
+            },
+            "time": "2025-01-03T10:53:20+00:00"
         },
         {
             "name": "drupal/openy_branch_selector",
@@ -8693,17 +8680,17 @@
         },
         {
             "name": "drupal/openy_repeat",
-            "version": "2.8.1",
+            "version": "2.8.2",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/openy_repeat.git",
-                "reference": "2.8.1"
+                "reference": "2.8.2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/openy_repeat-2.8.1.zip",
-                "reference": "2.8.1",
-                "shasum": "9a0c03e26d74ec9313cebcbeea7e2c8d962b8d75"
+                "url": "https://ftp.drupal.org/files/projects/openy_repeat-2.8.2.zip",
+                "reference": "2.8.2",
+                "shasum": "28fa60c3ee6e3948ae67a084e74770caaec69fff"
             },
             "require": {
                 "drupal/core": "^8 || ^9 || ^10 || ^11 || ^12",
@@ -8716,8 +8703,8 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "2.8.1",
-                    "datestamp": "1746795698",
+                    "version": "2.8.2",
+                    "datestamp": "1747909034",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -9667,17 +9654,11 @@
         },
         {
             "name": "drupal/search_api",
-            "version": "1.38.0",
+            "version": "dev-1.x",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/search_api.git",
-                "reference": "8.x-1.38"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/search_api-8.x-1.38.zip",
-                "reference": "8.x-1.38",
-                "shasum": "d1c83ba74e553eca07d3ea4b15e5d9c7f009a496"
+                "reference": "51e38fda4ad2ce07f0ffc44def948e497fd35dfa"
             },
             "require": {
                 "drupal/core": "^10.2 || ^11"
@@ -9686,8 +9667,8 @@
                 "drupal/search_api_solr": "2.* || 3.0 || 3.1"
             },
             "require-dev": {
-                "drupal/language_fallback_fix": "@dev",
-                "drupal/search_api_autocomplete": "@dev",
+                "drupal/language_fallback_fix": "1.x-dev",
+                "drupal/search_api_autocomplete": "1.x-dev",
                 "drupal/search_api_db": "*"
             },
             "suggest": {
@@ -9697,12 +9678,15 @@
             },
             "type": "drupal-module",
             "extra": {
+                "branch-alias": {
+                    "dev-1.x": "1.x-dev"
+                },
                 "drupal": {
-                    "version": "8.x-1.38",
-                    "datestamp": "1740298961",
+                    "version": "8.x-1.38+10-dev",
+                    "datestamp": "1746981977",
                     "security-coverage": {
-                        "status": "covered",
-                        "message": "Covered by Drupal's security advisory policy"
+                        "status": "not-covered",
+                        "message": "Dev releases are not covered by Drupal security advisories."
                     }
                 }
             },
@@ -9838,17 +9822,17 @@
         },
         {
             "name": "drupal/simple_menu_icons",
-            "version": "3.0.2",
+            "version": "3.1.0",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/simple_menu_icons.git",
-                "reference": "3.0.2"
+                "reference": "3.1.0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/simple_menu_icons-3.0.2.zip",
-                "reference": "3.0.2",
-                "shasum": "f3e8ee62fda2852bde0276ae001d44c20d54ccad"
+                "url": "https://ftp.drupal.org/files/projects/simple_menu_icons-3.1.0.zip",
+                "reference": "3.1.0",
+                "shasum": "444cabe6dfeca22239cc8e97fbfb1b75d6966a55"
             },
             "require": {
                 "drupal/core": "^8 || ^9 || ^10 || ^11 || ^12"
@@ -9856,8 +9840,8 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "3.0.2",
-                    "datestamp": "1744110377",
+                    "version": "3.1.0",
+                    "datestamp": "1747988002",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -10722,17 +10706,11 @@
         },
         {
             "name": "drupal/video_embed_field",
-            "version": "3.0.0-beta2",
+            "version": "dev-3.x",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/video_embed_field.git",
-                "reference": "3.0.0-beta2"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/video_embed_field-3.0.0-beta2.zip",
-                "reference": "3.0.0-beta2",
-                "shasum": "489fc2e4fc9d4407bf52cae1486d83153fd56e15"
+                "reference": "9c292f30451efa1506cab65820d368fb86f7944c"
             },
             "require": {
                 "drupal/core": "^10.3 || ^11"
@@ -10743,12 +10721,15 @@
             },
             "type": "drupal-module",
             "extra": {
+                "branch-alias": {
+                    "dev-3.x": "3.x-dev"
+                },
                 "drupal": {
-                    "version": "3.0.0-beta2",
-                    "datestamp": "1747128838",
+                    "version": "3.0.0-beta2+1-dev",
+                    "datestamp": "1747142563",
                     "security-coverage": {
                         "status": "not-covered",
-                        "message": "Beta releases are not covered by Drupal security advisories."
+                        "message": "Dev releases are not covered by Drupal security advisories."
                     }
                 }
             },
@@ -10786,17 +10767,17 @@
         },
         {
             "name": "drupal/views_block_filter_block",
-            "version": "2.0.1",
+            "version": "2.1.2",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/views_block_filter_block.git",
-                "reference": "2.0.1"
+                "reference": "2.1.2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/views_block_filter_block-2.0.1.zip",
-                "reference": "2.0.1",
-                "shasum": "5246c919b7c419e4224c20bdf13d5c7a30f1cfb9"
+                "url": "https://ftp.drupal.org/files/projects/views_block_filter_block-2.1.2.zip",
+                "reference": "2.1.2",
+                "shasum": "c86469c7eae4260b8a3737593e6dae101a5194e5"
             },
             "require": {
                 "drupal/core": "^8 || ^9 || ^10 || ^11 || ^12",
@@ -10805,8 +10786,8 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "2.0.1",
-                    "datestamp": "1677750379",
+                    "version": "2.1.2",
+                    "datestamp": "1747991730",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -10930,6 +10911,59 @@
             }
         },
         {
+            "name": "drupal/views_field_formatter",
+            "version": "4.1.1",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/views_field_formatter.git",
+                "reference": "4.1.1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/views_field_formatter-4.1.1.zip",
+                "reference": "4.1.1",
+                "shasum": "aaa93fecc9e780c47529284d4861ed6d9e7241ea"
+            },
+            "require": {
+                "drupal/core": "^8 || ^9 || ^10 || ^11 || ^12"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "4.1.1",
+                    "datestamp": "1747749351",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "authors": [
+                {
+                    "name": "Pol Dellaiera",
+                    "homepage": "https://www.drupal.org/user/1321830",
+                    "email": "pol.dellaiera@protonmail.com"
+                },
+                {
+                    "name": "podarok",
+                    "homepage": "https://www.drupal.org/user/116002"
+                },
+                {
+                    "name": "pol",
+                    "homepage": "https://www.drupal.org/user/47194"
+                }
+            ],
+            "description": "Provide a new field formatter: 'View' for each field types and allows you to select a View and to use its result instead of the original field value.",
+            "homepage": "https://drupal.org/project/views_field_formatter",
+            "support": {
+                "source": "https://git.drupalcode.org/project/views_field_formatter"
+            }
+        },
+        {
             "name": "drupal/views_infinite_scroll",
             "version": "2.0.3",
             "source": {
@@ -10999,48 +11033,43 @@
         },
         {
             "name": "drupal/webform",
-            "version": "6.2.9",
+            "version": "6.3.0-beta2",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/webform.git",
-                "reference": "6.2.9"
+                "reference": "6.3.0-beta2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/webform-6.2.9.zip",
-                "reference": "6.2.9",
-                "shasum": "650752c3cc6d0144c6f378b8d25d45c083e23600"
+                "url": "https://ftp.drupal.org/files/projects/webform-6.3.0-beta2.zip",
+                "reference": "6.3.0-beta2",
+                "shasum": "02e45bf3716c6e81846a9b77837782a43053e6f9"
             },
             "require": {
-                "drupal/core": "^8 || ^9 || ^10 || ^11 || ^12",
-                "php": ">=8.1"
+                "drupal/core": "^8 || ^9 || ^10 || ^11 || ^12"
             },
             "require-dev": {
-                "drupal/address": "1.x-dev",
-                "drupal/bootstrap": "3.x-dev",
-                "drupal/captcha": "^1 || ^2",
-                "drupal/chosen": "3.0.x-dev",
-                "drupal/ckeditor": "1.0.x-dev",
-                "drupal/clientside_validation": "^3 || ^4",
+                "drupal/address": "^2.0",
+                "drupal/captcha": "^2.0",
+                "drupal/chosen": "^4.0",
+                "drupal/clientside_validation": "^4.1",
                 "drupal/clientside_validation_jquery": "*",
-                "drupal/devel": "5.x-dev",
-                "drupal/entity": "1.x-dev",
-                "drupal/entity_print": "2.x-dev",
-                "drupal/group": "1.x-dev",
-                "drupal/hal": "1 - 2",
-                "drupal/jquery_ui": "1.x-dev",
-                "drupal/jquery_ui_button": "2.x-dev",
-                "drupal/jquery_ui_checkboxradio": "2.x-dev",
-                "drupal/jquery_ui_datepicker": "2.x-dev",
-                "drupal/mailsystem": "4.x-dev",
-                "drupal/metatag": "1.x-dev",
-                "drupal/paragraphs": "1.x-dev",
+                "drupal/devel": "^5.3",
+                "drupal/entity": "^1.5",
+                "drupal/entity_print": "^2.15",
+                "drupal/hal": "^2.0",
+                "drupal/jquery_ui": "^1.7",
+                "drupal/jquery_ui_button": "^2.1",
+                "drupal/jquery_ui_checkboxradio": "^2.1",
+                "drupal/jquery_ui_datepicker": "^2.1",
+                "drupal/mailsystem": "^4.5",
+                "drupal/metatag": "^2.0",
+                "drupal/paragraphs": "^1.18",
                 "drupal/select2": "1.x-dev",
-                "drupal/smtp": "1.x-dev",
-                "drupal/styleguide": "^1 || ^2",
+                "drupal/smtp": "^1.4",
+                "drupal/styleguide": "^2.1",
                 "drupal/telephone_validation": "2.x-dev",
-                "drupal/token": "1.x-dev",
-                "drupal/variationcache": "1.x-dev",
+                "drupal/token": "^1.15",
                 "drupal/webform_access": "*",
                 "drupal/webform_attachment": "*",
                 "drupal/webform_clientside_validation": "*",
@@ -11059,16 +11088,16 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "6.2.9",
-                    "datestamp": "1733851063",
+                    "version": "6.3.0-beta2",
+                    "datestamp": "1742582977",
                     "security-coverage": {
-                        "status": "covered",
-                        "message": "Covered by Drupal's security advisory policy"
+                        "status": "not-covered",
+                        "message": "Beta releases are not covered by Drupal security advisories."
                     }
                 },
                 "drush": {
                     "services": {
-                        "drush.services.yml": ">=9"
+                        "drush.services.yml": ">=11"
                     }
                 }
             },
@@ -11566,17 +11595,17 @@
         },
         {
             "name": "drupal/y_branch",
-            "version": "1.0.25",
+            "version": "1.1.0",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/y_branch.git",
-                "reference": "1.0.25"
+                "reference": "1.1.0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/y_branch-1.0.25.zip",
-                "reference": "1.0.25",
-                "shasum": "810cbbe0ae894e775f270162d4069c7a4a5df8a3"
+                "url": "https://ftp.drupal.org/files/projects/y_branch-1.1.0.zip",
+                "reference": "1.1.0",
+                "shasum": "3c05710719036e5e25758677525f61b752569b60"
             },
             "require": {
                 "drupal/core": "^8 || ^9 || ^10 || ^11 || ^12",
@@ -11587,8 +11616,8 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "1.0.25",
-                    "datestamp": "1731424186",
+                    "version": "1.1.0",
+                    "datestamp": "1747989571",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -11634,17 +11663,17 @@
         },
         {
             "name": "drupal/y_branch_menu",
-            "version": "1.0.9",
+            "version": "1.1.0",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/y_branch_menu.git",
-                "reference": "1.0.9"
+                "reference": "1.1.0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/y_branch_menu-1.0.9.zip",
-                "reference": "1.0.9",
-                "shasum": "7b2914157323ca5a49c1b9626a5e5ea3d9c82841"
+                "url": "https://ftp.drupal.org/files/projects/y_branch_menu-1.1.0.zip",
+                "reference": "1.1.0",
+                "shasum": "6232fcfe58fa53f6e6541c33e07ba3ea2b711abc"
             },
             "require": {
                 "drupal/core": "^8 || ^9 || ^10 || ^11 || ^12"
@@ -11652,8 +11681,8 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "1.0.9",
-                    "datestamp": "1733402316",
+                    "version": "1.1.0",
+                    "datestamp": "1747990152",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -11851,32 +11880,30 @@
         },
         {
             "name": "drupal/y_facility",
-            "version": "1.1.3",
+            "version": "1.1.0",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/y_facility.git",
-                "reference": "1.1.3"
+                "reference": "1.1.0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/y_facility-1.1.3.zip",
-                "reference": "1.1.3",
-                "shasum": "d88b528434bb1a946d8386be84df3a85d81e6a81"
+                "url": "https://ftp.drupal.org/files/projects/y_facility-1.1.0.zip",
+                "reference": "1.1.0",
+                "shasum": "88321cbf4e8dc966b78ddad631b36bf01974ec24"
             },
             "require": {
                 "drupal/core": "^8 || ^9 || ^10 || ^11 || ^12",
                 "drupal/lb_branch_amenities_blocks": "*",
                 "drupal/lb_branch_hours_blocks": "*",
                 "drupal/lb_branch_social_links_blocks": "*",
-                "drupal/y_branch_menu": "*",
-                "php": ">=8.1",
-                "ycloudyusa/y_lb": "^3.2.0"
+                "drupal/y_branch_menu": "*"
             },
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "1.1.3",
-                    "datestamp": "1726562693",
+                    "version": "1.1.0",
+                    "datestamp": "1697807844",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -11885,7 +11912,7 @@
             },
             "notification-url": "https://packages.drupal.org/8/downloads",
             "license": [
-                "GPL-2.0+"
+                "GPL-2.0-or-later"
             ],
             "authors": [
                 {
@@ -11909,7 +11936,7 @@
                     "homepage": "https://www.drupal.org/user/116002"
                 }
             ],
-            "description": "Adds Layout Builder to Facility nodes for Web Services project.",
+            "description": "Facility CT integration point with Layout Builder.",
             "homepage": "https://www.drupal.org/project/y_facility",
             "support": {
                 "source": "https://git.drupalcode.org/project/y_facility",
@@ -11997,28 +12024,26 @@
         },
         {
             "name": "drupal/y_program",
-            "version": "1.0.6",
+            "version": "1.0.1",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/y_program.git",
-                "reference": "1.0.6"
+                "reference": "1.0.1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/y_program-1.0.6.zip",
-                "reference": "1.0.6",
-                "shasum": "f78a6c7c7c4696f94a568a638be34bca73298be8"
+                "url": "https://ftp.drupal.org/files/projects/y_program-1.0.1.zip",
+                "reference": "1.0.1",
+                "shasum": "65ef27d297518a469e4654677ed2827befc2e9fe"
             },
             "require": {
-                "drupal/core": "^8 || ^9 || ^10 || ^11 || ^12",
-                "php": ">=8.1",
-                "ycloudyusa/y_lb": "^3.2.0"
+                "drupal/core": "^8 || ^9 || ^10 || ^11 || ^12"
             },
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "1.0.6",
-                    "datestamp": "1745909720",
+                    "version": "1.0.1",
+                    "datestamp": "1700477194",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -12027,7 +12052,7 @@
             },
             "notification-url": "https://packages.drupal.org/8/downloads",
             "license": [
-                "GPL-2.0+"
+                "GPL-2.0-or-later"
             ],
             "authors": [
                 {
@@ -12055,7 +12080,7 @@
                     "homepage": "https://www.drupal.org/user/116002"
                 }
             ],
-            "description": "Adds Layout Builder to Program nodes for Web Services project.",
+            "description": "Program CT integration point with Layout Builder.",
             "homepage": "https://www.drupal.org/project/y_program",
             "support": {
                 "source": "https://git.drupalcode.org/project/y_program",
@@ -12064,28 +12089,26 @@
         },
         {
             "name": "drupal/y_program_subcategory",
-            "version": "1.0.2",
+            "version": "1.0.1",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/y_program_subcategory.git",
-                "reference": "1.0.2"
+                "reference": "1.0.1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/y_program_subcategory-1.0.2.zip",
-                "reference": "1.0.2",
-                "shasum": "9e8cd145a9411e7a1c903d94cd881ac862295cd5"
+                "url": "https://ftp.drupal.org/files/projects/y_program_subcategory-1.0.1.zip",
+                "reference": "1.0.1",
+                "shasum": "fcd36bbf57f8fedb18e58ca9aeccaaec578687ff"
             },
             "require": {
-                "drupal/core": "^8 || ^9 || ^10 || ^11 || ^12",
-                "php": ">=8.1",
-                "ycloudyusa/y_lb": "^3.2.0"
+                "drupal/core": "^8 || ^9 || ^10 || ^11 || ^12"
             },
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "1.0.2",
-                    "datestamp": "1706170318",
+                    "version": "1.0.1",
+                    "datestamp": "1700477294",
                     "security-coverage": {
                         "status": "not-covered",
                         "message": "Project has not opted into security advisory coverage!"
@@ -12094,7 +12117,7 @@
             },
             "notification-url": "https://packages.drupal.org/8/downloads",
             "license": [
-                "GPL-2.0+"
+                "GPL-2.0-or-later"
             ],
             "authors": [
                 {
@@ -12122,7 +12145,7 @@
                     "homepage": "https://www.drupal.org/user/116002"
                 }
             ],
-            "description": "Adds Layout Builder to Program Subcategory nodes for Web Services project.",
+            "description": "Program Subcategory CT integration point with Layout Builder.",
             "homepage": "https://www.drupal.org/project/y_program_subcategory",
             "support": {
                 "source": "https://git.drupalcode.org/project/y_program_subcategory",
@@ -13010,7 +13033,7 @@
         },
         {
             "name": "illuminate/collections",
-            "version": "v11.44.7",
+            "version": "v11.45.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/collections.git",
@@ -13066,7 +13089,7 @@
         },
         {
             "name": "illuminate/conditionable",
-            "version": "v11.44.7",
+            "version": "v11.45.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/conditionable.git",
@@ -13112,7 +13135,7 @@
         },
         {
             "name": "illuminate/contracts",
-            "version": "v11.44.7",
+            "version": "v11.45.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/contracts.git",
@@ -13160,7 +13183,7 @@
         },
         {
             "name": "illuminate/macroable",
-            "version": "v11.44.7",
+            "version": "v11.45.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/macroable.git",
@@ -13323,16 +13346,16 @@
         },
         {
             "name": "league/container",
-            "version": "4.2.4",
+            "version": "4.2.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/thephpleague/container.git",
-                "reference": "7ea728b013b9a156c409c6f0fc3624071b742dec"
+                "reference": "d3cebb0ff4685ff61c749e54b27db49319e2ec00"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thephpleague/container/zipball/7ea728b013b9a156c409c6f0fc3624071b742dec",
-                "reference": "7ea728b013b9a156c409c6f0fc3624071b742dec",
+                "url": "https://api.github.com/repos/thephpleague/container/zipball/d3cebb0ff4685ff61c749e54b27db49319e2ec00",
+                "reference": "d3cebb0ff4685ff61c749e54b27db49319e2ec00",
                 "shasum": ""
             },
             "require": {
@@ -13393,7 +13416,7 @@
             ],
             "support": {
                 "issues": "https://github.com/thephpleague/container/issues",
-                "source": "https://github.com/thephpleague/container/tree/4.2.4"
+                "source": "https://github.com/thephpleague/container/tree/4.2.5"
             },
             "funding": [
                 {
@@ -13401,7 +13424,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2024-11-10T12:42:13+00:00"
+            "time": "2025-05-20T12:55:37+00:00"
         },
         {
             "name": "league/csv",
@@ -14538,16 +14561,16 @@
         },
         {
             "name": "open-y-subprojects/openy_features",
-            "version": "3.6.3",
+            "version": "dev-drupal11",
             "source": {
                 "type": "git",
                 "url": "https://github.com/open-y-subprojects/openy_features.git",
-                "reference": "47ad42d32c7bd0b84875c17b9c42f5fa48a90859"
+                "reference": "8af757e3ce7da93a661356f415ae9b000e37b9ee"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/open-y-subprojects/openy_features/zipball/47ad42d32c7bd0b84875c17b9c42f5fa48a90859",
-                "reference": "47ad42d32c7bd0b84875c17b9c42f5fa48a90859",
+                "url": "https://api.github.com/repos/open-y-subprojects/openy_features/zipball/8af757e3ce7da93a661356f415ae9b000e37b9ee",
+                "reference": "8af757e3ce7da93a661356f415ae9b000e37b9ee",
                 "shasum": ""
             },
             "require": {
@@ -14562,7 +14585,7 @@
                 "open-y-subprojects/openy_custom": ">=2.1.0",
                 "open-y-subprojects/openy_demo_content": "^2.0",
                 "open-y-subprojects/openy_node_alert": "^2.3.1",
-                "ycloudyusa/y_lb": ">=3.8.2",
+                "ycloudyusa/y_lb": ">=3.8.2 || ~4.0.0",
                 "ycloudyusa/yusaopeny": "*",
                 "ynorth-projects/openy_node_session": "^2.0"
             },
@@ -14584,22 +14607,22 @@
             "description": "Features from Open Y Distribution.",
             "support": {
                 "issues": "https://github.com/open-y-subprojects/openy_features/issues",
-                "source": "https://github.com/open-y-subprojects/openy_features/tree/3.6.3"
+                "source": "https://github.com/open-y-subprojects/openy_features/tree/drupal11"
             },
-            "time": "2025-04-09T10:18:26+00:00"
+            "time": "2025-05-23T08:01:33+00:00"
         },
         {
             "name": "open-y-subprojects/openy_focal_point",
-            "version": "1.1.0",
+            "version": "1.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/open-y-subprojects/openy_focal_point.git",
-                "reference": "94ce172f07072831e4c67abc7e9eb1f211158926"
+                "reference": "1a3f3c692a2463e0fd1ce174bf0c5d191de387b9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/open-y-subprojects/openy_focal_point/zipball/94ce172f07072831e4c67abc7e9eb1f211158926",
-                "reference": "94ce172f07072831e4c67abc7e9eb1f211158926",
+                "url": "https://api.github.com/repos/open-y-subprojects/openy_focal_point/zipball/1a3f3c692a2463e0fd1ce174bf0c5d191de387b9",
+                "reference": "1a3f3c692a2463e0fd1ce174bf0c5d191de387b9",
                 "shasum": ""
             },
             "require": {
@@ -14614,22 +14637,22 @@
             "description": "Open Y focal point implementation and enchancements.",
             "support": {
                 "issues": "https://github.com/open-y-subprojects/openy_focal_point/issues",
-                "source": "https://github.com/open-y-subprojects/openy_focal_point/tree/1.1.0"
+                "source": "https://github.com/open-y-subprojects/openy_focal_point/tree/1.2.0"
             },
-            "time": "2023-04-05T09:20:41+00:00"
+            "time": "2025-05-23T07:22:48+00:00"
         },
         {
             "name": "open-y-subprojects/openy_hours_formatter",
-            "version": "2.0.4",
+            "version": "dev-drupal11",
             "source": {
                 "type": "git",
                 "url": "https://github.com/open-y-subprojects/openy_hours_formatter.git",
-                "reference": "2150650b6119a0c1f40d2b9e70e87d6e8ff1e333"
+                "reference": "25ae11de5ce6492c3725a0961f9641832a8b1e7b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/open-y-subprojects/openy_hours_formatter/zipball/2150650b6119a0c1f40d2b9e70e87d6e8ff1e333",
-                "reference": "2150650b6119a0c1f40d2b9e70e87d6e8ff1e333",
+                "url": "https://api.github.com/repos/open-y-subprojects/openy_hours_formatter/zipball/25ae11de5ce6492c3725a0961f9641832a8b1e7b",
+                "reference": "25ae11de5ce6492c3725a0961f9641832a8b1e7b",
                 "shasum": ""
             },
             "require": {
@@ -14643,22 +14666,22 @@
             "description": "Hours Formatter widget from Open Y Distrubution.",
             "support": {
                 "issues": "https://github.com/open-y-subprojects/openy_hours_formatter/issues",
-                "source": "https://github.com/open-y-subprojects/openy_hours_formatter/tree/2.0.4"
+                "source": "https://github.com/open-y-subprojects/openy_hours_formatter/tree/drupal11"
             },
-            "time": "2024-03-06T10:47:27+00:00"
+            "time": "2025-05-23T08:28:58+00:00"
         },
         {
             "name": "open-y-subprojects/openy_map",
-            "version": "5.2.5",
+            "version": "dev-drupal11",
             "source": {
                 "type": "git",
                 "url": "https://github.com/open-y-subprojects/openy_map.git",
-                "reference": "0ae7d54f87abf2b1af38bce2a31415c239049905"
+                "reference": "686ef61c11909fc481cb5c8961af791b9242a9e5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/open-y-subprojects/openy_map/zipball/0ae7d54f87abf2b1af38bce2a31415c239049905",
-                "reference": "0ae7d54f87abf2b1af38bce2a31415c239049905",
+                "url": "https://api.github.com/repos/open-y-subprojects/openy_map/zipball/686ef61c11909fc481cb5c8961af791b9242a9e5",
+                "reference": "686ef61c11909fc481cb5c8961af791b9242a9e5",
                 "shasum": ""
             },
             "require": {
@@ -14674,9 +14697,9 @@
             "description": "Map application for Open Y Distribution.",
             "support": {
                 "issues": "https://github.com/open-y-subprojects/openy_map/issues",
-                "source": "https://github.com/open-y-subprojects/openy_map/tree/5.2.5"
+                "source": "https://github.com/open-y-subprojects/openy_map/tree/drupal11"
             },
-            "time": "2025-03-05T08:11:41+00:00"
+            "time": "2025-05-23T08:42:38+00:00"
         },
         {
             "name": "open-y-subprojects/openy_node_alert",
@@ -18974,66 +18997,66 @@
         },
         {
             "name": "ycloudyusa/y_lb",
-            "version": "3.10.6",
+            "version": "4.0.0-beta8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/YCloudYUSA/y_lb.git",
-                "reference": "8bc808ddd42d1102e62e50ef7a89022c0e3b7db8"
+                "reference": "f5ddb76a31d788b42a1e360ace17a31299e8303c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/YCloudYUSA/y_lb/zipball/8bc808ddd42d1102e62e50ef7a89022c0e3b7db8",
-                "reference": "8bc808ddd42d1102e62e50ef7a89022c0e3b7db8",
+                "url": "https://api.github.com/repos/YCloudYUSA/y_lb/zipball/f5ddb76a31d788b42a1e360ace17a31299e8303c",
+                "reference": "f5ddb76a31d788b42a1e360ace17a31299e8303c",
                 "shasum": ""
             },
             "require": {
                 "cweagans/composer-patches": "*",
                 "drupal/bootstrap_layout_builder": ">=2.1.2",
-                "drupal/bootstrap_styles": ">=1.1.3",
+                "drupal/bootstrap_styles": ">=1.1.3 || ~1.2.1",
                 "drupal/entity_clone": "^2.0@alpha || ^2",
                 "drupal/layout_builder_blocks": "*",
-                "drupal/layout_builder_operation_link": "^2.1",
-                "drupal/layout_builder_restrictions": "^2.16",
+                "drupal/layout_builder_operation_link": "^2.2",
+                "drupal/layout_builder_restrictions": "^2.16 || ^3.0",
                 "drupal/layout_builder_save_and_edit": "^1.0",
-                "drupal/lb_accordion": "^2.1.0",
+                "drupal/lb_accordion": "~2.2.0 || ~2.3.0",
                 "drupal/lb_branch_social_links_blocks": "^1.0.3",
-                "drupal/lb_cards": "^2.0.4",
-                "drupal/lb_carousel": "^2.0.3",
-                "drupal/lb_claro": "^1.0 | ^2 | ^2.0@alpha",
-                "drupal/lb_grid_cta": "^3.0.4",
-                "drupal/lb_hero": "^1.2.0",
-                "drupal/lb_modal": "^1.2.1",
-                "drupal/lb_partners_blocks": "^1.0.11",
-                "drupal/lb_ping_pong": "^1.2.2",
-                "drupal/lb_promo": "^1.2.0",
-                "drupal/lb_related_articles_blocks": "^1.2.0",
-                "drupal/lb_related_events_blocks": "^1.3.0",
-                "drupal/lb_simple_menu": "^1.0.12",
-                "drupal/lb_staff_members_blocks": "^1.2.0",
-                "drupal/lb_statistics": "^2.0.2",
-                "drupal/lb_table": "^1.0.6",
-                "drupal/lb_testimonial_blocks": "^1.0.16",
-                "drupal/lb_webform": "^1.2.0",
+                "drupal/lb_cards": "^2.0.4 || ~2.1.0 || ~2.2.0",
+                "drupal/lb_carousel": "^2.0.3 || ~2.1.0",
+                "drupal/lb_claro": "^1.0 || ~2.0.0",
+                "drupal/lb_grid_cta": "^3.0.4 || ~3.1.0",
+                "drupal/lb_hero": "~1.4.0 || ~1.5.0",
+                "drupal/lb_modal": "^1.2.1 || ~1.3.0",
+                "drupal/lb_partners_blocks": "^1.0.11 || ~1.1.0",
+                "drupal/lb_ping_pong": "^1.2.2 || ~1.3.0",
+                "drupal/lb_promo": "^1.2.0 || ~1.3.0",
+                "drupal/lb_related_articles_blocks": "^1.2.0 || ~1.3.0",
+                "drupal/lb_related_events_blocks": "^1.3.0 || ~1.4.0",
+                "drupal/lb_simple_menu": "^1.0.12 || ~1.1.0",
+                "drupal/lb_staff_members_blocks": "^1.2.0 || ~1.3.0",
+                "drupal/lb_statistics": "^2.0.2 || ~2.1.0",
+                "drupal/lb_table": "^1.0.6 || ~1.1.0",
+                "drupal/lb_testimonial_blocks": "^1.0.16 || ~1.1.0",
+                "drupal/lb_webform": "^1.2.0 || ~1.3.0",
                 "drupal/menu_item_extras": "^2.0 || ^3.0",
                 "drupal/metatag": "*",
                 "drupal/node_revision_delete": "^2.0@alpha || ^2",
-                "drupal/openy_gtranslate": "^1.0",
+                "drupal/openy_gtranslate": "^1.0 || ~1.1.0",
                 "drupal/pathauto": "^1.11",
                 "drupal/scheduler": "^2.0@RC || ^2.0",
                 "drupal/simple_sitemap": "^3.7 || ^4.1",
-                "drupal/ws_code_block": "^1.0.0",
-                "drupal/ws_colorway_canada": "^1.1.0",
-                "drupal/ws_event": "^1.4.0",
-                "drupal/ws_lb_tabs": "^2.0.1",
-                "drupal/ws_promotion": "^1.0.0",
-                "drupal/y_branch": "^1.0.17",
-                "drupal/y_camp": "^1.2",
-                "drupal/y_facility": "^1.1.0",
-                "drupal/y_lb_article": "^1.2.2",
-                "drupal/y_program": "^1.0.0",
-                "drupal/y_program_subcategory": "^1.0.0",
+                "drupal/ws_code_block": "^1.0.0 || ~1.1.0",
+                "drupal/ws_colorway_canada": "~1.2.0 || ~1.3.0",
+                "drupal/ws_event": "^1.4.0 || ~1.5.0",
+                "drupal/ws_lb_tabs": "^2.0.1 || ~2.1.1",
+                "drupal/ws_promotion": "^1.0.0 || ~1.1.0",
+                "drupal/y_branch": "^1.0.17 || ~1.1.0",
+                "drupal/y_camp": "^1.2 || ~1.3.0",
+                "drupal/y_facility": "^1.1.0 || ~1.2.0",
+                "drupal/y_lb_article": "^1.2.2 || ~1.3.0",
+                "drupal/y_program": "^1.0.0 || ~1.1.0",
+                "drupal/y_program_subcategory": "^1.0.0 || ~1.1.0",
                 "open-y-subprojects/openy_features": "*",
-                "open-y-subprojects/openy_focal_point": "^1.1",
+                "open-y-subprojects/openy_focal_point": "^1.1 || ~1.2.0",
                 "php": ">=8.1"
             },
             "type": "drupal-module",
@@ -19061,31 +19084,31 @@
             "description": "Adds Layout Builder to Web Services project.",
             "support": {
                 "issues": "https://github.com/YCloudYUSA/y_lb/issues",
-                "source": "https://github.com/YCloudYUSA/y_lb/tree/3.10.6"
+                "source": "https://github.com/YCloudYUSA/y_lb/tree/4.0.0-beta8"
             },
-            "time": "2025-05-15T12:21:56+00:00"
+            "time": "2025-05-15T11:44:00+00:00"
         },
         {
             "name": "ycloudyusa/y_lb_demo_content",
-            "version": "3.4.5",
+            "version": "4.0.0-beta1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/YCloudYUSA/y_lb_demo_content.git",
-                "reference": "e0c49268f51fc5a6b7d6a3c3236331da8ffdd42b"
+                "reference": "6fd7de1cb65c7897446d100b41399997f8eaeb93"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/YCloudYUSA/y_lb_demo_content/zipball/e0c49268f51fc5a6b7d6a3c3236331da8ffdd42b",
-                "reference": "e0c49268f51fc5a6b7d6a3c3236331da8ffdd42b",
+                "url": "https://api.github.com/repos/YCloudYUSA/y_lb_demo_content/zipball/6fd7de1cb65c7897446d100b41399997f8eaeb93",
+                "reference": "6fd7de1cb65c7897446d100b41399997f8eaeb93",
                 "shasum": ""
             },
             "require": {
-                "drupal/lb_cards": ">=2.0.15",
-                "drupal/lb_hero": ">=1.3.0",
-                "drupal/ws_promotion": "^1.0.9",
-                "open-y-subprojects/openy_custom": ">=2.4.0",
+                "drupal/lb_cards": ">=2.0.15 || ~2.1.0",
+                "drupal/lb_hero": ">=1.3.0 || ~1.4.0",
+                "drupal/ws_promotion": "^1.0.9 || ~1.1.0",
+                "open-y-subprojects/openy_custom": ">=2.4.0 || ~2.5.0",
                 "php": ">=8.1",
-                "ycloudyusa/y_lb": "^3.3.0 || ^3.5.6"
+                "ycloudyusa/y_lb": "^3.3.0 || ^3.5.6 || ~4.0.0"
             },
             "type": "drupal-module",
             "extra": {
@@ -19102,9 +19125,9 @@
             "description": "Demo Content migrations for Y Layout Builder module.",
             "support": {
                 "issues": "https://github.com/YCloudYUSA/y_lb_demo_content/issues",
-                "source": "https://github.com/YCloudYUSA/y_lb_demo_content/tree/3.4.5"
+                "source": "https://github.com/YCloudYUSA/y_lb_demo_content/tree/4.0.0-beta1"
             },
-            "time": "2024-12-23T11:59:09+00:00"
+            "time": "2025-04-30T16:04:37+00:00"
         },
         {
             "name": "ycloudyusa/y_pef_schedule",
@@ -19165,12 +19188,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/YCloudYUSA/yusaopeny.git",
-                "reference": "d209049c6d0d24fc5912c226bd3aced5bff2309f"
+                "reference": "994a248adf5dc6943a4a7459650363083b6a360e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/YCloudYUSA/yusaopeny/zipball/d209049c6d0d24fc5912c226bd3aced5bff2309f",
-                "reference": "d209049c6d0d24fc5912c226bd3aced5bff2309f",
+                "url": "https://api.github.com/repos/YCloudYUSA/yusaopeny/zipball/994a248adf5dc6943a4a7459650363083b6a360e",
+                "reference": "994a248adf5dc6943a4a7459650363083b6a360e",
                 "shasum": ""
             },
             "require": {
@@ -19223,7 +19246,7 @@
                 "drupal/lb_testimonial_blocks": "^1.0",
                 "drupal/libraries": "^3.0 || ^4.0",
                 "drupal/link_attributes": "^1 || ^2",
-                "drupal/media_directories": "dev-2.1.x",
+                "drupal/media_directories": "^2.2@beta || ~2.2.0",
                 "drupal/metatag": "^1 || ^2",
                 "drupal/migrate_plus": "^5 || ^6",
                 "drupal/migrate_source_csv": "^3",
@@ -19528,7 +19551,7 @@
                 "issues": "https://github.com/YCloudYUSA/yusaopeny/issues",
                 "source": "https://github.com/YCloudYUSA/yusaopeny/tree/drupal11lenient"
             },
-            "time": "2025-05-19T07:27:18+00:00"
+            "time": "2025-05-23T07:27:25+00:00"
         },
         {
             "name": "ycloudyusa/yusaopeny_activity_finder",
@@ -19700,10 +19723,56 @@
             "time": "2023-02-20T13:28:29+00:00"
         }
     ],
-    "aliases": [],
+    "aliases": [
+        {
+            "package": "drupal/better_exposed_filters",
+            "version": "7.0.5.0",
+            "alias": "6",
+            "alias_normalized": "6.0.0.0"
+        },
+        {
+            "package": "drupal/search_api",
+            "version": "dev-1.x",
+            "alias": "1.31",
+            "alias_normalized": "1.31.0.0"
+        },
+        {
+            "package": "drupal/views_block_filter_block",
+            "version": "2.1.2.0",
+            "alias": "2.0",
+            "alias_normalized": "2.0.0.0"
+        },
+        {
+            "package": "open-y-subprojects/openy_features",
+            "version": "dev-drupal11",
+            "alias": "4.0.0",
+            "alias_normalized": "4.0.0.0"
+        },
+        {
+            "package": "open-y-subprojects/openy_hours_formatter",
+            "version": "dev-drupal11",
+            "alias": "2.0",
+            "alias_normalized": "2.0.0.0"
+        },
+        {
+            "package": "open-y-subprojects/openy_map",
+            "version": "dev-drupal11",
+            "alias": "5.2",
+            "alias_normalized": "5.2.0.0"
+        }
+    ],
     "minimum-stability": "dev",
     "stability-flags": {
+        "drupal/features": 20,
+        "drupal/lb_claro": 15,
+        "drupal/search_api": 20,
+        "drupal/video_embed_field": 20,
+        "drupal/webform": 10,
+        "open-y-subprojects/openy_features": 20,
+        "open-y-subprojects/openy_hours_formatter": 20,
+        "open-y-subprojects/openy_map": 20,
         "podarok/openy-cibox-build": 20,
+        "ycloudyusa/ws_outsiders": 20,
         "ycloudyusa/yusaopeny": 20,
         "ymcatwincities/openy-cibox-vm": 20,
         "ymcatwincities/openy-docksal": 20

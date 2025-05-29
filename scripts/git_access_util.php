@@ -26,7 +26,8 @@ function extractRepoPath(string $url): ?string {
  */
 function getRepoPlatform(string $url): string {
     if (str_contains($url, 'github.com')) return 'github';
-    if (str_contains($url, 'git.drupalcode.org')) return 'gitlab';
+    // Detect both git.drupalcode.org and git.drupal.org as 'gitlab' (Drupal.org)
+    if (str_contains($url, 'git.drupalcode.org') || str_contains($url, 'git.drupal.org')) return 'gitlab';
     return 'other';
 }
 

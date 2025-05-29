@@ -198,7 +198,8 @@ function list_changed_files() {
     exec('git status -s', $output);
     $files = [];
     foreach ($output as $line) {
-        if (preg_match('/^[ MARC?]{2} (.+)$/', $line, $m)) {
+        // Match any status, including deleted (D)
+        if (preg_match('/^[ MARC?D]{2} (.+)$/', $line, $m)) {
             $files[] = $m[1];
         }
     }
@@ -206,13 +207,19 @@ function list_changed_files() {
 }
 
 function prompt_files_to_add($files) {
-    echo "Select files to add (comma-separated numbers, or Enter to cancel):\n";
+    // Output current folder and git remote for debugging
+    $cwd = getcwd();
+    $remote = trim(shell_exec('git remote get-url origin 2>/dev/null'));
+    echo "\n[DEBUG] Current folder: $cwd\n";
+    echo "[DEBUG] Git remote (origin): $remote\n";
+    echo "Select files to add (comma-separated numbers, 'all' for all, or Enter to cancel):\n";
     foreach ($files as $i => $file) {
         echo "  " . ($i+1) . ". $file\n";
     }
     echo "> ";
     $input = trim(fgets(STDIN));
     if ($input === '') return [];
+    if (strtolower($input) === 'all') return $files;
     $nums = array_map('trim', explode(',', $input));
     $selected = [];
     foreach ($nums as $n) {
@@ -275,25 +282,108 @@ function branch_commit_push($branch, $commitMsg) {
     echo $pushResult;
 }
 
+function detect_open_pr_github($repoUrl, $branch, $githubToken) {
+    // Extract owner/repo from git@github.com:owner/repo.git or https://github.com/owner/repo.git
+    if (preg_match('#github.com[:/](.+?)/(.+?)\.git$#', $repoUrl, $m)) {
+        $owner = $m[1];
+        $repo = $m[2];
+        $api = "https://api.github.com/repos/$owner/$repo/pulls?head=$owner:$branch&state=open";
+        $ch = curl_init($api);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+        curl_setopt($ch, CURLOPT_HTTPHEADER, [
+            "Authorization: Bearer $githubToken",
+            "Accept: application/vnd.github.v3+json",
+            "User-Agent: analyze-git-changes-script"
+        ]);
+        $result = curl_exec($ch);
+        $httpcode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+        curl_close($ch);
+        if ($httpcode === 200 && $result) {
+            $data = json_decode($result, true);
+            if (!empty($data) && isset($data[0]['html_url'])) {
+                return [
+                    'url' => $data[0]['html_url'],
+                    'title' => $data[0]['title'],
+                    'number' => $data[0]['number'],
+                    'state' => $data[0]['state'],
+                ];
+            }
+        }
+    }
+    return null;
+}
+
+function detect_open_mr_gitlab($repoUrl, $branch, $gitlabToken) {
+    // Extract project path from git@git.drupal.org:project/name.git or https://git.drupalcode.org/project/name.git
+    if (preg_match('#drupal(org|code)\.org[:/](project/.+?)\.git$#', $repoUrl, $m)) {
+        $project = urlencode($m[2]);
+        $api = "https://git.drupalcode.org/api/v4/projects/$project/merge_requests?state=opened&source_branch=" . urlencode($branch);
+        $ch = curl_init($api);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+        curl_setopt($ch, CURLOPT_HTTPHEADER, [
+            "PRIVATE-TOKEN: $gitlabToken",
+            "Accept: application/json"
+        ]);
+        $result = curl_exec($ch);
+        $httpcode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+        curl_close($ch);
+        if ($httpcode === 200 && $result) {
+            $data = json_decode($result, true);
+            if (!empty($data) && isset($data[0]['web_url'])) {
+                return [
+                    'url' => $data[0]['web_url'],
+                    'title' => $data[0]['title'],
+                    'iid' => $data[0]['iid'],
+                    'state' => $data[0]['state'],
+                ];
+            }
+        }
+    }
+    return null;
+}
+
 function analyze_dirs($dirs, $options) {
+    global $githubToken, $gitlabToken;
     foreach ($dirs as $machineName => $info) {
         $dir = $info['dir'];
-        echo "\n==== $dir ====";
+        $repoUrl = $info['repo'] ?? null;
         chdir($dir);
-        echo "\n--- git status (short) ---\n";
-        system('git status -s');
+        // Detect current branch
+        $currentBranch = trim(shell_exec('git rev-parse --abbrev-ref HEAD'));
+        // Detect PR/MR before analysis
+        $platform = $repoUrl ? getRepoPlatform($repoUrl) : null;
+        $prmr = null;
+        if ($platform === 'github') {
+            $prmr = detect_open_pr_github($repoUrl, $currentBranch, $githubToken);
+        } elseif ($platform === 'gitlab') {
+            $prmr = detect_open_mr_gitlab($repoUrl, $currentBranch, $gitlabToken);
+        }
+        if ($prmr) {
+            echo "\n[INFO] Open " . ($platform === 'github' ? 'Pull Request' : 'Merge Request') . " detected for branch '$currentBranch':\n";
+            echo "  Title: {$prmr['title']}\n";
+            echo "  URL:   {$prmr['url']}\n";
+            echo "  State: {$prmr['state']}\n";
+        }
+        echo "\n==== $dir ====";
+        // 1. Show diff first
         echo "\n--- git diff (minimal) ---\n";
         system('git diff --minimal');
+        // 2. Then show git status
+        echo "\n--- git status (short) ---\n";
+        system('git status -s');
         $staged = list_staged_files();
+        $changed = list_changed_files();
         if (!empty($staged)) {
             echo "\n--- Staged files (already added, ready to commit) ---\n";
             foreach ($staged as $f) {
                 echo "  [staged] $f\n";
             }
         }
-        // Always allow review if staged files exist, even if no unstaged changes
-        if (!empty($options['interactive']) && (!empty($staged) || count(list_changed_files()) > 0)) {
+        // Always allow review if staged files exist, or if there are changed (including deleted) files
+        if (!empty($options['interactive']) && (!empty($staged) || !empty($changed))) {
             while (true) {
+                // Output package name and platform before the action prompt
+                echo "\n[INFO] Package: $machineName (Platform: $platform)\n";
                 $actions = ['a','s','n','q'];
                 if (!empty($staged)) $actions[] = 'b';
                 $opts = [];
@@ -338,8 +428,9 @@ function analyze_dirs($dirs, $options) {
                 } else { // 'n' or Enter
                     break;
                 }
-                // Refresh staged files for next loop
+                // Refresh staged and changed files for next loop
                 $staged = list_staged_files();
+                $changed = list_changed_files();
             }
         }
         chdir(__DIR__);

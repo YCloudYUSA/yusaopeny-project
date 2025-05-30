@@ -282,12 +282,12 @@ function branch_commit_push($branch, $commitMsg) {
     echo $pushResult;
 }
 
-function detect_open_pr_github($repoUrl, $branch, $githubToken) {
+function list_open_prs_github($repoUrl, $currentBranch, $githubToken) {
     // Extract owner/repo from git@github.com:owner/repo.git or https://github.com/owner/repo.git
     if (preg_match('#github.com[:/](.+?)/(.+?)\.git$#', $repoUrl, $m)) {
         $owner = $m[1];
         $repo = $m[2];
-        $api = "https://api.github.com/repos/$owner/$repo/pulls?head=$owner:$branch&state=open";
+        $api = "https://api.github.com/repos/$owner/$repo/pulls?state=open";
         $ch = curl_init($api);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
         curl_setopt($ch, CURLOPT_HTTPHEADER, [
@@ -300,24 +300,28 @@ function detect_open_pr_github($repoUrl, $branch, $githubToken) {
         curl_close($ch);
         if ($httpcode === 200 && $result) {
             $data = json_decode($result, true);
-            if (!empty($data) && isset($data[0]['html_url'])) {
-                return [
-                    'url' => $data[0]['html_url'],
-                    'title' => $data[0]['title'],
-                    'number' => $data[0]['number'],
-                    'state' => $data[0]['state'],
-                ];
+            if (is_array($data)) {
+                return array_map(function($pr) use ($currentBranch) {
+                    return [
+                        'url' => $pr['html_url'],
+                        'title' => $pr['title'],
+                        'number' => $pr['number'],
+                        'state' => $pr['state'],
+                        'branch' => $pr['head']['ref'],
+                        'is_current' => ($pr['head']['ref'] === $currentBranch),
+                    ];
+                }, $data);
             }
         }
     }
-    return null;
+    return [];
 }
 
-function detect_open_mr_gitlab($repoUrl, $branch, $gitlabToken) {
+function list_open_mrs_gitlab($repoUrl, $currentBranch, $gitlabToken) {
     // Extract project path from git@git.drupal.org:project/name.git or https://git.drupalcode.org/project/name.git
     if (preg_match('#drupal(org|code)\.org[:/](project/.+?)\.git$#', $repoUrl, $m)) {
         $project = urlencode($m[2]);
-        $api = "https://git.drupalcode.org/api/v4/projects/$project/merge_requests?state=opened&source_branch=" . urlencode($branch);
+        $api = "https://git.drupalcode.org/api/v4/projects/$project/merge_requests?state=opened";
         $ch = curl_init($api);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
         curl_setopt($ch, CURLOPT_HTTPHEADER, [
@@ -329,17 +333,21 @@ function detect_open_mr_gitlab($repoUrl, $branch, $gitlabToken) {
         curl_close($ch);
         if ($httpcode === 200 && $result) {
             $data = json_decode($result, true);
-            if (!empty($data) && isset($data[0]['web_url'])) {
-                return [
-                    'url' => $data[0]['web_url'],
-                    'title' => $data[0]['title'],
-                    'iid' => $data[0]['iid'],
-                    'state' => $data[0]['state'],
-                ];
+            if (is_array($data)) {
+                return array_map(function($mr) use ($currentBranch) {
+                    return [
+                        'url' => $mr['web_url'],
+                        'title' => $mr['title'],
+                        'iid' => $mr['iid'],
+                        'state' => $mr['state'],
+                        'branch' => $mr['source_branch'],
+                        'is_current' => ($mr['source_branch'] === $currentBranch),
+                    ];
+                }, $data);
             }
         }
     }
-    return null;
+    return [];
 }
 
 function analyze_dirs($dirs, $options) {
@@ -350,20 +358,7 @@ function analyze_dirs($dirs, $options) {
         chdir($dir);
         // Detect current branch
         $currentBranch = trim(shell_exec('git rev-parse --abbrev-ref HEAD'));
-        // Detect PR/MR before analysis
         $platform = $repoUrl ? getRepoPlatform($repoUrl) : null;
-        $prmr = null;
-        if ($platform === 'github') {
-            $prmr = detect_open_pr_github($repoUrl, $currentBranch, $githubToken);
-        } elseif ($platform === 'gitlab') {
-            $prmr = detect_open_mr_gitlab($repoUrl, $currentBranch, $gitlabToken);
-        }
-        if ($prmr) {
-            echo "\n[INFO] Open " . ($platform === 'github' ? 'Pull Request' : 'Merge Request') . " detected for branch '$currentBranch':\n";
-            echo "  Title: {$prmr['title']}\n";
-            echo "  URL:   {$prmr['url']}\n";
-            echo "  State: {$prmr['state']}\n";
-        }
         echo "\n==== $dir ====";
         // 1. Show diff first
         echo "\n--- git diff (minimal) ---\n";
@@ -382,6 +377,30 @@ function analyze_dirs($dirs, $options) {
         // Always allow review if staged files exist, or if there are changed (including deleted) files
         if (!empty($options['interactive']) && (!empty($staged) || !empty($changed))) {
             while (true) {
+                // Output open PRs/MRs before the package/platform info and action prompt
+                if ($platform === 'github') {
+                    $prs = list_open_prs_github($repoUrl, $currentBranch, $githubToken);
+                    echo "\n[INFO] Open Pull Requests for this repo:";
+                    if (empty($prs)) {
+                        echo "\n  (none)\n";
+                    } else {
+                        foreach ($prs as $pr) {
+                            $mark = $pr['is_current'] ? ' <== current branch' : '';
+                            echo "\n  #{$pr['number']} [{$pr['state']}] {$pr['title']}\n    Branch: {$pr['branch']}$mark\n    URL: {$pr['url']}\n";
+                        }
+                    }
+                } elseif ($platform === 'gitlab') {
+                    $mrs = list_open_mrs_gitlab($repoUrl, $currentBranch, $gitlabToken);
+                    echo "\n[INFO] Open Merge Requests for this repo:";
+                    if (empty($mrs)) {
+                        echo "\n  (none)\n";
+                    } else {
+                        foreach ($mrs as $mr) {
+                            $mark = $mr['is_current'] ? ' <== current branch' : '';
+                            echo "\n  !{$mr['iid']} [{$mr['state']}] {$mr['title']}\n    Branch: {$mr['branch']}$mark\n    URL: {$mr['url']}\n";
+                        }
+                    }
+                }
                 // Output package name and platform before the action prompt
                 echo "\n[INFO] Package: $machineName (Platform: $platform)\n";
                 $actions = ['a','s','n','q'];

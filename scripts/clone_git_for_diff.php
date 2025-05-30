@@ -45,14 +45,24 @@ function debug($msg, $options) {
 
 function confirm($prompt, $default = 'y', $options = []) {
     if (!empty($options['yes'])) {
-        echo icon('ask') . " $prompt [y/n/s/c] y (auto)\n";
+        echo icon('ask') . " $prompt [y/n/s/c/a] y (auto)\n";
         return 'y';
     }
-    $opts = '[y/n/s/c]';
+    $opts = '[y/n/s/c/a]';
     $default = strtolower($default);
-    $map = ['y' => 'yes', 'n' => 'no', 's' => 'skip', 'c' => 'cancel'];
+    $map = ['y' => 'yes', 'n' => 'no', 's' => 'skip', 'c' => 'cancel', 'a' => 'all'];
+    $help = "\nOptions:\n" .
+            "  y (yes)    - Proceed with this action\n" .
+            "  n (no)     - Skip this action\n" .
+            "  s (skip)   - Skip this action and continue with next\n" .
+            "  c (cancel) - Cancel the entire process\n" .
+            "  a (all)    - Proceed with this and all remaining actions\n";
+    
     while (true) {
-        echo icon('ask') . " $prompt $opts ";
+        // Clear line and show full context
+        echo "\n" . icon('ask') . " $prompt\n";
+        echo $help;
+        echo "\nEnter your choice $opts: ";
         $input = strtolower(trim(fgets(STDIN)));
         if ($input === '' && $default) {
             $input = $default;
@@ -60,7 +70,7 @@ function confirm($prompt, $default = 'y', $options = []) {
         if (isset($map[$input])) {
             return $input;
         }
-        echo "Please enter y (yes), n (no), s (skip), or c (cancel).\n";
+        echo "Invalid option. ";
     }
 }
 
@@ -171,6 +181,7 @@ function main($options) {
     $composer_lock = read_json(__DIR__ . '/../composer.lock');
     if (!ensure_dir(REPOS_DIR, $options)) return;
     $pkgs = get_drupal_packages($composer_lock);
+    $apply_all = false;
     foreach ($pkgs as $pkg) {
         $name = $pkg['name'];
         $type = $pkg['type'];
@@ -179,7 +190,7 @@ function main($options) {
         $install_path = get_install_path($pkg);
         $parts = explode('/', $name);
         $repo_dir = REPOS_DIR . '/' . end($parts);
-        echo "\n" . icon('info') . " $name ($type)\n";
+        echo "\n" . icon('info') . " Processing $name ($type)\n";
         debug("repo_url: $repo_url, repo_ref: $repo_ref, install_path: $install_path, repo_dir: $repo_dir", $options);
         if (!$repo_url) {
             echo icon('warn') . " No repo URL found, skipping\n";
@@ -188,20 +199,25 @@ function main($options) {
         // Confirm before git clone
         $clone_cmd = sprintf('git clone "%s" "%s"', $repo_url, $repo_dir);
         if (!is_dir($repo_dir . '/.git')) {
-            $resp = confirm("Clone repo? Command: $clone_cmd", 'y', $options);
-            if ($resp === 'c') exit(icon('fail') . " Cancelled.\n");
-            if ($resp === 's' || $resp === 'n') {
-                echo icon('skip') . " Skipped cloning $repo_url\n";
+            if (!$apply_all) {
+                $resp = confirm("Do you want to clone the repository for $name?\nCommand that will be executed: $clone_cmd", 'y', $options);
+                if ($resp === 'c') exit(icon('fail') . " Cancelled.\n");
+                if ($resp === 's' || $resp === 'n') {
+                    echo icon('skip') . " Skipped cloning $repo_url\n";
+                    continue;
+                }
+                if ($resp === 'a') {
+                    $apply_all = true;
+                }
+            }
+            if (!empty($options['dry_run'])) {
+                echo icon('git') . " [DRY-RUN] Would run: $clone_cmd\n";
             } else {
-                if (!empty($options['dry_run'])) {
-                    echo icon('git') . " [DRY-RUN] Would run: $clone_cmd\n";
-                } else {
-                    echo icon('git') . " Cloning $repo_url ...\n";
-                    system($clone_cmd, $retval);
-                    if ($retval !== 0) {
-                        echo icon('fail') . " Clone failed, skipping\n";
-                        continue;
-                    }
+                echo icon('git') . " Cloning $repo_url ...\n";
+                system($clone_cmd, $retval);
+                if ($retval !== 0) {
+                    echo icon('fail') . " Clone failed, skipping\n";
+                    continue;
                 }
             }
         } else {
@@ -211,19 +227,38 @@ function main($options) {
         if ($repo_ref) {
             chdir($repo_dir);
             $cmd = sprintf('git checkout %s', escapeshellarg($repo_ref));
-            $resp = confirm("Checkout ref $repo_ref? Command: $cmd", 'y', $options);
-            if ($resp === 'c') exit(icon('fail') . " Cancelled.\n");
-            if ($resp !== 's' && $resp !== 'n') {
-                if (!empty($options['dry_run'])) {
-                    echo icon('git') . " [DRY-RUN] Would run: $cmd\n";
-                } else {
-                    echo icon('git') . " Checking out $repo_ref ...\n";
-                    system($cmd);
+            if (!$apply_all) {
+                $resp = confirm("Do you want to checkout reference $repo_ref for $name?\nCommand that will be executed: $cmd", 'y', $options);
+                if ($resp === 'c') exit(icon('fail') . " Cancelled.\n");
+                if ($resp === 's' || $resp === 'n') {
+                    echo icon('skip') . " Skipped checkout for $name\n";
+                    chdir(__DIR__);
+                    continue;
                 }
+                if ($resp === 'a') {
+                    $apply_all = true;
+                }
+            }
+            if (!empty($options['dry_run'])) {
+                echo icon('git') . " [DRY-RUN] Would run: $cmd\n";
+            } else {
+                echo icon('git') . " Checking out $repo_ref ...\n";
+                system($cmd);
             }
             chdir(__DIR__);
         }
         // Copy .git folder (with confirmation inside)
+        if (!$apply_all) {
+            $resp = confirm("Do you want to copy .git folder for $name to $install_path?", 'y', $options);
+            if ($resp === 'c') exit(icon('fail') . " Cancelled.\n");
+            if ($resp === 's' || $resp === 'n') {
+                echo icon('skip') . " Skipped .git copy for $name\n";
+                continue;
+            }
+            if ($resp === 'a') {
+                $apply_all = true;
+            }
+        }
         copy_git_folder($repo_dir, $install_path, $options);
     }
     echo "\n" . icon('ok') . " All done. You can now run 'git diff' in module/profile folders.\n";

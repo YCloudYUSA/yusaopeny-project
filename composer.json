@@ -11,7 +11,7 @@
       "ymcatwincities/openy-docksal":"dev-master",
       "ymcatwincities/openy-cibox-vm":"dev-master",
       "consolidation/robo":"^4 || ~5.0",
-      "drush/drush":"^12 || ^11 || ^13",
+      "drush/drush":"^12 || ^11",
       "mglaman/composer-drupal-lenient": "^1.0",
       "podarok/openy-cibox-build":"dev-main"
    },

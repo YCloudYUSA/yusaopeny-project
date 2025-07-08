@@ -4,8 +4,9 @@
    "type":"project",
    "license":"GPL-2.0-or-later",
    "require":{
-      "ycloudyusa/yusaopeny":"dev-main || dev-drupal11lenient",
-      "cweagans/composer-patches":"~1.0 || ^2"
+      "ycloudyusa/yusaopeny":"dev-main",
+      "cweagans/composer-patches":"~1.0 || ^2",
+      "drupal/fontyourface": "dev-3465748-drupal-11-compatibility as 3.3.1"
    },
    "require-dev":{
       "ymcatwincities/openy-docksal":"dev-master",
@@ -18,6 +19,10 @@
    "minimum-stability":"dev",
    "prefer-stable":true,
    "repositories":[
+   {
+      "type": "vcs",
+      "url": "https://git.drupalcode.org/issue/fontyourface-3465748.git"
+    },
       {
          "type":"composer",
          "url":"https://packages.drupal.org/8"

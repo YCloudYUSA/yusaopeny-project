@@ -6,7 +6,8 @@
    "require":{
       "ycloudyusa/yusaopeny":"dev-main",
       "cweagans/composer-patches":"~1.0 || ^2",
-      "drupal/fontyourface": "dev-3465748-drupal-11-compatibility as 3.3.1"
+      "drupal/fontyourface": "dev-3465748-drupal-11-compatibility as 3.3.1",
+      "drupal/features": "dev-3447460-drupal-11-compatibility as 4.0.0"
    },
    "require-dev":{
       "ymcatwincities/openy-docksal":"dev-master",
@@ -19,6 +20,10 @@
    "minimum-stability":"dev",
    "prefer-stable":true,
    "repositories":[
+   {
+      "type": "vcs",
+      "url":  "https://git.drupalcode.org/issue/features-3447460.git"
+   },
    {
       "type": "vcs",
       "url": "https://git.drupalcode.org/issue/fontyourface-3465748.git"

@@ -29,7 +29,7 @@
          "source":{
             "url":"https://git.drupalcode.org/issue/lb_claro-3525552.git",
             "type":"git",
-            "reference":"3525552-drupal-11-compability"
+            "reference":"3525552-drupal-11-update"
          }
       }
    },

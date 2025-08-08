@@ -193,6 +193,11 @@
       "docksal":"[ -d ./vendor/ymcatwincities/openy-docksal ] && (rsync -r --exclude=composer.json --exclude=.git --exclude=README.md ./vendor/ymcatwincities/openy-docksal/ ./) || (rm -rf .docksal build.sh)"
    },
    "extra":{
+      "patches": {
+         "drupal/core": {
+            "Class is not added to MediaLibrary dialog": "https://git.drupalcode.org/project/drupal/-/merge_requests/12597.diff"
+         }
+      },
       "installer-types":[
          "bower-asset",
          "npm-asset"

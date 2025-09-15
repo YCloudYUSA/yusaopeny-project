@@ -38,11 +38,10 @@ composer create-project ycloudyusa/yusaopeny-project MY_PROJECT --no-interaction
 cd MY_PROJECT
 ```
 
-### Latest DEVELOPMENT version (Drupal 10 2.x)
+### Latest DEVELOPMENT version (Drupal ~11.0.0)
 
 ```
-composer create-project ycloudyusa/yusaopeny-project:10.2.x-development-dev MY_PROJECT --no-interaction --no-dev
-cd MY_PROJECT
+ddev composer create-project ycloudyusa/yusaopeny-project:dev-local_drupal11 MY_PROJECT --no-interaction --no-dev
 ```
 
 This command will build project based on the [**Drupal 10 development branch**](https://github.com/ycloudyusa/yusaopeny/commits/10.2.x) release.

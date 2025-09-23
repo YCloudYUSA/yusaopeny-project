@@ -1,12 +1,12 @@
 <p align="center">
   <a href="https://ycloud.y.org/open-y-association-websites">
-    <img alt="react-router" src="https://www.ymcanorth.org/themes/custom/ymca/img/ymca-logo.svg" width="144">
+    <img alt="The YMCA logo" src="https://www.ymcanorth.org/themes/custom/ymca/img/ymca-logo.svg" width="144">
   </a>
 </p>
 
-<h3 align="center">
+<h1 align="center">
   Y USA Open YMCA
-</h3>
+</h1>
 <p align="center">
   https://ycloud.y.org/open-y-association-websites
 </p>
@@ -26,20 +26,30 @@ The [Y USA Open Y Project](https://ycloud.y.org/open-y-association-websites) is 
 
 ## Requirements
 
-#### Composer    
+### Composer    
 If you do not have [Composer](http://getcomposer.org/), you may install it by following the [official instructions](https://getcomposer.org/download/). For usage, see [the documentation](https://getcomposer.org/doc/).
 
 ## Installation
 
-#### Latest STABLE version
+### Latest STABLE version
+
 ```
 composer create-project ycloudyusa/yusaopeny-project MY_PROJECT --no-interaction
 cd MY_PROJECT
 ```
 
+### BETA version install
 
+If you need to install beta, you should provide exact version to get it locally
 
-#### Latest DEVELOPMENT version (Drupal 10 2.x)
+Example:
+```
+composer create-project ycloudyusa/yusaopeny-project:^4.0.0@beta MY_BETA_PROJECT --no-interaction
+cd MY_BETA_PROJECT
+```
+
+### Latest DEVELOPMENT version (Drupal 10 2.x)
+
 ```
 composer create-project ycloudyusa/yusaopeny-project:10.2.x-development-dev MY_PROJECT --no-interaction --no-dev
 cd MY_PROJECT
@@ -47,22 +57,16 @@ cd MY_PROJECT
 
 This command will build project based on the [**Drupal 10 development branch**](https://github.com/ycloudyusa/yusaopeny/commits/10.2.x) release.
 
-See https://youtu.be/jRlinjpTl0c how to video for the whole process of this command usage.
+See [our how to video](https://youtu.be/jRlinjpTl0c) for the whole process of this command usage.
 
+## Development environments
 
-## Development environment
-
-You should use composer command without `--no-dev` if you would like to get environment that was configured especially for OpenY. This means you'd remove Vagrant/Docksal from the code tree.
-So it should look like this:
+You should use composer command without `--no-dev` if you would like to get environment that was configured especially for OpenY development. 
 
 ```
 composer create-project ycloudyusa/yusaopeny-project:10.2.x-development-dev MY_PROJECT --no-interaction
 cd MY_PROJECT
-
-
-See https://youtu.be/jRlinjpTl0c how to video for the whole process of this command usage.
-=======
-
+```
 
 ### CIBox VM
 [CIBox VM](http://cibox.tools) allows you to make a contribution into OpenY in a few minutes. Just follow steps and then you'll know how to do it.
@@ -81,40 +85,42 @@ Read more details on [CIBox VM](https://github.com/ymcatwincities/openy-cibox-vm
   
 Read more details on [Docksal](https://github.com/ymcatwincities/openy-docksal) repo.
 
-# Use Fork for the development
+## Use Fork for the development
 
-All development happens in the [Open Y Drupal 9 installation profile](https://github.com/ymcatwincities/openy). In order to start development:
+All development happens in the [YUSA Open Y Drupal 10 installation profile](https://github.com/YCloudYUSA/yusaopeny). In order to start development:
 
 1. Create fork of [Open Y installation profile](https://github.com/YCloudYUSA/yusaopeny)
 2. Add your repository to `composer.json`
-```
-"repositories": [
-    {
-        "type": "vcs",
-        "url": "https://github.com/GITHUB_USERNAME/yusaopeny"
-    }
-]
-```
+    
+    ```
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/GITHUB_USERNAME/yusaopeny"
+        }
+    ]
+    ```
 
 3. Change a version for `ycloudyusa/yusaopeny` to `dev-10.2.x` or any other branch. E.g.:
-- branch name "bugfix" - version name `dev-bugfix`
-- branch name "feature/workflow" - version name `dev-feature/workflow`
+    - branch name "bugfix" - version name `dev-bugfix`
+    - branch name "feature/workflow" - version name `dev-feature/workflow`
 
-```
-"require": {
-    "ycloudyusa/yusaopeny": "dev-10.2.x",
-}
-```
-```
-"require": {
-    "ycloudyusa/yusaopeny": "dev-feature/workflow",
-}
-```
+    ```
+    "require": {
+        "ycloudyusa/yusaopeny": "dev-10.2.x",
+    }
+    ```
+    ```
+    "require": {
+        "ycloudyusa/yusaopeny": "dev-feature/workflow",
+    }
+    ```
 
 4. Run `composer update` to update packages
 5. Add and commits changes in `docroot/profiles/contrib/openy`. Now it should be pointed to your fork.
 
-# Directory structure
+## Directory structure
+
 | Directory | Purpose |
 |-----------|---------|
 | [**Y USA Open Y**](https://github.com/ycloudyusa/yusaopeny) ||
@@ -133,7 +139,10 @@ All development happens in the [Open Y Drupal 9 installation profile](https://gi
 | `.docksal/` | Docksal configuration |
 | `build.sh` | Build script for Docksal environment |
 
-# Documentation
-Documentation about Open Y is available at [docs](https://github.com/YCloudYUSA/yusaopeny_docs). For details please visit [https://ycloud.y.org/open-y-association-websites](https://ycloud.y.org/open-y-association-websites).
-# License
-Y USA OpenY Project is licensed under the [GPL-3.0](https://www.gnu.org/licenses/gpl-3.0-standalone.en.html). See the [License file](https://github.com/YCloudYUSA/yusaopeny-project/blob/10.2.x/LICENSE) for details.
+## Documentation
+
+Documentation about Open Y is available at [ds-docs.y.org](https://sd-docs.y.org). For details please visit [https://ycloud.y.org/open-y-association-websites](https://ycloud.y.org/open-y-association-websites).
+
+## License
+
+Y USA OpenY Project is licensed under the [GPL-3.0](https://www.gnu.org/licenses/gpl-3.0-standalone.en.html). See the [License file](https://github.com/YCloudYUSA/yusaopeny-project/blob/main/LICENSE) for details.

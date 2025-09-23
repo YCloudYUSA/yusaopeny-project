@@ -38,6 +38,16 @@ composer create-project ycloudyusa/yusaopeny-project MY_PROJECT --no-interaction
 cd MY_PROJECT
 ```
 
+### BETA version install
+
+If you need to install beta, you should provide exact version to get it locally
+
+Example:
+```
+composer create-project ycloudyusa/yusaopeny-project:^4.0.0@beta MY_BETA_PROJECT --no-interaction
+cd MY_BETA_PROJECT
+```
+
 ### Latest DEVELOPMENT version (Drupal 10 2.x)
 
 ```

@@ -38,6 +38,14 @@ composer create-project ycloudyusa/yusaopeny-project MY_PROJECT --no-interaction
 cd MY_PROJECT
 ```
 
+### Latest BETA version
+
+```
+composer create-project ycloudyusa/yusaopeny-project:^4.0.0@beta MY_PROJECT --n
+o-interaction
+cd MY_PROJECT
+```
+
 ### Latest DEVELOPMENT version (Drupal 10 2.x)
 
 ```

@@ -20,19 +20,6 @@
       {
          "type": "package",
          "package": {
-            "name": "drupal/features",
-            "version": "4.0.0",
-            "type": "drupal-module",
-            "source": {
-               "url": "https://git.drupalcode.org/issue/features-3447460.git",
-               "type": "git",
-               "reference": "3447460-drupal-11-compatibility"
-            }
-         }
-      },
-      {
-         "type": "package",
-         "package": {
             "name": "drupal/fontyourface",
             "version": "3.3.1",
             "type": "drupal-module",

@@ -18,19 +18,6 @@
    "prefer-stable": true,
    "repositories": [
       {
-         "type": "package",
-         "package": {
-            "name": "drupal/fontyourface",
-            "version": "3.3.1",
-            "type": "drupal-module",
-            "source": {
-               "url": "https://git.drupalcode.org/issue/fontyourface-3465748.git",
-               "type": "git",
-               "reference": "3465748-drupal-11-compatibility"
-            }
-         }
-      },
-      {
          "type": "composer",
          "url": "https://packages.drupal.org/8"
       },

@@ -4,7 +4,7 @@
    "type": "project",
    "license": "GPL-2.0-or-later",
    "require": {
-      "ycloudyusa/yusaopeny": "^11.1.0.0@beta || dev-main",
+      "ycloudyusa/yusaopeny": "^11.1.0.0 || dev-main",
       "cweagans/composer-patches": "^1.0 || ^2.0",
       "drush/drush": "^13"
    },

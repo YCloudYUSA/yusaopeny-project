@@ -85,8 +85,7 @@ for REPO in "${REPOS[@]}"; do
   REPOS_JSON+="{\"type\": \"package\", \"package\": {\"name\": \"${NAME}\", \"version\": \"${VERSION}\", \"type\": \"${TYPE}\", \"require\": ${REQUIRE}, \"source\": {\"url\": \"${URL}\", \"type\": \"git\", \"reference\": \"${BRANCH}\"}}},"
 done
 
-# Add VCS for y_fonts and composer repos
-REPOS_JSON+="{\"type\": \"vcs\", \"url\": \"https://github.com/YCloudYUSAfree/y_fonts.git\"},"
+# Add composer repos
 REPOS_JSON+="{\"type\": \"composer\", \"url\": \"https://packages.drupal.org/8\", \"canonical\": false},"
 REPOS_JSON+="{\"type\": \"composer\", \"url\": \"https://asset-packagist.org\"}"
 

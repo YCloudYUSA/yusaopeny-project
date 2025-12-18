@@ -5,7 +5,6 @@
   "license": "GPL-2.0-or-later",
   "require": {
     "ycloudyusa/yusaopeny": "dev-feature/ITCR-1084-deprecate-entity-browser",
-    "ycloudyusafree/y_fonts": "dev-main",
     "drush/drush": "^13"
   },
   "require-dev": {
@@ -58,7 +57,6 @@
     {"type": "package", "package": {"name": "drupal/y_lb_article", "version": "2.0.0", "type": "drupal-module", "require": {"ycloudyusa/y_lb":"^4.0 || ^5.0","php":">=8.1","open-y-subprojects/openy_focal_point":"^2.0","drupal/scheduler":"~2.1 || ~2.2","drupal/node_revision_delete":"~2.0.0","drupal/bootstrap_layout_builder":"*","drupal/layout_builder_restrictions":"^2.16 || ~3.0.3","drupal/metatag":"*","drupal/openy_gtranslate":"^1 || ^2.0.0","drupal/schema_metatag":"^3.0 || ~3.0.3"}, "source": {"url": "https://git.drupalcode.org/project/y_lb_article.git", "type": "git", "reference": "feature/ITCR-1084-deprecate-entity-browser"}}},
     {"type": "package", "package": {"name": "drupal/y_program", "version": "2.0.0", "type": "drupal-module", "require": {"ycloudyusa/y_lb":"^4.0 || ^5.0","php":">=8.1"}, "source": {"url": "https://git.drupalcode.org/project/y_program.git", "type": "git", "reference": "feature/ITCR-1084-deprecate-entity-browser"}}},
     {"type": "package", "package": {"name": "drupal/y_program_subcategory", "version": "2.0.0", "type": "drupal-module", "require": {"ycloudyusa/y_lb":"^4.0 || ^5.0","php":">=8.1"}, "source": {"url": "https://git.drupalcode.org/project/y_program_subcategory.git", "type": "git", "reference": "feature/ITCR-1084-deprecate-entity-browser"}}},
-    {"type": "vcs", "url": "https://github.com/YCloudYUSAfree/y_fonts.git"},
     {"type": "composer", "url": "https://packages.drupal.org/8", "canonical": false},
     {"type": "composer", "url": "https://asset-packagist.org"}
   ],

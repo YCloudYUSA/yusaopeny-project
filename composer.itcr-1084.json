@@ -5,38 +5,6 @@
    "license": "GPL-2.0-or-later",
    "require": {
       "ycloudyusa/yusaopeny": "dev-feature/ITCR-1084-deprecate-entity-browser",
-      "open-y-subprojects/openy_features": "dev-feature/ITCR-1084-deprecate-entity-browser",
-      "open-y-subprojects/openy_focal_point": "dev-feature/ITCR-1084-deprecate-entity-browser",
-      "ycloudyusa/y_lb": "dev-feature/ITCR-1084-deprecate-entity-browser",
-      "ycloudyusa/lb_claro": "dev-feature/ITCR-1084-deprecate-entity-browser",
-      "drupal/lb_accordion": "dev-ITCR-1084-deprecate-entity-browser",
-      "drupal/lb_branch_amenities_blocks": "dev-ITCR-1084-deprecate-entity-browser",
-      "drupal/lb_cards": "dev-ITCR-1084-deprecate-entity-browser",
-      "drupal/lb_carousel": "dev-ITCR-1084-deprecate-entity-browser",
-      "drupal/lb_grid_cta": "dev-ITCR-1084-deprecate-entity-browser",
-      "drupal/lb_hero": "dev-ITCR-1084-deprecate-entity-browser",
-      "drupal/lb_modal": "dev-ITCR-1084-deprecate-entity-browser",
-      "drupal/lb_partners_blocks": "dev-ITCR-1084-deprecate-entity-browser",
-      "drupal/lb_ping_pong": "dev-ITCR-1084-deprecate-entity-browser",
-      "drupal/lb_promo": "dev-ITCR-1084-deprecate-entity-browser",
-      "drupal/lb_related_articles_blocks": "dev-ITCR-1084-deprecate-entity-browser",
-      "drupal/lb_related_events_blocks": "dev-ITCR-1084-deprecate-entity-browser",
-      "drupal/lb_simple_menu": "dev-ITCR-1084-deprecate-entity-browser",
-      "drupal/lb_staff_members_blocks": "dev-ITCR-1084-deprecate-entity-browser",
-      "drupal/lb_statistics": "dev-ITCR-1084-deprecate-entity-browser",
-      "drupal/lb_testimonial_blocks": "dev-ITCR-1084-deprecate-entity-browser",
-      "drupal/lb_webform": "dev-ITCR-1084-deprecate-entity-browser",
-      "drupal/ws_colorway_canada": "dev-ITCR-1084-deprecate-entity-browser",
-      "drupal/ws_event": "dev-ITCR-1084-deprecate-entity-browser",
-      "drupal/ws_lb_tabs": "dev-ITCR-1084-deprecate-entity-browser",
-      "drupal/ws_promotion": "dev-ITCR-1084-deprecate-entity-browser",
-      "drupal/ws_small_y": "dev-ITCR-1084-deprecate-entity-browser",
-      "drupal/y_camp": "dev-ITCR-1084-deprecate-entity-browser",
-      "drupal/y_donate": "dev-ITCR-1084-deprecate-entity-browser",
-      "drupal/y_facility": "dev-ITCR-1084-deprecate-entity-browser",
-      "drupal/y_lb_article": "dev-ITCR-1084-deprecate-entity-browser",
-      "drupal/y_program": "dev-ITCR-1084-deprecate-entity-browser",
-      "drupal/y_program_subcategory": "dev-ITCR-1084-deprecate-entity-browser",
       "cweagans/composer-patches": "^1.0 || ^2.0",
       "drush/drush": "^13"
    },
@@ -51,37 +19,83 @@
    "repositories": [
       {
          "type": "composer",
-         "url": "https://packages.drupal.org/8"
+         "url": "https://packages.drupal.org/8",
+         "canonical": false
       },
       {
          "type": "composer",
          "url": "https://asset-packagist.org"
       },
       {
-         "type": "vcs",
-         "url": "https://github.com/YCloudYUSA/yusaopeny.git"
+         "type": "package",
+         "package": {
+            "name": "ycloudyusa/yusaopeny",
+            "version": "dev-feature/ITCR-1084-deprecate-entity-browser",
+            "type": "drupal-profile",
+            "source": {
+               "url": "https://github.com/YCloudYUSA/yusaopeny.git",
+               "type": "git",
+               "reference": "feature/ITCR-1084-deprecate-entity-browser"
+            }
+         }
       },
       {
-         "type": "vcs",
-         "url": "https://github.com/open-y-subprojects/openy_features.git"
+         "type": "package",
+         "package": {
+            "name": "open-y-subprojects/openy_features",
+            "version": "5.0.0",
+            "type": "drupal-module",
+            "source": {
+               "url": "https://github.com/open-y-subprojects/openy_features.git",
+               "type": "git",
+               "reference": "feature/ITCR-1084-deprecate-entity-browser"
+            }
+         }
       },
       {
-         "type": "vcs",
-         "url": "https://github.com/open-y-subprojects/openy_focal_point.git"
+         "type": "package",
+         "package": {
+            "name": "open-y-subprojects/openy_focal_point",
+            "version": "2.0.0",
+            "type": "drupal-module",
+            "source": {
+               "url": "https://github.com/open-y-subprojects/openy_focal_point.git",
+               "type": "git",
+               "reference": "feature/ITCR-1084-deprecate-entity-browser"
+            }
+         }
       },
       {
-         "type": "vcs",
-         "url": "https://github.com/YCloudYUSA/y_lb.git"
+         "type": "package",
+         "package": {
+            "name": "ycloudyusa/y_lb",
+            "version": "5.0.0",
+            "type": "drupal-module",
+            "source": {
+               "url": "https://github.com/YCloudYUSA/y_lb.git",
+               "type": "git",
+               "reference": "feature/ITCR-1084-deprecate-entity-browser"
+            }
+         }
       },
       {
-         "type": "vcs",
-         "url": "https://github.com/YCloudYUSA/lb_claro.git"
+         "type": "package",
+         "package": {
+            "name": "ycloudyusa/lb_claro",
+            "version": "3.0.0",
+            "type": "drupal-theme",
+            "source": {
+               "url": "https://github.com/YCloudYUSA/lb_claro.git",
+               "type": "git",
+               "reference": "feature/ITCR-1084-deprecate-entity-browser"
+            }
+         }
       },
       {
          "type": "package",
          "package": {
             "name": "drupal/lb_accordion",
-            "version": "dev-ITCR-1084-deprecate-entity-browser",
+            "version": "3.0.0",
             "type": "drupal-module",
             "source": {
                "url": "https://git.drupalcode.org/project/lb_accordion.git",
@@ -94,7 +108,7 @@
          "type": "package",
          "package": {
             "name": "drupal/lb_branch_amenities_blocks",
-            "version": "dev-ITCR-1084-deprecate-entity-browser",
+            "version": "3.0.0",
             "type": "drupal-module",
             "source": {
                "url": "https://git.drupalcode.org/project/lb_branch_amenities_blocks.git",
@@ -107,7 +121,7 @@
          "type": "package",
          "package": {
             "name": "drupal/lb_cards",
-            "version": "dev-ITCR-1084-deprecate-entity-browser",
+            "version": "3.0.0",
             "type": "drupal-module",
             "source": {
                "url": "https://git.drupalcode.org/project/lb_cards.git",
@@ -120,7 +134,7 @@
          "type": "package",
          "package": {
             "name": "drupal/lb_carousel",
-            "version": "dev-ITCR-1084-deprecate-entity-browser",
+            "version": "3.0.0",
             "type": "drupal-module",
             "source": {
                "url": "https://git.drupalcode.org/project/lb_carousel.git",
@@ -133,7 +147,7 @@
          "type": "package",
          "package": {
             "name": "drupal/lb_grid_cta",
-            "version": "dev-ITCR-1084-deprecate-entity-browser",
+            "version": "4.0.0",
             "type": "drupal-module",
             "source": {
                "url": "https://git.drupalcode.org/project/lb_grid_cta.git",
@@ -146,7 +160,7 @@
          "type": "package",
          "package": {
             "name": "drupal/lb_hero",
-            "version": "dev-ITCR-1084-deprecate-entity-browser",
+            "version": "2.0.0",
             "type": "drupal-module",
             "source": {
                "url": "https://git.drupalcode.org/project/lb_hero.git",
@@ -159,7 +173,7 @@
          "type": "package",
          "package": {
             "name": "drupal/lb_modal",
-            "version": "dev-ITCR-1084-deprecate-entity-browser",
+            "version": "2.0.0",
             "type": "drupal-module",
             "source": {
                "url": "https://git.drupalcode.org/project/lb_modal.git",
@@ -172,7 +186,7 @@
          "type": "package",
          "package": {
             "name": "drupal/lb_partners_blocks",
-            "version": "dev-ITCR-1084-deprecate-entity-browser",
+            "version": "2.0.0",
             "type": "drupal-module",
             "source": {
                "url": "https://git.drupalcode.org/project/lb_partners_blocks.git",
@@ -185,7 +199,7 @@
          "type": "package",
          "package": {
             "name": "drupal/lb_ping_pong",
-            "version": "dev-ITCR-1084-deprecate-entity-browser",
+            "version": "2.0.0",
             "type": "drupal-module",
             "source": {
                "url": "https://git.drupalcode.org/project/lb_ping_pong.git",
@@ -198,7 +212,7 @@
          "type": "package",
          "package": {
             "name": "drupal/lb_promo",
-            "version": "dev-ITCR-1084-deprecate-entity-browser",
+            "version": "2.0.0",
             "type": "drupal-module",
             "source": {
                "url": "https://git.drupalcode.org/project/lb_promo.git",
@@ -211,7 +225,7 @@
          "type": "package",
          "package": {
             "name": "drupal/lb_related_articles_blocks",
-            "version": "dev-ITCR-1084-deprecate-entity-browser",
+            "version": "2.0.0",
             "type": "drupal-module",
             "source": {
                "url": "https://git.drupalcode.org/project/lb_related_articles_blocks.git",
@@ -224,7 +238,7 @@
          "type": "package",
          "package": {
             "name": "drupal/lb_related_events_blocks",
-            "version": "dev-ITCR-1084-deprecate-entity-browser",
+            "version": "2.0.0",
             "type": "drupal-module",
             "source": {
                "url": "https://git.drupalcode.org/project/lb_related_events_blocks.git",
@@ -237,7 +251,7 @@
          "type": "package",
          "package": {
             "name": "drupal/lb_simple_menu",
-            "version": "dev-ITCR-1084-deprecate-entity-browser",
+            "version": "2.0.0",
             "type": "drupal-module",
             "source": {
                "url": "https://git.drupalcode.org/project/lb_simple_menu.git",
@@ -250,7 +264,7 @@
          "type": "package",
          "package": {
             "name": "drupal/lb_staff_members_blocks",
-            "version": "dev-ITCR-1084-deprecate-entity-browser",
+            "version": "2.0.0",
             "type": "drupal-module",
             "source": {
                "url": "https://git.drupalcode.org/project/lb_staff_members_blocks.git",
@@ -263,7 +277,7 @@
          "type": "package",
          "package": {
             "name": "drupal/lb_statistics",
-            "version": "dev-ITCR-1084-deprecate-entity-browser",
+            "version": "3.0.0",
             "type": "drupal-module",
             "source": {
                "url": "https://git.drupalcode.org/project/lb_statistics.git",
@@ -276,7 +290,7 @@
          "type": "package",
          "package": {
             "name": "drupal/lb_testimonial_blocks",
-            "version": "dev-ITCR-1084-deprecate-entity-browser",
+            "version": "2.0.0",
             "type": "drupal-module",
             "source": {
                "url": "https://git.drupalcode.org/project/lb_testimonial_blocks.git",
@@ -289,7 +303,7 @@
          "type": "package",
          "package": {
             "name": "drupal/lb_webform",
-            "version": "dev-ITCR-1084-deprecate-entity-browser",
+            "version": "2.0.0",
             "type": "drupal-module",
             "source": {
                "url": "https://git.drupalcode.org/project/lb_webform.git",
@@ -302,7 +316,7 @@
          "type": "package",
          "package": {
             "name": "drupal/ws_colorway_canada",
-            "version": "dev-ITCR-1084-deprecate-entity-browser",
+            "version": "2.0.0",
             "type": "drupal-theme",
             "source": {
                "url": "https://git.drupalcode.org/project/ws_colorway_canada.git",
@@ -315,7 +329,7 @@
          "type": "package",
          "package": {
             "name": "drupal/ws_event",
-            "version": "dev-ITCR-1084-deprecate-entity-browser",
+            "version": "2.0.0",
             "type": "drupal-module",
             "source": {
                "url": "https://git.drupalcode.org/project/ws_event.git",
@@ -328,7 +342,7 @@
          "type": "package",
          "package": {
             "name": "drupal/ws_lb_tabs",
-            "version": "dev-ITCR-1084-deprecate-entity-browser",
+            "version": "3.0.0",
             "type": "drupal-module",
             "source": {
                "url": "https://git.drupalcode.org/project/ws_lb_tabs.git",
@@ -341,7 +355,7 @@
          "type": "package",
          "package": {
             "name": "drupal/ws_promotion",
-            "version": "dev-ITCR-1084-deprecate-entity-browser",
+            "version": "2.0.0",
             "type": "drupal-module",
             "source": {
                "url": "https://git.drupalcode.org/project/ws_promotion.git",
@@ -354,8 +368,8 @@
          "type": "package",
          "package": {
             "name": "drupal/ws_small_y",
-            "version": "dev-ITCR-1084-deprecate-entity-browser",
-            "type": "drupal-theme",
+            "version": "2.0.0",
+            "type": "drupal-module",
             "source": {
                "url": "https://git.drupalcode.org/project/ws_small_y.git",
                "type": "git",
@@ -367,7 +381,7 @@
          "type": "package",
          "package": {
             "name": "drupal/y_camp",
-            "version": "dev-ITCR-1084-deprecate-entity-browser",
+            "version": "3.0.0",
             "type": "drupal-module",
             "source": {
                "url": "https://git.drupalcode.org/project/y_camp.git",
@@ -380,7 +394,7 @@
          "type": "package",
          "package": {
             "name": "drupal/y_donate",
-            "version": "dev-ITCR-1084-deprecate-entity-browser",
+            "version": "3.0.0",
             "type": "drupal-module",
             "source": {
                "url": "https://git.drupalcode.org/project/y_donate.git",
@@ -393,7 +407,7 @@
          "type": "package",
          "package": {
             "name": "drupal/y_facility",
-            "version": "dev-ITCR-1084-deprecate-entity-browser",
+            "version": "3.0.0",
             "type": "drupal-module",
             "source": {
                "url": "https://git.drupalcode.org/project/y_facility.git",
@@ -406,7 +420,7 @@
          "type": "package",
          "package": {
             "name": "drupal/y_lb_article",
-            "version": "dev-ITCR-1084-deprecate-entity-browser",
+            "version": "2.0.0",
             "type": "drupal-module",
             "source": {
                "url": "https://git.drupalcode.org/project/y_lb_article.git",
@@ -419,7 +433,7 @@
          "type": "package",
          "package": {
             "name": "drupal/y_program",
-            "version": "dev-ITCR-1084-deprecate-entity-browser",
+            "version": "2.0.0",
             "type": "drupal-module",
             "source": {
                "url": "https://git.drupalcode.org/project/y_program.git",
@@ -432,7 +446,7 @@
          "type": "package",
          "package": {
             "name": "drupal/y_program_subcategory",
-            "version": "dev-ITCR-1084-deprecate-entity-browser",
+            "version": "2.0.0",
             "type": "drupal-module",
             "source": {
                "url": "https://git.drupalcode.org/project/y_program_subcategory.git",

@@ -6,6 +6,7 @@
    "require": {
       "ycloudyusa/yusaopeny": "dev-feature/ITCR-1084-deprecate-entity-browser",
       "open-y-subprojects/openy_features": "dev-feature/ITCR-1084-deprecate-entity-browser",
+      "open-y-subprojects/openy_focal_point": "dev-feature/ITCR-1084-deprecate-entity-browser",
       "ycloudyusa/y_lb": "dev-feature/ITCR-1084-deprecate-entity-browser",
       "ycloudyusa/lb_claro": "dev-feature/ITCR-1084-deprecate-entity-browser",
       "drupal/lb_accordion": "dev-ITCR-1084-deprecate-entity-browser",
@@ -63,6 +64,10 @@
       {
          "type": "vcs",
          "url": "https://github.com/open-y-subprojects/openy_features.git"
+      },
+      {
+         "type": "vcs",
+         "url": "https://github.com/open-y-subprojects/openy_focal_point.git"
       },
       {
          "type": "vcs",

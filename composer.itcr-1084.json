@@ -166,12 +166,31 @@
     {
       "type": "package",
       "package": {
+        "name": "ycloudyusa/y_lb_demo_content",
+        "version": "5.0.0",
+        "type": "drupal-module",
+        "require": {
+          "ycloudyusa/y_lb": "^4.0 || ^5.0",
+          "php": ">=8.1",
+          "drupal/lb_cards": "^2 || ^3",
+          "open-y-subprojects/openy_custom": "^2 || ^3",
+          "drupal/ws_promotion": "^1 || ^2",
+          "drupal/lb_hero": "^1 || ^2"
+        },
+        "source": {
+          "url": "https://github.com/YCloudYUSA/y_lb_demo_content.git",
+          "type": "git",
+          "reference": "feature/ITCR-1084-deprecate-entity-browser"
+        }
+      }
+    },
+    {
+      "type": "package",
+      "package": {
         "name": "ycloudyusa/lb_claro",
         "version": "3.0.0",
         "type": "drupal-theme",
-        "require": {
-          "drupal/core": "^10 || ^11"
-        },
+        "require": {},
         "source": {
           "url": "https://github.com/YCloudYUSA/lb_claro.git",
           "type": "git",
@@ -185,12 +204,7 @@
         "name": "drupal/lb_accordion",
         "version": "3.0.0",
         "type": "drupal-module",
-        "require": {
-          "cweagans/composer-patches": "~1.0 || ^2",
-          "ycloudyusa/y_lb": "^4.0 || ^5.0",
-          "drupal/entity_reference_revisions": "^1.10 || ~1.12.0",
-          "php": ">=8.1"
-        },
+        "require": {},
         "source": {
           "url": "https://git.drupalcode.org/project/lb_accordion.git",
           "type": "git",
@@ -204,11 +218,7 @@
         "name": "drupal/lb_branch_amenities_blocks",
         "version": "3.0.0",
         "type": "drupal-module",
-        "require": {
-          "drupal/paragraphs": "*",
-          "ycloudyusa/y_lb": "*",
-          "drupal/blazy": "*"
-        },
+        "require": {},
         "source": {
           "url": "https://git.drupalcode.org/project/lb_branch_amenities_blocks.git",
           "type": "git",
@@ -222,12 +232,7 @@
         "name": "drupal/lb_branch_hours_blocks",
         "version": "3.0.0",
         "type": "drupal-module",
-        "require": {
-          "ycloudyusa/y_lb": "^4 || ^5",
-          "open-y-subprojects/openy_custom": "^2.3.0 || ^3.0.0",
-          "drupal/y_branch": "^1.1.1",
-          "php": ">=8.1"
-        },
+        "require": {},
         "source": {
           "url": "https://git.drupalcode.org/project/lb_branch_hours_blocks.git",
           "type": "git",
@@ -241,12 +246,7 @@
         "name": "drupal/lb_cards",
         "version": "3.0.0",
         "type": "drupal-module",
-        "require": {
-          "ycloudyusa/y_lb": "^4.0 || ^5.0",
-          "php": ">=8.1",
-          "drupal/datalayer": "^1.0 || ^2.0 || ^2.0@RC || ~2.1.0",
-          "drupal/link_attributes": "~2.1.0"
-        },
+        "require": {},
         "source": {
           "url": "https://git.drupalcode.org/project/lb_cards.git",
           "type": "git",
@@ -260,12 +260,7 @@
         "name": "drupal/lb_carousel",
         "version": "3.0.0",
         "type": "drupal-module",
-        "require": {
-          "ycloudyusa/y_lb": "^4.0 || ^5.0",
-          "php": ">=8.1",
-          "drupal/datalayer": "^1.0 || ^2.0 || ^2.0@RC || ~2.1.0",
-          "drupal/dropzonejs": "^2.5 || ~2.11.0"
-        },
+        "require": {},
         "source": {
           "url": "https://git.drupalcode.org/project/lb_carousel.git",
           "type": "git",
@@ -279,11 +274,7 @@
         "name": "drupal/lb_grid_cta",
         "version": "4.0.0",
         "type": "drupal-module",
-        "require": {
-          "ycloudyusa/y_lb": "^4.0 || ^5.0",
-          "php": ">=8.1",
-          "drupal/twig_tweak": "^3.1 || ~3.4.0"
-        },
+        "require": {},
         "source": {
           "url": "https://git.drupalcode.org/project/lb_grid_cta.git",
           "type": "git",
@@ -297,12 +288,7 @@
         "name": "drupal/lb_hero",
         "version": "2.0.0",
         "type": "drupal-module",
-        "require": {
-          "ycloudyusa/y_lb": "^4.0 || ^5.0",
-          "php": ">=8.1",
-          "drupal/twig_tweak": "^3.1 || ~3.4.0",
-          "drupal/link_attributes": "^2.1"
-        },
+        "require": {},
         "source": {
           "url": "https://git.drupalcode.org/project/lb_hero.git",
           "type": "git",
@@ -316,10 +302,7 @@
         "name": "drupal/lb_modal",
         "version": "2.0.0",
         "type": "drupal-module",
-        "require": {
-          "ycloudyusa/y_lb": "^4.0 || ^5.0",
-          "php": ">=8.1"
-        },
+        "require": {},
         "source": {
           "url": "https://git.drupalcode.org/project/lb_modal.git",
           "type": "git",
@@ -333,10 +316,7 @@
         "name": "drupal/lb_partners_blocks",
         "version": "2.0.0",
         "type": "drupal-module",
-        "require": {
-          "drupal/inline_entity_form": "^3.0@RC",
-          "ycloudyusa/y_lb": "^4.0 || ^5.0"
-        },
+        "require": {},
         "source": {
           "url": "https://git.drupalcode.org/project/lb_partners_blocks.git",
           "type": "git",
@@ -350,12 +330,7 @@
         "name": "drupal/lb_ping_pong",
         "version": "2.0.0",
         "type": "drupal-module",
-        "require": {
-          "ycloudyusa/y_lb": "^4.0 || ^5.0",
-          "php": ">=8.1",
-          "drupal/datalayer": "^1.0 || ^2.0 || ^2.0@RC || ~2.13.0",
-          "drupal/link_attributes": "^2.1"
-        },
+        "require": {},
         "source": {
           "url": "https://git.drupalcode.org/project/lb_ping_pong.git",
           "type": "git",
@@ -369,11 +344,7 @@
         "name": "drupal/lb_promo",
         "version": "2.0.0",
         "type": "drupal-module",
-        "require": {
-          "ycloudyusa/y_lb": "^4.0 || ^5.0",
-          "php": ">=8.1",
-          "drupal/twig_tweak": "^2 || ~3.4.0"
-        },
+        "require": {},
         "source": {
           "url": "https://git.drupalcode.org/project/lb_promo.git",
           "type": "git",
@@ -387,12 +358,7 @@
         "name": "drupal/lb_related_articles_blocks",
         "version": "2.0.0",
         "type": "drupal-module",
-        "require": {
-          "ycloudyusa/y_lb": "^4.0 || ^5.0",
-          "php": ">=8.1",
-          "drupal/y_lb_article": "^1.2 || ^2.0",
-          "open-y-subprojects/openy_focal_point": "^1.0 || ^2.0"
-        },
+        "require": {},
         "source": {
           "url": "https://git.drupalcode.org/project/lb_related_articles_blocks.git",
           "type": "git",
@@ -406,12 +372,7 @@
         "name": "drupal/lb_related_events_blocks",
         "version": "2.0.0",
         "type": "drupal-module",
-        "require": {
-          "ycloudyusa/y_lb": "^4.0 || ^5.0",
-          "php": ">=8.1",
-          "drupal/ws_event": "^1.4.0 || ^2.0",
-          "open-y-subprojects/openy_focal_point": "^1.0 || ^2.0"
-        },
+        "require": {},
         "source": {
           "url": "https://git.drupalcode.org/project/lb_related_events_blocks.git",
           "type": "git",
@@ -425,9 +386,7 @@
         "name": "drupal/lb_simple_menu",
         "version": "2.0.0",
         "type": "drupal-module",
-        "require": {
-          "ycloudyusa/y_lb": "^4.0 || ^5.0"
-        },
+        "require": {},
         "source": {
           "url": "https://git.drupalcode.org/project/lb_simple_menu.git",
           "type": "git",
@@ -441,10 +400,7 @@
         "name": "drupal/lb_staff_members_blocks",
         "version": "2.0.0",
         "type": "drupal-module",
-        "require": {
-          "ycloudyusa/y_lb": "^4.0 || ^5.0",
-          "php": ">=8.1"
-        },
+        "require": {},
         "source": {
           "url": "https://git.drupalcode.org/project/lb_staff_members_blocks.git",
           "type": "git",
@@ -458,11 +414,7 @@
         "name": "drupal/lb_statistics",
         "version": "3.0.0",
         "type": "drupal-module",
-        "require": {
-          "ycloudyusa/y_lb": "^4.0 || ^5.0",
-          "php": ">=8.1",
-          "drupal/datalayer": "^1.0 || ^2.0 || ^2.0@RC || ~2.1.0"
-        },
+        "require": {},
         "source": {
           "url": "https://git.drupalcode.org/project/lb_statistics.git",
           "type": "git",
@@ -476,10 +428,7 @@
         "name": "drupal/lb_testimonial_blocks",
         "version": "2.0.0",
         "type": "drupal-module",
-        "require": {
-          "drupal/datalayer": "^1.0 || ^2.0",
-          "ycloudyusa/y_lb": "^4.0 || ^5.0"
-        },
+        "require": {},
         "source": {
           "url": "https://git.drupalcode.org/project/lb_testimonial_blocks.git",
           "type": "git",
@@ -493,13 +442,7 @@
         "name": "drupal/lb_webform",
         "version": "2.0.0",
         "type": "drupal-module",
-        "require": {
-          "ycloudyusa/y_lb": "^4.0 || ^5.0",
-          "php": ">=8.1",
-          "drupal/webform": "~6.2.0 || ^6.3@beta || ~6.3.0",
-          "drupal/datalayer": "^1.0 || ^2.0 || ^2.0@RC || ~2.1.0",
-          "drupal/entity_reference_revisions": "^1.6 || ~1.12.0"
-        },
+        "require": {},
         "source": {
           "url": "https://git.drupalcode.org/project/lb_webform.git",
           "type": "git",
@@ -513,11 +456,7 @@
         "name": "drupal/ws_colorway_canada",
         "version": "2.0.0",
         "type": "drupal-theme",
-        "require": {
-          "ycloudyusa/y_lb": "^4.0 || ^5.0",
-          "php": ">=8.1",
-          "drupal/responsive_favicons": "^2.0 || ~3.0.0"
-        },
+        "require": {},
         "source": {
           "url": "https://git.drupalcode.org/project/ws_colorway_canada.git",
           "type": "git",
@@ -531,25 +470,7 @@
         "name": "drupal/ws_event",
         "version": "2.0.0",
         "type": "drupal-module",
-        "require": {
-          "php": ">=8.1",
-          "drupal/address": "*",
-          "drupal/addtocal_augment": "^1.0",
-          "drupal/bootstrap_layout_builder": "*",
-          "drupal/date_augmenter": "^1.1",
-          "drupal/daterange_compact": "^2.0 || ~2.1.0",
-          "drupal/layout_builder_restrictions": "^2.16 || ~3.0.0",
-          "drupal/metatag": "*",
-          "drupal/node_revision_delete": "^2 || ~2.0.0",
-          "drupal/openy_gtranslate": "^1 || ^2.0.0",
-          "drupal/scheduler": "~2.1.0 || ~2.2.0",
-          "drupal/schema_metatag": "~3.0.0",
-          "drupal/smart_date": "^4.1 || ~4.2",
-          "drush/drush": "^11 || ^12 || ^13",
-          "open-y-subprojects/openy_custom": ">=2.1.0 || ~2.2.0",
-          "open-y-subprojects/openy_focal_point": "^2.0",
-          "ycloudyusa/y_lb": "^4.0 || ^5.0"
-        },
+        "require": {},
         "source": {
           "url": "https://git.drupalcode.org/project/ws_event.git",
           "type": "git",
@@ -563,10 +484,7 @@
         "name": "drupal/ws_lb_tabs",
         "version": "3.0.0",
         "type": "drupal-module",
-        "require": {
-          "drupal/inline_entity_form": "^3.0@RC",
-          "ycloudyusa/y_lb": "^4.0 || ^5.0"
-        },
+        "require": {},
         "source": {
           "url": "https://git.drupalcode.org/project/ws_lb_tabs.git",
           "type": "git",
@@ -580,11 +498,7 @@
         "name": "drupal/ws_promotion",
         "version": "2.0.0",
         "type": "drupal-module",
-        "require": {
-          "ycloudyusa/y_lb": "^4.0 || ^5.0",
-          "php": ">=8.1",
-          "ycloudyusa/yusaopeny_activity_finder": ">=4.2.6 || ^5"
-        },
+        "require": {},
         "source": {
           "url": "https://git.drupalcode.org/project/ws_promotion.git",
           "type": "git",
@@ -598,17 +512,7 @@
         "name": "drupal/ws_small_y",
         "version": "2.0.0",
         "type": "drupal-module",
-        "require": {
-          "php": ">=8.1",
-          "ycloudyusa/y_lb": "^4.0 || ^5.0",
-          "drupal/lb_branch_hours_blocks": "^1 || ^2",
-          "drupal/bootstrap_layout_builder": "*",
-          "drupal/layout_builder_restrictions": "^2.16 || ^3.0",
-          "drupal/link_attributes": "^2.1",
-          "drupal/openy_gtranslate": "^1 || ^2.0.0",
-          "drupal/inline_entity_form": "^3.0@RC",
-          "drupal/lb_staff_members_blocks": "^2 || ^3"
-        },
+        "require": {},
         "source": {
           "url": "https://git.drupalcode.org/project/ws_small_y.git",
           "type": "git",
@@ -622,15 +526,7 @@
         "name": "drupal/y_camp",
         "version": "3.0.0",
         "type": "drupal-module",
-        "require": {
-          "ycloudyusa/y_lb": "^4.0 || ^5.0",
-          "drupal/lb_branch_hours_blocks": "^1 || ^2",
-          "php": ">=8.1",
-          "drupal/bootstrap_layout_builder": "*",
-          "drupal/layout_builder_restrictions": "^2.16 || ^3.0.0",
-          "drupal/inline_entity_form": "3.0.0-rc21 || ^3.0.0",
-          "drupal/openy_gtranslate": "^1 || ^2.0.0"
-        },
+        "require": {},
         "source": {
           "url": "https://git.drupalcode.org/project/y_camp.git",
           "type": "git",
@@ -658,11 +554,7 @@
         "name": "drupal/y_facility",
         "version": "3.0.0",
         "type": "drupal-module",
-        "require": {
-          "ycloudyusa/y_lb": "^4.0 || ^5.0",
-          "drupal/lb_branch_hours_blocks": "^1 || ^2",
-          "php": ">=8.1"
-        },
+        "require": {},
         "source": {
           "url": "https://git.drupalcode.org/project/y_facility.git",
           "type": "git",
@@ -676,18 +568,7 @@
         "name": "drupal/y_lb_article",
         "version": "2.0.0",
         "type": "drupal-module",
-        "require": {
-          "ycloudyusa/y_lb": "^4.0 || ^5.0",
-          "php": ">=8.1",
-          "open-y-subprojects/openy_focal_point": "^2.0",
-          "drupal/scheduler": "~2.1 || ~2.2",
-          "drupal/node_revision_delete": "~2.0.0",
-          "drupal/bootstrap_layout_builder": "*",
-          "drupal/layout_builder_restrictions": "^2.16 || ~3.0.3",
-          "drupal/metatag": "*",
-          "drupal/openy_gtranslate": "^1 || ^2.0.0",
-          "drupal/schema_metatag": "^3.0 || ~3.0.3"
-        },
+        "require": {},
         "source": {
           "url": "https://git.drupalcode.org/project/y_lb_article.git",
           "type": "git",
@@ -701,10 +582,7 @@
         "name": "drupal/y_program",
         "version": "2.0.0",
         "type": "drupal-module",
-        "require": {
-          "ycloudyusa/y_lb": "^4.0 || ^5.0",
-          "php": ">=8.1"
-        },
+        "require": {},
         "source": {
           "url": "https://git.drupalcode.org/project/y_program.git",
           "type": "git",
@@ -718,10 +596,7 @@
         "name": "drupal/y_program_subcategory",
         "version": "2.0.0",
         "type": "drupal-module",
-        "require": {
-          "ycloudyusa/y_lb": "^4.0 || ^5.0",
-          "php": ">=8.1"
-        },
+        "require": {},
         "source": {
           "url": "https://git.drupalcode.org/project/y_program_subcategory.git",
           "type": "git",

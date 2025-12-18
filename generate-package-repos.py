@@ -16,6 +16,7 @@ REPOS = [
     ("open-y-subprojects/openy_features", "5.0.0", "drupal-module", "https://github.com/open-y-subprojects/openy_features.git", "https://raw.githubusercontent.com/open-y-subprojects/openy_features"),
     ("open-y-subprojects/openy_focal_point", "2.0.0", "drupal-module", "https://github.com/open-y-subprojects/openy_focal_point.git", "https://raw.githubusercontent.com/open-y-subprojects/openy_focal_point"),
     ("ycloudyusa/y_lb", "5.0.0", "drupal-module", "https://github.com/YCloudYUSA/y_lb.git", "https://raw.githubusercontent.com/YCloudYUSA/y_lb"),
+    ("ycloudyusa/y_lb_demo_content", "5.0.0", "drupal-module", "https://github.com/YCloudYUSA/y_lb_demo_content.git", "https://raw.githubusercontent.com/YCloudYUSA/y_lb_demo_content"),
     ("ycloudyusa/lb_claro", "3.0.0", "drupal-theme", "https://github.com/YCloudYUSA/lb_claro.git", "https://raw.githubusercontent.com/YCloudYUSA/lb_claro"),
     ("drupal/lb_accordion", "3.0.0", "drupal-module", "https://git.drupalcode.org/project/lb_accordion.git", "https://git.drupalcode.org/project/lb_accordion/-/raw"),
     ("drupal/lb_branch_amenities_blocks", "3.0.0", "drupal-module", "https://git.drupalcode.org/project/lb_branch_amenities_blocks.git", "https://git.drupalcode.org/project/lb_branch_amenities_blocks/-/raw"),

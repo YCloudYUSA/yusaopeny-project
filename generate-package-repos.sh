@@ -1,8 +1,15 @@
 #!/bin/bash
 # Generate composer package repos with require sections from feature branches
+# Updates the repositories section in composer.itcr-1084.json
 
 BRANCH="feature/ITCR-1084-deprecate-entity-browser"
-OUTPUT_FILE="generated-repos.json"
+INPUT_FILE="composer.itcr-1084.json"
+OUTPUT_FILE="composer.itcr-1084.json"
+
+if [ ! -f "$INPUT_FILE" ]; then
+  echo "Error: $INPUT_FILE not found"
+  exit 1
+fi
 
 # Define repos: name|version|type|url|raw_url_base
 REPOS=(
@@ -40,19 +47,32 @@ REPOS=(
   "drupal/y_program_subcategory|2.0.0|drupal-module|https://git.drupalcode.org/project/y_program_subcategory.git|https://git.drupalcode.org/project/y_program_subcategory/-/raw"
 )
 
-echo "["
+echo "Generating package repos with require sections..."
+echo "Fetching composer.json from $BRANCH branch for each module..."
 
-FIRST=true
+# Build new repositories array
+REPOS_JSON="["
+
+# Add VCS for yusaopeny first
+REPOS_JSON+="{\"type\": \"vcs\", \"url\": \"https://github.com/YCloudYUSA/yusaopeny.git\"},"
+
+# Add yusaopeny library packages
+REPOS_JSON+="{\"type\": \"package\", \"package\": {\"name\": \"grt107/grt-youtube-popup\", \"type\": \"drupal-library\", \"version\": \"1.0.0\", \"source\": {\"type\": \"git\", \"url\": \"https://github.com/grt107/grt-youtube-popup\", \"reference\": \"d5cb51ae5dbe526dba7d82c646ec0f46791fa7a0\"}}},"
+REPOS_JSON+="{\"type\": \"package\", \"package\": {\"name\": \"library-jaypan/jquery_colorpicker\", \"type\": \"drupal-library\", \"version\": \"1.0.1\", \"source\": {\"type\": \"git\", \"url\": \"https://github.com/jaypan/jquery_colorpicker\", \"reference\": \"da978ae124c57817021b3166a31881876882f5f9\"}}},"
+REPOS_JSON+="{\"type\": \"package\", \"package\": {\"name\": \"library-ckeditor/panelbutton\", \"type\": \"drupal-library\", \"version\": \"4.10.1\", \"dist\": {\"type\": \"zip\", \"url\": \"https://download.ckeditor.com/panelbutton/releases/panelbutton_4.10.1.zip\"}}},"
+REPOS_JSON+="{\"type\": \"package\", \"package\": {\"name\": \"library-ckeditor/colorbutton\", \"type\": \"drupal-library\", \"version\": \"4.10.1\", \"dist\": {\"type\": \"zip\", \"url\": \"https://download.ckeditor.com/colorbutton/releases/colorbutton_4.10.1.zip\"}}},"
+REPOS_JSON+="{\"type\": \"package\", \"package\": {\"name\": \"library-ckeditor/font\", \"type\": \"drupal-library\", \"version\": \"4.12.1\", \"dist\": {\"type\": \"zip\", \"url\": \"https://download.ckeditor.com/font/releases/font_4.12.1.zip\"}}},"
+REPOS_JSON+="{\"type\": \"package\", \"package\": {\"name\": \"library-smonetti/btbutton\", \"type\": \"drupal-library\", \"version\": \"1.0.2\", \"source\": {\"type\": \"git\", \"url\": \"https://github.com/smonetti/btbutton\", \"reference\": \"ee1fc396231a63201373cb580684e699a696ed62\"}}},"
+REPOS_JSON+="{\"type\": \"package\", \"package\": {\"name\": \"library-davekoelle/alphanum\", \"type\": \"drupal-library\", \"version\": \"1.0.0\", \"dist\": {\"type\": \"zip\", \"url\": \"https://github.com/AndreyMaximov/alphanum/archive/1.0.0.zip\"}}},"
+REPOS_JSON+="{\"type\": \"package\", \"package\": {\"name\": \"library-vakata/jstree\", \"type\": \"drupal-library\", \"version\": \"3.3.8\", \"dist\": {\"type\": \"zip\", \"url\": \"https://github.com/vakata/jstree/archive/3.3.8.zip\"}}},"
+
 for REPO in "${REPOS[@]}"; do
   IFS='|' read -r NAME VERSION TYPE URL RAW_BASE <<< "$REPO"
 
   # Build raw URL for composer.json
-  if [[ "$URL" == *"github.com"* ]]; then
-    RAW_URL="${RAW_BASE}/${BRANCH}/composer.json"
-  else
-    # GitLab/Drupal.org format
-    RAW_URL="${RAW_BASE}/${BRANCH}/composer.json"
-  fi
+  RAW_URL="${RAW_BASE}/${BRANCH}/composer.json"
+
+  echo "  Fetching: $NAME"
 
   # Fetch composer.json and extract require
   REQUIRE=$(curl -s "$RAW_URL" 2>/dev/null | jq -c '.require // {}')
@@ -61,18 +81,20 @@ for REPO in "${REPOS[@]}"; do
     REQUIRE="{}"
   fi
 
-  # Output comma separator
-  if [ "$FIRST" = true ]; then
-    FIRST=false
-  else
-    echo ","
-  fi
-
-  # Generate package repo JSON
-  cat << EOF
-  {"type": "package", "package": {"name": "${NAME}", "version": "${VERSION}", "type": "${TYPE}", "require": ${REQUIRE}, "source": {"url": "${URL}", "type": "git", "reference": "${BRANCH}"}}}
-EOF
-
+  # Add package repo JSON
+  REPOS_JSON+="{\"type\": \"package\", \"package\": {\"name\": \"${NAME}\", \"version\": \"${VERSION}\", \"type\": \"${TYPE}\", \"require\": ${REQUIRE}, \"source\": {\"url\": \"${URL}\", \"type\": \"git\", \"reference\": \"${BRANCH}\"}}},"
 done
 
-echo "]"
+# Add VCS for y_fonts and composer repos
+REPOS_JSON+="{\"type\": \"vcs\", \"url\": \"https://github.com/YCloudYUSAfree/y_fonts.git\"},"
+REPOS_JSON+="{\"type\": \"composer\", \"url\": \"https://packages.drupal.org/8\", \"canonical\": false},"
+REPOS_JSON+="{\"type\": \"composer\", \"url\": \"https://asset-packagist.org\"}"
+
+REPOS_JSON+="]"
+
+# Update composer.itcr-1084.json with new repositories
+echo "Updating $OUTPUT_FILE..."
+jq --argjson repos "$REPOS_JSON" '.repositories = $repos' "$INPUT_FILE" > "${OUTPUT_FILE}.tmp" && mv "${OUTPUT_FILE}.tmp" "$OUTPUT_FILE"
+
+echo "Done! Updated $OUTPUT_FILE with package repos including require sections."
+echo "Run 'COMPOSER=composer.itcr-1084.json composer install' to test the configuration."

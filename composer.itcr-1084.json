@@ -1,0 +1,852 @@
+{
+  "name": "ycloudyusa/yusaopeny-project",
+  "description": "ITCR-1084 Upgrade Path Validation - entity_browser to media_library migration",
+  "type": "project",
+  "license": "GPL-2.0-or-later",
+  "require": {
+    "ycloudyusa/yusaopeny": "dev-feature/ITCR-1084-deprecate-entity-browser",
+    "drush/drush": "^13"
+  },
+  "require-dev": {
+    "ymcatwincities/openy-docksal": "dev-master",
+    "ymcatwincities/openy-cibox-vm": "dev-master",
+    "consolidation/robo": "^4 || ~5.0",
+    "podarok/openy-cibox-build": "dev-main"
+  },
+  "minimum-stability": "dev",
+  "prefer-stable": true,
+  "repositories": [
+    {
+      "type": "vcs",
+      "url": "https://github.com/YCloudYUSA/yusaopeny.git"
+    },
+    {
+      "type": "package",
+      "package": {
+        "name": "grt107/grt-youtube-popup",
+        "type": "drupal-library",
+        "version": "1.0.0",
+        "source": {
+          "type": "git",
+          "url": "https://github.com/grt107/grt-youtube-popup",
+          "reference": "d5cb51ae5dbe526dba7d82c646ec0f46791fa7a0"
+        }
+      }
+    },
+    {
+      "type": "package",
+      "package": {
+        "name": "library-jaypan/jquery_colorpicker",
+        "type": "drupal-library",
+        "version": "1.0.1",
+        "source": {
+          "type": "git",
+          "url": "https://github.com/jaypan/jquery_colorpicker",
+          "reference": "da978ae124c57817021b3166a31881876882f5f9"
+        }
+      }
+    },
+    {
+      "type": "package",
+      "package": {
+        "name": "library-ckeditor/panelbutton",
+        "type": "drupal-library",
+        "version": "4.10.1",
+        "dist": {
+          "type": "zip",
+          "url": "https://download.ckeditor.com/panelbutton/releases/panelbutton_4.10.1.zip"
+        }
+      }
+    },
+    {
+      "type": "package",
+      "package": {
+        "name": "library-ckeditor/colorbutton",
+        "type": "drupal-library",
+        "version": "4.10.1",
+        "dist": {
+          "type": "zip",
+          "url": "https://download.ckeditor.com/colorbutton/releases/colorbutton_4.10.1.zip"
+        }
+      }
+    },
+    {
+      "type": "package",
+      "package": {
+        "name": "library-ckeditor/font",
+        "type": "drupal-library",
+        "version": "4.12.1",
+        "dist": {
+          "type": "zip",
+          "url": "https://download.ckeditor.com/font/releases/font_4.12.1.zip"
+        }
+      }
+    },
+    {
+      "type": "package",
+      "package": {
+        "name": "library-smonetti/btbutton",
+        "type": "drupal-library",
+        "version": "1.0.2",
+        "source": {
+          "type": "git",
+          "url": "https://github.com/smonetti/btbutton",
+          "reference": "ee1fc396231a63201373cb580684e699a696ed62"
+        }
+      }
+    },
+    {
+      "type": "package",
+      "package": {
+        "name": "library-davekoelle/alphanum",
+        "type": "drupal-library",
+        "version": "1.0.0",
+        "dist": {
+          "type": "zip",
+          "url": "https://github.com/AndreyMaximov/alphanum/archive/1.0.0.zip"
+        }
+      }
+    },
+    {
+      "type": "package",
+      "package": {
+        "name": "library-vakata/jstree",
+        "type": "drupal-library",
+        "version": "3.3.8",
+        "dist": {
+          "type": "zip",
+          "url": "https://github.com/vakata/jstree/archive/3.3.8.zip"
+        }
+      }
+    },
+    {
+      "type": "package",
+      "package": {
+        "name": "open-y-subprojects/openy_features",
+        "version": "5.0.0",
+        "type": "drupal-module",
+        "require": {
+          "drupal/core": "^10 || ^11",
+          "drupal/ckeditor5_plugin_pack": "^1.4",
+          "drupal/ctools": ">=3.13",
+          "drupal/diff": "*",
+          "drupal/google_analytics": "^4.0.2",
+          "drupal/rabbit_hole": "^1.0@beta || ^1.0",
+          "drupal/metatag": "*",
+          "drupal/schema_metatag": "^3.0",
+          "open-y-subprojects/openy_custom": ">=2.1.0",
+          "open-y-subprojects/openy_demo_content": "^2.0",
+          "open-y-subprojects/openy_node_alert": "^2.3.1",
+          "ycloudyusa/yusaopeny": "*",
+          "ycloudyusa/y_lb": "^5.0.0",
+          "ynorth-projects/openy_node_session": "^2.0"
+        },
+        "source": {
+          "url": "https://github.com/open-y-subprojects/openy_features.git",
+          "type": "git",
+          "reference": "feature/ITCR-1084-deprecate-entity-browser"
+        }
+      }
+    },
+    {
+      "type": "package",
+      "package": {
+        "name": "open-y-subprojects/openy_focal_point",
+        "version": "2.0.0",
+        "type": "drupal-module",
+        "require": {
+          "drupal/focal_point": "1.5 || ^2.0"
+        },
+        "source": {
+          "url": "https://github.com/open-y-subprojects/openy_focal_point.git",
+          "type": "git",
+          "reference": "feature/ITCR-1084-deprecate-entity-browser"
+        }
+      }
+    },
+    {
+      "type": "package",
+      "package": {
+        "name": "ycloudyusa/y_lb",
+        "version": "5.0.0",
+        "type": "drupal-module",
+        "require": {
+          "cweagans/composer-patches": "*",
+          "drupal/bootstrap_styles": ">=1.1.3 || ~1.2.1",
+          "drupal/bootstrap_layout_builder": ">=2.1.2",
+          "drupal/entity_clone": "^2.0@alpha || ^2",
+          "drupal/layout_builder_blocks": "*",
+          "drupal/layout_builder_operation_link": "^2.2",
+          "drupal/layout_builder_restrictions": "^2.16 || ^3.0",
+          "drupal/layout_builder_save_and_edit": "^1.0",
+          "drupal/lb_branch_social_links_blocks": "^1.0.3",
+          "drupal/lb_accordion": "^3.0",
+          "drupal/lb_cards": "^3.0",
+          "drupal/lb_carousel": "^3.0",
+          "drupal/lb_grid_cta": "^4.0",
+          "drupal/lb_hero": "^2.0",
+          "drupal/lb_modal": "^2.0",
+          "drupal/lb_partners_blocks": "^2.0",
+          "drupal/lb_ping_pong": "^2.0",
+          "drupal/lb_promo": "^2.0",
+          "drupal/lb_related_articles_blocks": "^2.0",
+          "drupal/lb_related_events_blocks": "^2.0",
+          "drupal/lb_simple_menu": "^2.0",
+          "drupal/lb_staff_members_blocks": "^2.0",
+          "drupal/lb_statistics": "^3.0",
+          "drupal/lb_table": "^1.0.6 || ~1.1.0",
+          "drupal/lb_testimonial_blocks": "^2.0",
+          "drupal/lb_webform": "^2.0",
+          "drupal/menu_item_extras": "^2.0 || ^3.0",
+          "drupal/metatag": "*",
+          "drupal/node_revision_delete": "^2.0@alpha || ^2",
+          "drupal/openy_gtranslate": "^1 || ^2.0.0",
+          "drupal/scheduler": "^2.0@RC || ^2.0",
+          "drupal/simple_sitemap": "^3.7 || ^4.1",
+          "drupal/ws_colorway_canada": "^2.0",
+          "drupal/ws_lb_tabs": "^3.0",
+          "drupal/ws_code_block": "^1.0.0 || ~1.1.0",
+          "drupal/ws_event": "^2.0",
+          "drupal/ws_promotion": "^2.0",
+          "drupal/y_branch": "^1.1.0",
+          "drupal/y_camp": "^3.0",
+          "drupal/y_facility": "^3.0",
+          "drupal/y_program": "^2.0",
+          "drupal/y_program_subcategory": "^2.0",
+          "drupal/y_lb_article": "^2.0",
+          "drupal/pathauto": "^1.11",
+          "open-y-subprojects/openy_features": "^5.0",
+          "open-y-subprojects/openy_focal_point": "^2.0",
+          "ycloudyusa/lb_claro": "^3.0",
+          "php": ">=8.1"
+        },
+        "source": {
+          "url": "https://github.com/YCloudYUSA/y_lb.git",
+          "type": "git",
+          "reference": "feature/ITCR-1084-deprecate-entity-browser"
+        }
+      }
+    },
+    {
+      "type": "package",
+      "package": {
+        "name": "ycloudyusa/lb_claro",
+        "version": "3.0.0",
+        "type": "drupal-theme",
+        "require": {
+          "drupal/core": "^10 || ^11"
+        },
+        "source": {
+          "url": "https://github.com/YCloudYUSA/lb_claro.git",
+          "type": "git",
+          "reference": "feature/ITCR-1084-deprecate-entity-browser"
+        }
+      }
+    },
+    {
+      "type": "package",
+      "package": {
+        "name": "drupal/lb_accordion",
+        "version": "3.0.0",
+        "type": "drupal-module",
+        "require": {
+          "cweagans/composer-patches": "~1.0 || ^2",
+          "ycloudyusa/y_lb": "^4.0 || ^5.0",
+          "drupal/entity_reference_revisions": "^1.10 || ~1.12.0",
+          "php": ">=8.1"
+        },
+        "source": {
+          "url": "https://git.drupalcode.org/project/lb_accordion.git",
+          "type": "git",
+          "reference": "feature/ITCR-1084-deprecate-entity-browser"
+        }
+      }
+    },
+    {
+      "type": "package",
+      "package": {
+        "name": "drupal/lb_branch_amenities_blocks",
+        "version": "3.0.0",
+        "type": "drupal-module",
+        "require": {
+          "drupal/paragraphs": "*",
+          "ycloudyusa/y_lb": "*",
+          "drupal/blazy": "*"
+        },
+        "source": {
+          "url": "https://git.drupalcode.org/project/lb_branch_amenities_blocks.git",
+          "type": "git",
+          "reference": "feature/ITCR-1084-deprecate-entity-browser"
+        }
+      }
+    },
+    {
+      "type": "package",
+      "package": {
+        "name": "drupal/lb_branch_hours_blocks",
+        "version": "2.0.0",
+        "type": "drupal-module",
+        "require": {
+          "ycloudyusa/y_lb": "^4 || ^5",
+          "open-y-subprojects/openy_custom": "^2.3.0 || ^3.0.0",
+          "drupal/y_branch": "^1.1.1",
+          "php": ">=8.1"
+        },
+        "source": {
+          "url": "https://git.drupalcode.org/project/lb_branch_hours_blocks.git",
+          "type": "git",
+          "reference": "feature/ITCR-1084-deprecate-entity-browser"
+        }
+      }
+    },
+    {
+      "type": "package",
+      "package": {
+        "name": "drupal/lb_cards",
+        "version": "3.0.0",
+        "type": "drupal-module",
+        "require": {
+          "ycloudyusa/y_lb": "^4.0 || ^5.0",
+          "php": ">=8.1",
+          "drupal/datalayer": "^1.0 || ^2.0 || ^2.0@RC || ~2.1.0",
+          "drupal/link_attributes": "~2.1.0"
+        },
+        "source": {
+          "url": "https://git.drupalcode.org/project/lb_cards.git",
+          "type": "git",
+          "reference": "feature/ITCR-1084-deprecate-entity-browser"
+        }
+      }
+    },
+    {
+      "type": "package",
+      "package": {
+        "name": "drupal/lb_carousel",
+        "version": "3.0.0",
+        "type": "drupal-module",
+        "require": {
+          "ycloudyusa/y_lb": "^4.0 || ^5.0",
+          "php": ">=8.1",
+          "drupal/datalayer": "^1.0 || ^2.0 || ^2.0@RC || ~2.1.0",
+          "drupal/dropzonejs": "^2.5 || ~2.11.0"
+        },
+        "source": {
+          "url": "https://git.drupalcode.org/project/lb_carousel.git",
+          "type": "git",
+          "reference": "feature/ITCR-1084-deprecate-entity-browser"
+        }
+      }
+    },
+    {
+      "type": "package",
+      "package": {
+        "name": "drupal/lb_grid_cta",
+        "version": "4.0.0",
+        "type": "drupal-module",
+        "require": {
+          "ycloudyusa/y_lb": "^4.0 || ^5.0",
+          "php": ">=8.1",
+          "drupal/twig_tweak": "^3.1 || ~3.4.0"
+        },
+        "source": {
+          "url": "https://git.drupalcode.org/project/lb_grid_cta.git",
+          "type": "git",
+          "reference": "feature/ITCR-1084-deprecate-entity-browser"
+        }
+      }
+    },
+    {
+      "type": "package",
+      "package": {
+        "name": "drupal/lb_hero",
+        "version": "2.0.0",
+        "type": "drupal-module",
+        "require": {
+          "ycloudyusa/y_lb": "^4.0 || ^5.0",
+          "php": ">=8.1",
+          "drupal/twig_tweak": "^3.1 || ~3.4.0",
+          "drupal/link_attributes": "^2.1"
+        },
+        "source": {
+          "url": "https://git.drupalcode.org/project/lb_hero.git",
+          "type": "git",
+          "reference": "feature/ITCR-1084-deprecate-entity-browser"
+        }
+      }
+    },
+    {
+      "type": "package",
+      "package": {
+        "name": "drupal/lb_modal",
+        "version": "2.0.0",
+        "type": "drupal-module",
+        "require": {
+          "ycloudyusa/y_lb": "^4.0 || ^5.0",
+          "php": ">=8.1"
+        },
+        "source": {
+          "url": "https://git.drupalcode.org/project/lb_modal.git",
+          "type": "git",
+          "reference": "feature/ITCR-1084-deprecate-entity-browser"
+        }
+      }
+    },
+    {
+      "type": "package",
+      "package": {
+        "name": "drupal/lb_partners_blocks",
+        "version": "2.0.0",
+        "type": "drupal-module",
+        "require": {
+          "drupal/inline_entity_form": "^3.0@RC",
+          "ycloudyusa/y_lb": "^4.0 || ^5.0"
+        },
+        "source": {
+          "url": "https://git.drupalcode.org/project/lb_partners_blocks.git",
+          "type": "git",
+          "reference": "feature/ITCR-1084-deprecate-entity-browser"
+        }
+      }
+    },
+    {
+      "type": "package",
+      "package": {
+        "name": "drupal/lb_ping_pong",
+        "version": "2.0.0",
+        "type": "drupal-module",
+        "require": {
+          "ycloudyusa/y_lb": "^4.0 || ^5.0",
+          "php": ">=8.1",
+          "drupal/datalayer": "^1.0 || ^2.0 || ^2.0@RC || ~2.13.0",
+          "drupal/link_attributes": "^2.1"
+        },
+        "source": {
+          "url": "https://git.drupalcode.org/project/lb_ping_pong.git",
+          "type": "git",
+          "reference": "feature/ITCR-1084-deprecate-entity-browser"
+        }
+      }
+    },
+    {
+      "type": "package",
+      "package": {
+        "name": "drupal/lb_promo",
+        "version": "2.0.0",
+        "type": "drupal-module",
+        "require": {
+          "ycloudyusa/y_lb": "^4.0 || ^5.0",
+          "php": ">=8.1",
+          "drupal/twig_tweak": "^2 || ~3.4.0"
+        },
+        "source": {
+          "url": "https://git.drupalcode.org/project/lb_promo.git",
+          "type": "git",
+          "reference": "feature/ITCR-1084-deprecate-entity-browser"
+        }
+      }
+    },
+    {
+      "type": "package",
+      "package": {
+        "name": "drupal/lb_related_articles_blocks",
+        "version": "2.0.0",
+        "type": "drupal-module",
+        "require": {
+          "ycloudyusa/y_lb": "^4.0 || ^5.0",
+          "php": ">=8.1",
+          "drupal/y_lb_article": "^1.2 || ^2.0",
+          "open-y-subprojects/openy_focal_point": "^1.0 || ^2.0"
+        },
+        "source": {
+          "url": "https://git.drupalcode.org/project/lb_related_articles_blocks.git",
+          "type": "git",
+          "reference": "feature/ITCR-1084-deprecate-entity-browser"
+        }
+      }
+    },
+    {
+      "type": "package",
+      "package": {
+        "name": "drupal/lb_related_events_blocks",
+        "version": "2.0.0",
+        "type": "drupal-module",
+        "require": {
+          "ycloudyusa/y_lb": "^4.0 || ^5.0",
+          "php": ">=8.1",
+          "drupal/ws_event": "^1.4.0 || ^2.0",
+          "open-y-subprojects/openy_focal_point": "^1.0 || ^2.0"
+        },
+        "source": {
+          "url": "https://git.drupalcode.org/project/lb_related_events_blocks.git",
+          "type": "git",
+          "reference": "feature/ITCR-1084-deprecate-entity-browser"
+        }
+      }
+    },
+    {
+      "type": "package",
+      "package": {
+        "name": "drupal/lb_simple_menu",
+        "version": "2.0.0",
+        "type": "drupal-module",
+        "require": {
+          "ycloudyusa/y_lb": "^4.0 || ^5.0"
+        },
+        "source": {
+          "url": "https://git.drupalcode.org/project/lb_simple_menu.git",
+          "type": "git",
+          "reference": "feature/ITCR-1084-deprecate-entity-browser"
+        }
+      }
+    },
+    {
+      "type": "package",
+      "package": {
+        "name": "drupal/lb_staff_members_blocks",
+        "version": "2.0.0",
+        "type": "drupal-module",
+        "require": {
+          "ycloudyusa/y_lb": "^4.0 || ^5.0",
+          "php": ">=8.1"
+        },
+        "source": {
+          "url": "https://git.drupalcode.org/project/lb_staff_members_blocks.git",
+          "type": "git",
+          "reference": "feature/ITCR-1084-deprecate-entity-browser"
+        }
+      }
+    },
+    {
+      "type": "package",
+      "package": {
+        "name": "drupal/lb_statistics",
+        "version": "3.0.0",
+        "type": "drupal-module",
+        "require": {
+          "ycloudyusa/y_lb": "^4.0 || ^5.0",
+          "php": ">=8.1",
+          "drupal/datalayer": "^1.0 || ^2.0 || ^2.0@RC || ~2.1.0"
+        },
+        "source": {
+          "url": "https://git.drupalcode.org/project/lb_statistics.git",
+          "type": "git",
+          "reference": "feature/ITCR-1084-deprecate-entity-browser"
+        }
+      }
+    },
+    {
+      "type": "package",
+      "package": {
+        "name": "drupal/lb_testimonial_blocks",
+        "version": "2.0.0",
+        "type": "drupal-module",
+        "require": {
+          "drupal/datalayer": "^1.0 || ^2.0",
+          "ycloudyusa/y_lb": "^4.0 || ^5.0"
+        },
+        "source": {
+          "url": "https://git.drupalcode.org/project/lb_testimonial_blocks.git",
+          "type": "git",
+          "reference": "feature/ITCR-1084-deprecate-entity-browser"
+        }
+      }
+    },
+    {
+      "type": "package",
+      "package": {
+        "name": "drupal/lb_webform",
+        "version": "2.0.0",
+        "type": "drupal-module",
+        "require": {
+          "ycloudyusa/y_lb": "^4.0 || ^5.0",
+          "php": ">=8.1",
+          "drupal/webform": "~6.2.0 || ^6.3@beta || ~6.3.0",
+          "drupal/datalayer": "^1.0 || ^2.0 || ^2.0@RC || ~2.1.0",
+          "drupal/entity_reference_revisions": "^1.6 || ~1.12.0"
+        },
+        "source": {
+          "url": "https://git.drupalcode.org/project/lb_webform.git",
+          "type": "git",
+          "reference": "feature/ITCR-1084-deprecate-entity-browser"
+        }
+      }
+    },
+    {
+      "type": "package",
+      "package": {
+        "name": "drupal/ws_colorway_canada",
+        "version": "2.0.0",
+        "type": "drupal-theme",
+        "require": {
+          "ycloudyusa/y_lb": "^4.0 || ^5.0",
+          "php": ">=8.1",
+          "drupal/responsive_favicons": "^2.0 || ~3.0.0"
+        },
+        "source": {
+          "url": "https://git.drupalcode.org/project/ws_colorway_canada.git",
+          "type": "git",
+          "reference": "feature/ITCR-1084-deprecate-entity-browser"
+        }
+      }
+    },
+    {
+      "type": "package",
+      "package": {
+        "name": "drupal/ws_event",
+        "version": "2.0.0",
+        "type": "drupal-module",
+        "require": {
+          "php": ">=8.1",
+          "drupal/address": "*",
+          "drupal/addtocal_augment": "^1.0",
+          "drupal/bootstrap_layout_builder": "*",
+          "drupal/date_augmenter": "^1.1",
+          "drupal/daterange_compact": "^2.0 || ~2.1.0",
+          "drupal/layout_builder_restrictions": "^2.16 || ~3.0.0",
+          "drupal/metatag": "*",
+          "drupal/node_revision_delete": "^2 || ~2.0.0",
+          "drupal/openy_gtranslate": "^1 || ^2.0.0",
+          "drupal/scheduler": "~2.1.0 || ~2.2.0",
+          "drupal/schema_metatag": "~3.0.0",
+          "drupal/smart_date": "^4.1 || ~4.2",
+          "drush/drush": "^11 || ^12 || ^13",
+          "open-y-subprojects/openy_custom": ">=2.1.0 || ~2.2.0",
+          "open-y-subprojects/openy_focal_point": "^2.0",
+          "ycloudyusa/y_lb": "^4.0 || ^5.0"
+        },
+        "source": {
+          "url": "https://git.drupalcode.org/project/ws_event.git",
+          "type": "git",
+          "reference": "feature/ITCR-1084-deprecate-entity-browser"
+        }
+      }
+    },
+    {
+      "type": "package",
+      "package": {
+        "name": "drupal/ws_lb_tabs",
+        "version": "3.0.0",
+        "type": "drupal-module",
+        "require": {
+          "drupal/inline_entity_form": "^3.0@RC",
+          "ycloudyusa/y_lb": "^4.0 || ^5.0"
+        },
+        "source": {
+          "url": "https://git.drupalcode.org/project/ws_lb_tabs.git",
+          "type": "git",
+          "reference": "feature/ITCR-1084-deprecate-entity-browser"
+        }
+      }
+    },
+    {
+      "type": "package",
+      "package": {
+        "name": "drupal/ws_promotion",
+        "version": "2.0.0",
+        "type": "drupal-module",
+        "require": {
+          "ycloudyusa/y_lb": "^4.0 || ^5.0",
+          "php": ">=8.1",
+          "ycloudyusa/yusaopeny_activity_finder": ">=4.2.6 || ^5"
+        },
+        "source": {
+          "url": "https://git.drupalcode.org/project/ws_promotion.git",
+          "type": "git",
+          "reference": "feature/ITCR-1084-deprecate-entity-browser"
+        }
+      }
+    },
+    {
+      "type": "package",
+      "package": {
+        "name": "drupal/ws_small_y",
+        "version": "2.0.0",
+        "type": "drupal-module",
+        "require": {
+          "php": ">=8.1",
+          "ycloudyusa/y_lb": "^4.0 || ^5.0",
+          "drupal/bootstrap_layout_builder": "*",
+          "drupal/layout_builder_restrictions": "^2.16 || ^3.0",
+          "drupal/link_attributes": "^2.1",
+          "drupal/openy_gtranslate": "^1 || ^2.0.0",
+          "drupal/inline_entity_form": "^3.0@RC",
+          "drupal/lb_staff_members_blocks": "^2.0"
+        },
+        "source": {
+          "url": "https://git.drupalcode.org/project/ws_small_y.git",
+          "type": "git",
+          "reference": "feature/ITCR-1084-deprecate-entity-browser"
+        }
+      }
+    },
+    {
+      "type": "package",
+      "package": {
+        "name": "drupal/y_camp",
+        "version": "3.0.0",
+        "type": "drupal-module",
+        "require": {
+          "ycloudyusa/y_lb": "^4.0 || ^5.0",
+          "php": ">=8.1",
+          "drupal/bootstrap_layout_builder": "*",
+          "drupal/layout_builder_restrictions": "^2.16 || ^3.0.0",
+          "drupal/inline_entity_form": "3.0.0-rc21 || ^3.0.0",
+          "drupal/openy_gtranslate": "^1 || ^2.0.0"
+        },
+        "source": {
+          "url": "https://git.drupalcode.org/project/y_camp.git",
+          "type": "git",
+          "reference": "feature/ITCR-1084-deprecate-entity-browser"
+        }
+      }
+    },
+    {
+      "type": "package",
+      "package": {
+        "name": "drupal/y_donate",
+        "version": "3.0.0",
+        "type": "drupal-module",
+        "require": {},
+        "source": {
+          "url": "https://git.drupalcode.org/project/y_donate.git",
+          "type": "git",
+          "reference": "feature/ITCR-1084-deprecate-entity-browser"
+        }
+      }
+    },
+    {
+      "type": "package",
+      "package": {
+        "name": "drupal/y_facility",
+        "version": "3.0.0",
+        "type": "drupal-module",
+        "require": {
+          "ycloudyusa/y_lb": "^4.0 || ^5.0",
+          "php": ">=8.1"
+        },
+        "source": {
+          "url": "https://git.drupalcode.org/project/y_facility.git",
+          "type": "git",
+          "reference": "feature/ITCR-1084-deprecate-entity-browser"
+        }
+      }
+    },
+    {
+      "type": "package",
+      "package": {
+        "name": "drupal/y_lb_article",
+        "version": "2.0.0",
+        "type": "drupal-module",
+        "require": {
+          "ycloudyusa/y_lb": "^4.0 || ^5.0",
+          "php": ">=8.1",
+          "open-y-subprojects/openy_focal_point": "^2.0",
+          "drupal/scheduler": "~2.1 || ~2.2",
+          "drupal/node_revision_delete": "~2.0.0",
+          "drupal/bootstrap_layout_builder": "*",
+          "drupal/layout_builder_restrictions": "^2.16 || ~3.0.3",
+          "drupal/metatag": "*",
+          "drupal/openy_gtranslate": "^1 || ^2.0.0",
+          "drupal/schema_metatag": "^3.0 || ~3.0.3"
+        },
+        "source": {
+          "url": "https://git.drupalcode.org/project/y_lb_article.git",
+          "type": "git",
+          "reference": "feature/ITCR-1084-deprecate-entity-browser"
+        }
+      }
+    },
+    {
+      "type": "package",
+      "package": {
+        "name": "drupal/y_program",
+        "version": "2.0.0",
+        "type": "drupal-module",
+        "require": {
+          "ycloudyusa/y_lb": "^4.0 || ^5.0",
+          "php": ">=8.1"
+        },
+        "source": {
+          "url": "https://git.drupalcode.org/project/y_program.git",
+          "type": "git",
+          "reference": "feature/ITCR-1084-deprecate-entity-browser"
+        }
+      }
+    },
+    {
+      "type": "package",
+      "package": {
+        "name": "drupal/y_program_subcategory",
+        "version": "2.0.0",
+        "type": "drupal-module",
+        "require": {
+          "ycloudyusa/y_lb": "^4.0 || ^5.0",
+          "php": ">=8.1"
+        },
+        "source": {
+          "url": "https://git.drupalcode.org/project/y_program_subcategory.git",
+          "type": "git",
+          "reference": "feature/ITCR-1084-deprecate-entity-browser"
+        }
+      }
+    },
+    {
+      "type": "composer",
+      "url": "https://packages.drupal.org/8",
+      "canonical": false
+    },
+    {
+      "type": "composer",
+      "url": "https://asset-packagist.org"
+    }
+  ],
+  "extra": {
+    "installer-types": [
+      "bower-asset",
+      "npm-asset"
+    ],
+    "drupal-scaffold": {
+      "locations": {
+        "web-root": "docroot/"
+      },
+      "allowed-packages": [
+        "drupal/core"
+      ]
+    },
+    "installer-paths": {
+      "docroot/core": [
+        "type:drupal-core"
+      ],
+      "docroot/libraries/{$name}": [
+        "type:drupal-library",
+        "type:bower-asset",
+        "type:npm-asset"
+      ],
+      "docroot/modules/contrib/{$name}": [
+        "type:drupal-module"
+      ],
+      "docroot/profiles/contrib/{$name}": [
+        "type:drupal-profile"
+      ],
+      "docroot/themes/contrib/{$name}": [
+        "type:drupal-theme"
+      ],
+      "drush/contrib/{$name}": [
+        "type:drupal-drush"
+      ]
+    },
+    "enable-patching": true
+  },
+  "config": {
+    "bin-dir": "vendor/bin/",
+    "secure-http": false,
+    "allow-plugins": {
+      "composer/installers": true,
+      "cweagans/composer-patches": true,
+      "drupal/core-composer-scaffold": true,
+      "drupal/core-project-message": true,
+      "oomphinc/composer-installers-extender": true,
+      "mglaman/composer-drupal-lenient": true
+    }
+  }
+}

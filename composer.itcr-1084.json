@@ -283,6 +283,25 @@
     {
       "type": "package",
       "package": {
+        "name": "drupal/lb_branch_hours_blocks",
+        "version": "2.0.0",
+        "type": "drupal-module",
+        "require": {
+          "ycloudyusa/y_lb": "^4 || ^5",
+          "open-y-subprojects/openy_custom": "^2.3.0 || ^3.0.0",
+          "drupal/y_branch": "^1.1.1",
+          "php": ">=8.1"
+        },
+        "source": {
+          "url": "https://git.drupalcode.org/project/lb_branch_hours_blocks.git",
+          "type": "git",
+          "reference": "feature/ITCR-1084-deprecate-entity-browser"
+        }
+      }
+    },
+    {
+      "type": "package",
+      "package": {
         "name": "drupal/lb_cards",
         "version": "3.0.0",
         "type": "drupal-module",

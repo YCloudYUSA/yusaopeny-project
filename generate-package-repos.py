@@ -19,6 +19,7 @@ REPOS = [
     ("ycloudyusa/lb_claro", "3.0.0", "drupal-theme", "https://github.com/YCloudYUSA/lb_claro.git", "https://raw.githubusercontent.com/YCloudYUSA/lb_claro"),
     ("drupal/lb_accordion", "3.0.0", "drupal-module", "https://git.drupalcode.org/project/lb_accordion.git", "https://git.drupalcode.org/project/lb_accordion/-/raw"),
     ("drupal/lb_branch_amenities_blocks", "3.0.0", "drupal-module", "https://git.drupalcode.org/project/lb_branch_amenities_blocks.git", "https://git.drupalcode.org/project/lb_branch_amenities_blocks/-/raw"),
+    ("drupal/lb_branch_hours_blocks", "2.0.0", "drupal-module", "https://git.drupalcode.org/project/lb_branch_hours_blocks.git", "https://git.drupalcode.org/project/lb_branch_hours_blocks/-/raw"),
     ("drupal/lb_cards", "3.0.0", "drupal-module", "https://git.drupalcode.org/project/lb_cards.git", "https://git.drupalcode.org/project/lb_cards/-/raw"),
     ("drupal/lb_carousel", "3.0.0", "drupal-module", "https://git.drupalcode.org/project/lb_carousel.git", "https://git.drupalcode.org/project/lb_carousel/-/raw"),
     ("drupal/lb_grid_cta", "4.0.0", "drupal-module", "https://git.drupalcode.org/project/lb_grid_cta.git", "https://git.drupalcode.org/project/lb_grid_cta/-/raw"),

@@ -5,7 +5,7 @@
 | **Document Version** | 1.1 |
 | **Date** | 19 December 2025 |
 | **Status** | Planning Phase |
-| **Timeline** | 6-9 months |
+| **Phases** | 8 |
 
 ---
 
@@ -526,7 +526,7 @@ import 'bootstrap';
 
 ## Migration Strategy
 
-### Phase 1: Preparation & Research (2-3 weeks)
+### Phase 1: Preparation & Research
 
 #### 1.1 Study Reference Implementation
 - ✅ Analyze **lb_accordion** module (already migrated to Bootstrap 5.3.3)
@@ -606,7 +606,7 @@ grep -r "btn-block\|form-group\|custom-select\|media-body\|close" docroot/ \
 
 ---
 
-### Phase 2: Core Theme Migration (4-6 weeks)
+### Phase 2: Core Theme Migration
 
 **Priority:** CRITICAL - Theme affects entire site
 
@@ -818,7 +818,7 @@ Document:
 
 ---
 
-### Phase 3: Layout Builder Modules (6-8 weeks)
+### Phase 3: Layout Builder Modules
 
 **Priority:** HIGH - Used extensively across sites
 
@@ -826,21 +826,21 @@ Document:
 
 **Reference Implementation:** lb_accordion (already migrated)
 
-**Batch 1: High Priority (2 weeks)**
+**Batch 1: High Priority**
 1. lb_hero - Homepage hero component
 2. lb_cards - Commonly used card layouts
 3. lb_carousel - Image carousels
 4. lb_modal - Modal dialogs
 5. lb_webform - Form integration
 
-**Batch 2: Medium Priority (2 weeks)**
+**Batch 2: Medium Priority**
 6. lb_branch_amenities_blocks
 7. lb_branch_hours_blocks
 8. lb_branch_social_links_blocks
 9. lb_ping_pong - Alternating content blocks
 10. lb_promo - Promotional blocks
 
-**Batch 3: Lower Priority (2 weeks)**
+**Batch 3: Lower Priority**
 11. lb_grid_cta (+ lb_grid_icon submodule)
 12. lb_partners_blocks
 13. lb_related_articles_blocks
@@ -983,7 +983,7 @@ npm run build
 
 ---
 
-### Phase 4: Activity Finder Migration (8-12 weeks)
+### Phase 4: Activity Finder Migration
 
 **Priority:** CRITICAL - Complex, high-impact component
 
@@ -996,18 +996,18 @@ See `docs/bootstrap-5-migration/decisions/ACTIVITY_FINDER_DECISION.md` for detai
 
 **Options:**
 
-| Option | Description | Timeline | Risk | Recommendation |
+| Option | Description | Risk | Recommendation |
 |--------|-------------|----------|------|----------------|
-| **A. BootstrapVueNext** | Migrate to Bootstrap 5 + Vue 3 | 10-12 weeks | HIGH (alpha software) | Future consideration |
-| **B. Bootstrap 5 Direct** | Remove BootstrapVue, use Bootstrap 5 vanilla JS | 8-10 weeks | MEDIUM | ✅ Recommended |
-| **C. Temporary Isolation** | Scope Bootstrap 4 CSS, delay migration | 2-3 weeks | LOW | Short-term solution |
+| **A. BootstrapVueNext** | Migrate to Bootstrap 5 + Vue 3 | HIGH (alpha software) | Future consideration |
+| **B. Bootstrap 5 Direct** | Remove BootstrapVue, use Bootstrap 5 vanilla JS | MEDIUM | ✅ Recommended |
+| **C. Temporary Isolation** | Scope Bootstrap 4 CSS, delay migration | LOW | Short-term solution |
 | **D. Keep Bootstrap 4** | No changes | Ongoing | LOW | Not recommended |
 
 **Recommended Approach:** **Option C → Option B (Phased)**
 1. Start with temporary isolation (Option C)
 2. Migrate incrementally to Bootstrap 5 direct (Option B)
 
-#### 4.2 Phase 4A: Temporary Isolation (2-3 weeks)
+#### 4.2 Phase 4A: Temporary Isolation
 
 **Goal:** Allow theme to use Bootstrap 5 while Activity Finder stays on Bootstrap 4
 
@@ -1056,7 +1056,7 @@ activity_finder_4:
 - Verify theme uses Bootstrap 5 without conflicts
 - Test on same page where both are present
 
-#### 4.3 Phase 4B: Incremental Migration (8-10 weeks)
+#### 4.3 Phase 4B: Incremental Migration
 
 **Goal:** Replace BootstrapVue components with Bootstrap 5 vanilla JS
 
@@ -1346,7 +1346,7 @@ If migrating to Vue 3:
 
 ---
 
-### Phase 5: Website Services & Y Modules (6-8 weeks)
+### Phase 5: Website Services & Y Modules
 
 **Priority:** MEDIUM - Site-specific functionality
 
@@ -1462,7 +1462,7 @@ done
 
 ---
 
-### Phase 6: Supporting Modules (2-3 weeks)
+### Phase 6: Supporting Modules
 
 **Priority:** LOW-MEDIUM
 
@@ -1559,7 +1559,7 @@ flatpickr:
 
 ---
 
-### Phase 7: Testing & Quality Assurance (4-6 weeks)
+### Phase 7: Testing & Quality Assurance
 
 **Priority:** CRITICAL
 
@@ -1737,7 +1737,7 @@ npm install -D webpack-bundle-analyzer
 
 ---
 
-### Phase 8: Documentation & Rollout (2-3 weeks)
+### Phase 8: Documentation & Rollout
 
 #### 8.1 Documentation Updates
 
@@ -1947,34 +1947,7 @@ Create: `docs/bootstrap-5-migration/SITE_BUILDER_GUIDE.md`
 
 ---
 
-## Timeline & Resources
-
-### Overall Timeline: 6-9 months
-
-| Phase | Duration | Start Week | End Week | Resources |
-|-------|----------|------------|----------|-----------|
-| **Phase 1: Preparation** | 2-3 weeks | W1 | W3 | 1 developer |
-| **Phase 2: Core Theme** | 4-6 weeks | W4 | W9 | 2 developers |
-| **Phase 3: LB Modules** | 6-8 weeks | W10 | W17 | 2-3 developers |
-| **Phase 4: Activity Finder** | 8-12 weeks | W10 | W21 | 2 developers |
-| **Phase 5: WS/Y Modules** | 6-8 weeks | W10 | W17 | 2 developers |
-| **Phase 6: Supporting** | 2-3 weeks | W18 | W20 | 1 developer |
-| **Phase 7: Testing/QA** | 4-6 weeks | W18 | W23 | 2 QA + 1 dev |
-| **Phase 8: Docs/Rollout** | 2-3 weeks | W24 | W26 | 1 developer |
-
-**Notes:**
-- Phases 3, 4, and 5 run in parallel after Phase 2
-- Phase 7 (Testing) runs concurrently with development phases
-- Total duration: ~26 weeks (6 months) with parallel work
-- Could extend to 36 weeks (9 months) if done sequentially
-
-### Resource Requirements
-
-**Team Composition:**
-- **2-3 Front-end Developers** (Bootstrap, SCSS, JavaScript, Vue.js)
-- **1-2 QA Engineers** (Manual testing, automated testing)
-- **1 Technical Writer** (Documentation updates)
-- **1 Project Manager** (Coordination, tracking)
+## Resource Requirements
 
 **Skills Needed:**
 - Bootstrap 4 & 5 expertise

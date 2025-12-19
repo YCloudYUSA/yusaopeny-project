@@ -3,10 +3,8 @@
 | | |
 |---|---|
 | **Project** | Y USA Open YMCA Bootstrap 4 → 5 Migration |
-| **Timeline** | 9-12 months (Gradual approach) |
+| **Approach** | Gradual, community-focused |
 | **Start Date** | TBD |
-| **Sprint Duration** | 2 weeks |
-| **Total Sprints** | 20-24 sprints |
 | **Last Updated** | 19 December 2025 |
 
 ---
@@ -17,46 +15,44 @@ Based on questionnaire responses, this is a **gradual, low-risk, community-focus
 
 > [!TIP]
 > **Key Parameters:**
-> - **Timeline:** 9-12 months, sequential phases
-> - **Resources:** 1 full-time developer + contractor support (as needed)
+> - **Approach:** Sequential phases, gradual migration
 > - **Testing:** Progressive (Basic → Standard → Comprehensive)
 > - **Rollout:** Multi-tier (New sites → Safe sites → Flagged → Staged distribution)
 > - **Priority Order:** Theme → WS modules → LB modules → Content Types → Activity Finder
 > - **Success Criteria:** Technical correctness first, avoid community resistance
-> - **Maintenance:** Hybrid (core team + community), exploring Vite+TypeScript future
 
 ---
 
 ## Sprint Structure Overview
 
-### Phase 1: Preparation & Foundation (Sprints 1-3, 6 weeks)
+### Phase 1: Preparation & Foundation
 - Set up infrastructure
 - Study reference implementations
 - Migrate core theme
 - Activity Finder isolation
 
-### Phase 2: Website Services Modules (Sprints 4-7, 8 weeks)
+### Phase 2: Website Services Modules
 - ws_small_y suite (15 modules)
 - ws_event, ws_promotion, ws_colorway_canada
 - Other WS modules
 
-### Phase 3: Layout Builder Modules (Sprints 8-13, 12 weeks)
+### Phase 3: Layout Builder Modules
 - High priority LB modules (hero, cards, carousel, modal, webform)
 - Medium priority LB modules
 - Lower priority LB modules
 - ~20 modules total
 
-### Phase 4: Content Type Modules (Sprints 14-17, 8 weeks)
+### Phase 4: Content Type Modules
 - y_branch, y_program, y_camp, y_facility
 - y_lb, y_donate, y_branch_menu
 - All critical content types
 
-### Phase 5: Activity Finder Migration (Sprints 18-21, 8 weeks)
+### Phase 5: Activity Finder Migration
 - Remove BootstrapVue dependencies
 - Migrate to Bootstrap 5 vanilla JS
 - Comprehensive testing
 
-### Phase 6: Testing, Documentation & Rollout (Sprints 22-24, 6 weeks)
+### Phase 6: Testing, Documentation & Rollout
 - Comprehensive testing
 - Documentation updates
 - Staged rollout to distribution
@@ -69,7 +65,7 @@ Based on questionnaire responses, this is a **gradual, low-risk, community-focus
 
 ## 🏁 PHASE 1: PREPARATION & FOUNDATION
 
-### Sprint 1: Infrastructure & Research (Weeks 1-2)
+### Sprint 1: Infrastructure & Research
 
 **Sprint Goal:** Set up migration infrastructure and create baseline
 
@@ -122,7 +118,7 @@ Based on questionnaire responses, this is a **gradual, low-risk, community-focus
 
 ---
 
-### Sprint 2: Core Theme Migration - Part 1 (Weeks 3-4)
+### Sprint 2: Core Theme Migration - Part 1
 
 **Sprint Goal:** Begin openy_carnation theme migration
 
@@ -170,7 +166,7 @@ Based on questionnaire responses, this is a **gradual, low-risk, community-focus
 
 ---
 
-### Sprint 3: Core Theme Migration - Part 2 + Activity Finder Isolation (Weeks 5-6)
+### Sprint 3: Core Theme Migration - Part 2 + Activity Finder Isolation
 
 **Sprint Goal:** Complete theme migration and isolate Activity Finder
 
@@ -258,7 +254,7 @@ Based on questionnaire responses, this is a **gradual, low-risk, community-focus
 
 ## 🔧 PHASE 2: WEBSITE SERVICES MODULES
 
-### Sprint 4: ws_small_y Suite - Part 1 (Weeks 7-8)
+### Sprint 4: ws_small_y Suite - Part 1
 
 **Sprint Goal:** Migrate first batch of ws_small_y modules
 
@@ -304,7 +300,7 @@ Based on questionnaire responses, this is a **gradual, low-risk, community-focus
 
 ---
 
-### Sprint 5: ws_small_y Suite - Part 2 (Weeks 9-10)
+### Sprint 5: ws_small_y Suite - Part 2
 
 **Sprint Goal:** Complete remaining ws_small_y modules
 
@@ -339,7 +335,7 @@ Based on questionnaire responses, this is a **gradual, low-risk, community-focus
 
 ---
 
-### Sprint 6: Other Website Services Modules (Weeks 11-12)
+### Sprint 6: Other Website Services Modules
 
 **Sprint Goal:** Migrate remaining WS modules
 
@@ -390,7 +386,7 @@ Based on questionnaire responses, this is a **gradual, low-risk, community-focus
 
 ---
 
-### Sprint 7: Testing & Documentation Catch-Up (Weeks 13-14)
+### Sprint 7: Testing & Documentation Catch-Up
 
 **Sprint Goal:** Test all migrated modules together, document patterns, catch up on any issues
 
@@ -443,7 +439,7 @@ Based on questionnaire responses, this is a **gradual, low-risk, community-focus
 
 ## 🎨 PHASE 3: LAYOUT BUILDER MODULES
 
-### Sprint 8: High Priority LB Modules - Part 1 (Weeks 15-16)
+### Sprint 8: High Priority LB Modules - Part 1
 
 **Sprint Goal:** Migrate critical Layout Builder modules
 
@@ -492,7 +488,7 @@ Based on questionnaire responses, this is a **gradual, low-risk, community-focus
 
 ---
 
-### Sprint 9: High Priority LB Modules - Part 2 (Weeks 17-18)
+### Sprint 9: High Priority LB Modules - Part 2
 
 **Sprint Goal:** Complete high-priority LB modules
 
@@ -549,7 +545,7 @@ Based on questionnaire responses, this is a **gradual, low-risk, community-focus
 
 ---
 
-### Sprint 10: Medium Priority LB Modules - Part 1 (Weeks 19-20)
+### Sprint 10: Medium Priority LB Modules - Part 1
 
 **Sprint Goal:** Migrate medium-priority LB modules
 
@@ -581,7 +577,7 @@ Based on questionnaire responses, this is a **gradual, low-risk, community-focus
 
 ---
 
-### Sprint 11: Medium Priority LB Modules - Part 2 (Weeks 21-22)
+### Sprint 11: Medium Priority LB Modules - Part 2
 
 **Sprint Goal:** Continue medium-priority LB modules
 
@@ -613,7 +609,7 @@ Based on questionnaire responses, this is a **gradual, low-risk, community-focus
 
 ---
 
-### Sprint 12: Lower Priority LB Modules (Weeks 23-24)
+### Sprint 12: Lower Priority LB Modules
 
 **Sprint Goal:** Complete remaining LB modules
 
@@ -645,7 +641,7 @@ Based on questionnaire responses, this is a **gradual, low-risk, community-focus
 
 ---
 
-### Sprint 13: LB Integration Testing & Date Picker (Weeks 25-26)
+### Sprint 13: LB Integration Testing & Date Picker
 
 **Sprint Goal:** Test all LB modules together, implement date picker replacement
 
@@ -691,7 +687,7 @@ Based on questionnaire responses, this is a **gradual, low-risk, community-focus
 
 ## 📄 PHASE 4: CONTENT TYPE MODULES
 
-### Sprint 14: Y Branch & Related Modules (Weeks 27-28)
+### Sprint 14: Y Branch & Related Modules
 
 **Sprint Goal:** Migrate branch-related content type modules
 
@@ -730,7 +726,7 @@ Based on questionnaire responses, this is a **gradual, low-risk, community-focus
 
 ---
 
-### Sprint 15: Y Program & Camp Modules (Weeks 29-30)
+### Sprint 15: Y Program & Camp Modules
 
 **Sprint Goal:** Migrate program and camp content types
 
@@ -772,7 +768,7 @@ Based on questionnaire responses, this is a **gradual, low-risk, community-focus
 
 ---
 
-### Sprint 16: Y Facility & LB Integration (Weeks 31-32)
+### Sprint 16: Y Facility & LB Integration
 
 **Sprint Goal:** Migrate facility and Layout Builder integration modules
 
@@ -810,7 +806,7 @@ Based on questionnaire responses, this is a **gradual, low-risk, community-focus
 
 ---
 
-### Sprint 17: Y Donate & Content Type Testing (Weeks 33-34)
+### Sprint 17: Y Donate & Content Type Testing
 
 **Sprint Goal:** Complete remaining content type modules and comprehensive testing
 
@@ -865,7 +861,7 @@ Based on questionnaire responses, this is a **gradual, low-risk, community-focus
 
 ## 🎯 PHASE 5: ACTIVITY FINDER MIGRATION
 
-### Sprint 18: Activity Finder Preparation & BootstrapVue Audit (Weeks 35-36)
+### Sprint 18: Activity Finder Preparation & BootstrapVue Audit
 
 **Sprint Goal:** Prepare for Activity Finder migration, audit BootstrapVue usage
 
@@ -925,7 +921,7 @@ Based on questionnaire responses, this is a **gradual, low-risk, community-focus
 
 ---
 
-### Sprint 19: Camp Finder Migration (Weeks 37-38)
+### Sprint 19: Camp Finder Migration
 
 **Sprint Goal:** Migrate Camp Finder to Bootstrap 5
 
@@ -988,7 +984,7 @@ Based on questionnaire responses, this is a **gradual, low-risk, community-focus
 
 ---
 
-### Sprint 20: Activity Finder Migration (Weeks 39-40)
+### Sprint 20: Activity Finder Migration
 
 **Sprint Goal:** Migrate Activity Finder to Bootstrap 5
 
@@ -1030,7 +1026,7 @@ Based on questionnaire responses, this is a **gradual, low-risk, community-focus
 
 ---
 
-### Sprint 21: Activity Finder 4 Migration (Weeks 41-42)
+### Sprint 21: Activity Finder 4 Migration
 
 **Sprint Goal:** Migrate Activity Finder 4 (most modern) to Bootstrap 5
 
@@ -1090,7 +1086,7 @@ Based on questionnaire responses, this is a **gradual, low-risk, community-focus
 
 ## 📋 PHASE 6: TESTING, DOCUMENTATION & ROLLOUT
 
-### Sprint 22: Comprehensive Testing & Bug Fixes (Weeks 43-44)
+### Sprint 22: Comprehensive Testing & Bug Fixes
 
 **Sprint Goal:** Final comprehensive testing and bug fixes
 
@@ -1166,7 +1162,7 @@ Based on questionnaire responses, this is a **gradual, low-risk, community-focus
 
 ---
 
-### Sprint 23: Documentation & Community Preparation (Weeks 45-46)
+### Sprint 23: Documentation & Community Preparation
 
 **Sprint Goal:** Complete documentation and prepare community for rollout
 
@@ -1228,7 +1224,7 @@ Based on questionnaire responses, this is a **gradual, low-risk, community-focus
 
 ---
 
-### Sprint 24: Staged Rollout & Launch (Weeks 47-48)
+### Sprint 24: Staged Rollout & Launch
 
 **Sprint Goal:** Execute multi-tier rollout strategy
 
@@ -1236,7 +1232,7 @@ Based on questionnaire responses, this is a **gradual, low-risk, community-focus
 
 **Your Rollout Strategy:** D → C → B → A
 
-**Week 1 (Week 47): Tier 1-2 Rollout**
+**Stage 1: Tier 1-2 Rollout**
 
 **Day 1-2: D - New Sites Only**
 - Update installation profile to default to Bootstrap 5
@@ -1259,7 +1255,7 @@ Based on questionnaire responses, this is a **gradual, low-risk, community-focus
 - Address any immediate issues
 - Document learnings
 
-**Week 2 (Week 48): Tier 3-4 Rollout**
+**Stage 2: Tier 3-4 Rollout**
 
 **Day 1-3: B - Activity Finder Flag**
 - Implement Bootstrap 5 feature flag (leverage existing Bootstrap 3/4 flag pattern)
@@ -1309,36 +1305,32 @@ Based on questionnaire responses, this is a **gradual, low-risk, community-focus
 
 ---
 
-## Summary: 24 Sprints Over 48 Weeks (~11 months)
+## Summary
 
 **Phase Breakdown:**
-- **Phase 1:** Sprints 1-3 (6 weeks) - Preparation, Theme, AF Isolation
-- **Phase 2:** Sprints 4-7 (8 weeks) - Website Services Modules (~16 modules)
-- **Phase 3:** Sprints 8-13 (12 weeks) - Layout Builder Modules (~20 modules)
-- **Phase 4:** Sprints 14-17 (8 weeks) - Content Type Modules (~10 modules)
-- **Phase 5:** Sprints 18-21 (8 weeks) - Activity Finder Migration (3 apps)
-- **Phase 6:** Sprints 22-24 (6 weeks) - Testing, Documentation, Rollout
-
-**Total:** 48 weeks (11-12 months) ✅ Within your 9-12 month target
+- **Phase 1:** Preparation, Theme, Activity Finder Isolation
+- **Phase 2:** Website Services Modules (~16 modules)
+- **Phase 3:** Layout Builder Modules (~20 modules)
+- **Phase 4:** Content Type Modules (~10 modules)
+- **Phase 5:** Activity Finder Migration (3 apps)
+- **Phase 6:** Testing, Documentation, Rollout
 
 ---
 
 ## Resource Allocation Summary
 
-**Primary Developer:** Full-time throughout (48 weeks)
+**Primary Developer:** Full-time throughout
 
 **Contractor Support (Recommended):**
-- Sprint 4-5 (WS modules batch processing)
-- Sprint 8-11 (LB modules batch processing)
-- Sprint 19-21 (Activity Finder Vue.js work)
-- **Total:** ~8-10 sprints (~16-20 weeks of contractor support)
+- WS modules batch processing
+- LB modules batch processing
+- Activity Finder Vue.js work
 
 **QA Engineer (Optional):**
-- Sprint 22 (Comprehensive testing)
-- **Total:** ~1 sprint (~2 weeks)
+- Comprehensive testing phase
 
 **Community Beta Testers:**
-- Sprint 24 (Rollout)
+- Rollout phase
 
 ---
 

@@ -4,7 +4,7 @@
 
 [![Bootstrap](https://img.shields.io/badge/Bootstrap-4.4.1→5.3.3-purple)](https://getbootstrap.com/docs/5.3/migration/)
 [![Modules](https://img.shields.io/badge/Modules-~70-blue)](#components-affected)
-[![Timeline](https://img.shields.io/badge/Timeline-6--9_months-green)](#migration-overview)
+[![Reference](https://img.shields.io/badge/Reference-lb__accordion-green)](#getting-started)
 
 ---
 
@@ -51,11 +51,9 @@ Start with [MIGRATION_STRATEGY.md](MIGRATION_STRATEGY.md) to understand:
 - Key breaking changes (Bootstrap 4 → 5)
 - 8-phase migration plan
 - Risk assessment
-- Timeline & resources (6-9 months)
 
 ### 2. Complete the Questionnaire
 Answer the [10 decision questions](decisions/QUESTIONNAIRE.md) to determine:
-- Timeline preference (3-4 months aggressive vs 6-9 months standard)
 - Activity Finder migration approach (critical decision!)
 - Available resources (developers, QA, budget)
 - Testing requirements
@@ -85,46 +83,46 @@ git checkout -b feature/bootstrap-5-migration
 
 ## Migration Overview
 
-### Phase 1: Preparation (2-3 weeks)
-- Study lb_accordion reference
+### Phase 1: Preparation
+- Study lb_accordion reference (already migrated to Bootstrap 5.3.3)
 - Set up testing infrastructure
 - Complete decision questionnaire
 - Create proof of concept
 
-### Phase 2: Core Theme (4-6 weeks)
+### Phase 2: Core Theme
 - Migrate openy_carnation theme
 - Update Bootstrap 4.4.1 → 5.3.3
 - Update all SCSS, templates, JavaScript
 - Extensive testing
 
-### Phase 3: Layout Builder Modules (6-8 weeks)
+### Phase 3: Layout Builder Modules
 - Migrate 19 lb_* modules (1 already done)
 - Follow lb_accordion pattern
 - High priority: lb_hero, lb_cards, lb_carousel, lb_modal, lb_webform
 
-### Phase 4: Activity Finder (8-12 weeks)
+### Phase 4: Activity Finder
 - **Critical challenge:** BootstrapVue 2 not compatible with Bootstrap 5
 - Recommended: Temporary isolation + incremental migration
 - Replace BootstrapVue components with Bootstrap 5 vanilla JS
 
-### Phase 5: WS & Y Modules (6-8 weeks)
+### Phase 5: WS & Y Modules
 - Migrate ws_small_y suite (15 modules)
 - Migrate y_branch, y_camp, y_program, etc.
 - Batch process similar modules
 
-### Phase 6: Supporting Modules (2-3 weeks)
+### Phase 6: Supporting Modules
 - bootstrap_layout_builder, bootstrap_styles
 - Replace bootstrap-datepicker with modern alternative
 - Other utilities
 
-### Phase 7: Testing & QA (4-6 weeks)
+### Phase 7: Testing & QA
 - Visual regression (BackstopJS)
 - Accessibility (Pa11y, WCAG 2.2 AA)
 - Performance (Lighthouse)
 - Cross-browser testing
 - Manual QA
 
-### Phase 8: Documentation & Rollout (2-3 weeks)
+### Phase 8: Documentation & Rollout
 - Update documentation
 - Staged rollout (internal → beta → production)
 - Communication & support
@@ -136,25 +134,20 @@ git checkout -b feature/bootstrap-5-migration
 
 ### 1. Activity Finder Strategy (MOST CRITICAL)
 
-| Option | Timeline | Risk | Notes |
-|--------|----------|------|-------|
-| **A. Isolation + Migration** | 10-13 weeks | 🟡 Medium | RECOMMENDED |
-| **B. Direct Migration** | 8-10 weeks | 🔴 High | Faster but riskier |
-| **C. BootstrapVueNext** | 12-16 weeks | 🔴 Very High | Alpha software |
-| **D. Keep Bootstrap 4** | 2-3 weeks | 🟢 Low | Permanent technical debt |
+| Option | Risk | Notes |
+|--------|------|-------|
+| **A. Isolation + Migration** | 🟡 Medium | RECOMMENDED |
+| **B. Direct Migration** | 🔴 High | Faster but riskier |
+| **C. BootstrapVueNext** | 🔴 Very High | Alpha software |
+| **D. Keep Bootstrap 4** | 🟢 Low | Permanent technical debt |
 
 > [!CAUTION]
 > BootstrapVue 2.x is **NOT** compatible with Bootstrap 5. This is the most critical challenge in the migration.
 
-### 2. Timeline
-- **Aggressive (3-4 months):** Requires 3-4 developers, parallel work, higher risk
-- **Standard (6-9 months):** Requires 2-3 developers, mixed approach, balanced risk
-- **Gradual (9-12 months):** Requires 1-2 developers, sequential, lowest risk
-
-### 3. Testing Level
-- **Comprehensive:** Visual + Accessibility + Performance + Cross-browser (4-6 weeks)
-- **Standard:** Visual + Accessibility (3-4 weeks)
-- **Basic:** Manual only (2-3 weeks)
+### 2. Testing Level
+- **Comprehensive:** Visual + Accessibility + Performance + Cross-browser
+- **Standard:** Visual + Accessibility
+- **Basic:** Manual only
 
 ## Components Affected
 
@@ -373,12 +366,11 @@ Proper testing and staged rollout mitigate risk.
 <details>
 <summary><strong>What's the minimum viable migration?</strong></summary>
 
-| Phase | Duration | Scope |
-|-------|----------|-------|
-| 1. Theme migration | 4-6 weeks | openy_carnation |
-| 2. Activity Finder isolation | 2-3 weeks | Scoped CSS |
-| 3. Basic testing | 2 weeks | Manual QA |
-| **Total** | **~8-11 weeks** | Minimum viable |
+| Phase | Scope |
+|-------|-------|
+| 1. Theme migration | openy_carnation |
+| 2. Activity Finder isolation | Scoped CSS |
+| 3. Basic testing | Manual QA |
 
 </details>
 
@@ -405,16 +397,23 @@ Maintain a rollback plan and provide support during rollout. Most issues should 
 
 </details>
 
-<details>
-<summary><strong>How much will this cost?</strong></summary>
 
-| Approach | Timeline | Team Size | Estimated Cost |
-|----------|----------|-----------|----------------|
-| Standard | 6-9 months | 2-3 devs | $150K-$250K |
-| Aggressive | 3-4 months | 3-4 devs | $200K-$350K |
-| Gradual | 9-12 months | 1-2 devs | $100K-$180K |
+## Future Considerations
 
-</details>
+> [!TIP]
+> **Canvas SDC (Single Directory Components)** is being explored as a successor to Layout Builder for YMCA Website Services. Bootstrap 5 migration prepares the codebase for this future evolution.
+
+### Canvas SDC Migration Path
+
+The `ws_small_y` module styles are being converted to Canvas SDC organisms, providing:
+- Modern component architecture
+- Improved developer experience
+- Better separation of concerns
+- Atomic Design patterns (Organisms → Molecules)
+
+**Reference Implementation:** The `lb_accordion` module already demonstrates Bootstrap 5.3.3 patterns that align with Canvas SDC conversion approaches.
+
+---
 
 ## Next Steps
 

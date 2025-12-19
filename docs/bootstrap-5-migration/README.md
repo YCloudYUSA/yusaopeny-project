@@ -405,13 +405,59 @@ Maintain a rollback plan and provide support during rollout. Most issues should 
 
 ### Canvas SDC Migration Path
 
-The `ws_small_y` module styles are being converted to Canvas SDC organisms, providing:
+The `ws_small_y` module styles are being converted to Canvas SDC organisms:
+
+| Metric | Value |
+|--------|-------|
+| Source block_content types | 62 |
+| Canvas SDC components | 60 |
+| Parent→Molecule pairs | 12 |
+| Style source | ws_small_y module SCSS |
+
+**Key benefits:**
 - Modern component architecture
 - Improved developer experience
 - Better separation of concerns
 - Atomic Design patterns (Organisms → Molecules)
 
-**Reference Implementation:** The `lb_accordion` module already demonstrates Bootstrap 5.3.3 patterns that align with Canvas SDC conversion approaches.
+### Style Source: ws_small_y
+
+> [!IMPORTANT]
+> CSS styles for Bootstrap 5 components should reference **ws_small_y SCSS** as the authoritative source, not base lb_* modules.
+
+<details>
+<summary><strong>Component → ws_small_y Mapping</strong></summary>
+
+| Component | ws_small_y Module | SCSS Source |
+|-----------|-------------------|-------------|
+| Accordion | `small_y_accordions` | `small_y_accordion.scss` |
+| Cards | `small_y_cards` | `small_y_cards.scss` |
+| Carousel | `small_y_carousels` | `small_y_carousels.scss` |
+| Hero | `small_y_hero` | `hero_*.scss` |
+| Ping Pong | `small_y_ping_pongs` | `small_y_ping_pongs.scss` |
+| Tabs | `small_y_tabs` | `small_y_tabs.scss` |
+| Statistics | `ws_small_y_statistics` | `small-y-statistics.scss` |
+
+</details>
+
+<details>
+<summary><strong>CSS Custom Properties</strong></summary>
+
+```css
+/* Standard theming properties */
+--wsPrimaryColor: #006B6B;      /* Teal - headings, buttons */
+--wsSecondaryColor: #01A490;    /* Light teal - hover, accents */
+--wsBorderRadius: 10px;         /* Standard border radius */
+
+/* Typography */
+--ylb-font-family-verdana: Verdana, sans-serif;
+--ylb-color-white: white;
+--ylb-color-dark-grey-1: #2F2F2F;
+```
+
+</details>
+
+**Reference Implementation:** The `lb_accordion` module demonstrates Bootstrap 5.3.3 patterns (modular SCSS imports, CSS custom properties, PurgeCSS) that align with Canvas SDC conversion.
 
 ---
 

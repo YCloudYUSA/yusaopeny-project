@@ -1,10 +1,13 @@
 # Bootstrap 5 Migration - Sprint Plan
 
-**Project:** Y USA Open YMCA Bootstrap 4 → 5 Migration
-**Timeline:** 9-12 months (Gradual approach)
-**Start Date:** TBD
-**Sprint Duration:** 2 weeks
-**Total Sprints:** 20-24 sprints
+| | |
+|---|---|
+| **Project** | Y USA Open YMCA Bootstrap 4 → 5 Migration |
+| **Timeline** | 9-12 months (Gradual approach) |
+| **Start Date** | TBD |
+| **Sprint Duration** | 2 weeks |
+| **Total Sprints** | 20-24 sprints |
+| **Last Updated** | 19 December 2025 |
 
 ---
 
@@ -12,14 +15,15 @@
 
 Based on questionnaire responses, this is a **gradual, low-risk, community-focused migration** with the following characteristics:
 
-**Key Parameters:**
-- **Timeline:** 9-12 months, sequential phases
-- **Resources:** 1 full-time developer + contractor support (as needed)
-- **Testing:** Progressive (Basic → Standard → Comprehensive)
-- **Rollout:** Multi-tier (New sites → Safe sites → Flagged → Staged distribution)
-- **Priority Order:** Theme → WS modules → LB modules → Content Types → Activity Finder
-- **Success Criteria:** Technical correctness first, avoid community resistance
-- **Maintenance:** Hybrid (core team + community), exploring Vite+TypeScript future
+> [!TIP]
+> **Key Parameters:**
+> - **Timeline:** 9-12 months, sequential phases
+> - **Resources:** 1 full-time developer + contractor support (as needed)
+> - **Testing:** Progressive (Basic → Standard → Comprehensive)
+> - **Rollout:** Multi-tier (New sites → Safe sites → Flagged → Staged distribution)
+> - **Priority Order:** Theme → WS modules → LB modules → Content Types → Activity Finder
+> - **Success Criteria:** Technical correctness first, avoid community resistance
+> - **Maintenance:** Hybrid (core team + community), exploring Vite+TypeScript future
 
 ---
 
@@ -246,8 +250,9 @@ Based on questionnaire responses, this is a **gradual, low-risk, community-focus
 - Migration log with issues and solutions
 - Theme migration checklist completed
 
-**Decision Point:**
-- **GO/NO-GO for Phase 2:** Is theme stable enough to proceed with modules?
+> [!IMPORTANT]
+> **Decision Point:**
+> - **GO/NO-GO for Phase 2:** Is theme stable enough to proceed with modules?
 
 ---
 
@@ -379,8 +384,9 @@ Based on questionnaire responses, this is a **gradual, low-risk, community-focus
 - All Website Services modules migrated
 - Phase 2 complete
 
-**Decision Point:**
-- **Upgrade Testing:** Consider moving from Basic to Standard testing (add BackstopJS visual regression for Phase 3)
+> [!NOTE]
+> **Decision Point:**
+> Consider moving from Basic to Standard testing (add BackstopJS visual regression for Phase 3)
 
 ---
 
@@ -746,7 +752,8 @@ Based on questionnaire responses, this is a **gradual, low-risk, community-focus
    - Test camp menu
    - Test integration with Camp Finder (still on Bootstrap 4, should work)
 
-**Note:** Activity Finder and Camp Finder are still isolated on Bootstrap 4
+> [!NOTE]
+> Activity Finder and Camp Finder are still isolated on Bootstrap 4
 - Test that program/camp pages work with isolated finders
 - No conflicts between Bootstrap 5 pages and Bootstrap 4 finders
 
@@ -849,9 +856,10 @@ Based on questionnaire responses, this is a **gradual, low-risk, community-focus
 - Phase 4 complete
 - Integration testing passed
 
-**Decision Point:**
-- **GO/NO-GO for Activity Finder Migration:** Ready to tackle Activity Finder? Or delay?
-- If delaying Activity Finder, skip to Phase 6 (Testing & Rollout)
+> [!IMPORTANT]
+> **Decision Point:**
+> - **GO/NO-GO for Activity Finder Migration:** Ready to tackle Activity Finder? Or delay?
+> - If delaying Activity Finder, skip to Phase 6 (Testing & Rollout)
 
 ---
 
@@ -1351,13 +1359,14 @@ Based on questionnaire responses, this is a **gradual, low-risk, community-focus
      - Buffer built into estimates
      - Can adjust scope if needed (skip unused modules)
 
-3. **Community Resistance (HIGH RISK - Your #1 Failure Condition)**
-   - **Mitigation:**
-     - Multi-tier rollout (D→C→B→A)
-     - Extensive documentation
-     - Community-first support approach
-     - Beta testing before full rollout
-     - Feature flag allows opt-in
+> [!CAUTION]
+> **3. Community Resistance (HIGH RISK - #1 Failure Condition)**
+> - **Mitigation:**
+>   - Multi-tier rollout (D→C→B→A)
+>   - Extensive documentation
+>   - Community-first support approach
+>   - Beta testing before full rollout
+>   - Feature flag allows opt-in
 
 4. **Visual Regressions (MEDIUM RISK)**
    - **Mitigation:**
@@ -1468,11 +1477,10 @@ Based on questionnaire responses, this is a **gradual, low-risk, community-focus
 
 ---
 
-**Document Status:** READY FOR APPROVAL
-
-**Next Action:** Schedule Sprint 1 Planning Meeting
-
-**Contact:** [Your contact info]
+> [!NOTE]
+> **Document Status:** READY FOR APPROVAL
+>
+> **Next Action:** Schedule Sprint 1 Planning Meeting
 
 ---
 

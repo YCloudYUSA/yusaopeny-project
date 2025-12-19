@@ -1,12 +1,23 @@
 # Bootstrap 5 Migration Documentation
 
-This directory contains all documentation related to the Bootstrap 4 to Bootstrap 5 migration for the Y USA Open YMCA project.
+> **POC environment for upgrading Y USA Open YMCA from Bootstrap 4 to Bootstrap 5**
+
+[![Bootstrap](https://img.shields.io/badge/Bootstrap-4.4.1→5.3.3-purple)](https://getbootstrap.com/docs/5.3/migration/)
+[![Modules](https://img.shields.io/badge/Modules-~70-blue)](#components-affected)
+[![Timeline](https://img.shields.io/badge/Timeline-6--9_months-green)](#migration-overview)
+
+---
 
 ## Quick Links
 
-- **[Migration Strategy](MIGRATION_STRATEGY.md)** - Comprehensive migration plan (start here!)
-- **[Decision Questionnaire](decisions/QUESTIONNAIRE.md)** - 10 questions to guide sprint planning
-- **[Reference: lb_accordion](../modules/contrib/lb_accordion/)** - Already migrated to Bootstrap 5.3.3
+| Document | Description |
+|----------|-------------|
+| **[Migration Strategy](MIGRATION_STRATEGY.md)** | Comprehensive migration plan (start here!) |
+| **[Sprint Plan](SPRINT_PLAN.md)** | Detailed sprint breakdown |
+| **[Decision Questionnaire](decisions/QUESTIONNAIRE.md)** | 10 questions to guide sprint planning |
+
+> [!TIP]
+> Start with the **Migration Strategy** document for a complete overview, then complete the **Decision Questionnaire** to determine your approach.
 
 ## Directory Structure
 
@@ -120,14 +131,20 @@ git checkout -b feature/bootstrap-5-migration
 
 ## Key Decisions Required
 
-### 1. Activity Finder Strategy (MOST CRITICAL)
-**Options:**
-- **A. Isolation + Migration** (RECOMMENDED) - 10-13 weeks, lower risk
-- **B. Direct Migration** - 8-10 weeks, higher risk
-- **C. BootstrapVueNext** - 12-16 weeks, highest risk (alpha software)
-- **D. Keep Bootstrap 4** - 2-3 weeks, permanent technical debt
+> [!IMPORTANT]
+> These decisions must be made before beginning the migration. The Activity Finder decision in particular affects the entire timeline and approach.
 
-**Impact:** This decision affects the entire timeline and approach.
+### 1. Activity Finder Strategy (MOST CRITICAL)
+
+| Option | Timeline | Risk | Notes |
+|--------|----------|------|-------|
+| **A. Isolation + Migration** | 10-13 weeks | 🟡 Medium | RECOMMENDED |
+| **B. Direct Migration** | 8-10 weeks | 🔴 High | Faster but riskier |
+| **C. BootstrapVueNext** | 12-16 weeks | 🔴 Very High | Alpha software |
+| **D. Keep Bootstrap 4** | 2-3 weeks | 🟢 Low | Permanent technical debt |
+
+> [!CAUTION]
+> BootstrapVue 2.x is **NOT** compatible with Bootstrap 5. This is the most critical challenge in the migration.
 
 ### 2. Timeline
 - **Aggressive (3-4 months):** Requires 3-4 developers, parallel work, higher risk
@@ -143,33 +160,70 @@ git checkout -b feature/bootstrap-5-migration
 
 ### Bootstrap 4 Usage by Category
 
-**Theme:**
-- openy_carnation (Bootstrap 4.4.1)
+<details>
+<summary><strong>Theme (1)</strong></summary>
 
-**Activity Finders:**
-- Activity Finder 4 (Bootstrap 4.6.1 + BootstrapVue 2.22.0)
-- Activity Finder (BootstrapVue 2.22.0)
-- Camp Finder (BootstrapVue 2.22.0)
+| Component | Bootstrap Version | Priority |
+|-----------|------------------|----------|
+| openy_carnation | 4.4.1 | 🔴 Critical |
 
-**Layout Builder (20 modules):**
-- ✅ lb_accordion (Bootstrap 5.3.3) - ALREADY DONE
-- ❌ 19 others (Bootstrap 4.4.1)
+</details>
 
-**Website Services (16+ modules):**
+<details>
+<summary><strong>Activity Finders (3)</strong> - ⚠️ BootstrapVue dependency</summary>
+
+| Component | Bootstrap | BootstrapVue | Vue |
+|-----------|-----------|--------------|-----|
+| Activity Finder 4 | 4.6.1 | 2.22.0 | 2.6.14 |
+| Activity Finder | - | 2.22.0 | 2.6.10 |
+| Camp Finder | - | 2.22.0 | 2.6.10 |
+
+</details>
+
+<details>
+<summary><strong>Layout Builder Modules (20)</strong></summary>
+
+| Status | Module | Notes |
+|--------|--------|-------|
+| ✅ | lb_accordion | **Already on Bootstrap 5.3.3** |
+| ❌ | lb_hero | High priority |
+| ❌ | lb_cards | High priority |
+| ❌ | lb_carousel | High priority |
+| ❌ | lb_modal | High priority |
+| ❌ | lb_webform | High priority |
+| ❌ | lb_ping_pong | Medium priority |
+| ❌ | lb_statistics | Medium priority |
+| ❌ | 12 others | See Migration Strategy |
+
+</details>
+
+<details>
+<summary><strong>Website Services (16+ modules)</strong></summary>
+
 - ws_small_y suite (15 modules)
 - ws_event, ws_promotion, ws_colorway_canada, etc.
 
-**Content Types (10+ modules):**
-- y_branch, y_camp, y_facility, y_program, etc.
+</details>
 
-**Other:**
+<details>
+<summary><strong>Content Types & Other (20+ modules)</strong></summary>
+
+- y_branch, y_camp, y_facility, y_program, etc.
 - openy_repeat, openy_node_alert, openy_map, etc.
 
-**Total: ~70 components**
+</details>
+
+> [!NOTE]
+> **Total: ~70 components** - See [Migration Strategy](MIGRATION_STRATEGY.md) for complete inventory.
 
 ## Breaking Changes Highlights
 
-### Data Attributes (ALL CHANGED)
+> [!WARNING]
+> All data attributes changed from `data-*` to `data-bs-*`. This affects every interactive component.
+
+<details>
+<summary><strong>Data Attributes (ALL CHANGED)</strong></summary>
+
 ```html
 <!-- Bootstrap 4 -->
 <button data-toggle="modal" data-target="#myModal">
@@ -178,54 +232,93 @@ git checkout -b feature/bootstrap-5-migration
 <button data-bs-toggle="modal" data-bs-target="#myModal">
 ```
 
-### Common Class Changes
-- `.btn-block` → `.d-grid` wrapper
-- `.form-group` → `.mb-3`
-- `.custom-select` → `.form-select`
-- `.close` → `.btn-close`
-- `.ml-*` → `.ms-*` (margin-start)
-- `.mr-*` → `.me-*` (margin-end)
-- `.text-left` → `.text-start`
-- `.text-right` → `.text-end`
+</details>
 
-### JavaScript API
+<details>
+<summary><strong>Common Class Changes</strong></summary>
+
+| Bootstrap 4 | Bootstrap 5 | Notes |
+|-------------|-------------|-------|
+| `.btn-block` | `.d-grid` wrapper | Structure change |
+| `.form-group` | `.mb-3` | Use spacing utilities |
+| `.custom-select` | `.form-select` | Renamed |
+| `.close` | `.btn-close` | Renamed |
+| `.ml-*` / `.mr-*` | `.ms-*` / `.me-*` | RTL support (start/end) |
+| `.pl-*` / `.pr-*` | `.ps-*` / `.pe-*` | RTL support (start/end) |
+| `.text-left` / `.text-right` | `.text-start` / `.text-end` | RTL support |
+| `.no-gutters` | `.g-0` | Gutter utilities |
+| `.font-weight-*` | `.fw-*` | Shortened |
+| `.font-style-*` | `.fst-*` | Shortened |
+
+</details>
+
+<details>
+<summary><strong>JavaScript API Changes</strong></summary>
+
 ```javascript
-// Bootstrap 4 (jQuery)
+// Bootstrap 4 (jQuery required)
 $('#myModal').modal('show');
+$('[data-toggle="tooltip"]').tooltip();
 
-// Bootstrap 5 (Vanilla JS)
+// Bootstrap 5 (Vanilla JS - NO jQuery)
 const modal = new bootstrap.Modal(document.getElementById('myModal'));
 modal.show();
+
+const tooltips = document.querySelectorAll('[data-bs-toggle="tooltip"]');
+tooltips.forEach(el => new bootstrap.Tooltip(el));
 ```
 
-### Removed Components
-- `.media` component
-- `.jumbotron`
-- `.card-deck`
-- jQuery dependency
+</details>
+
+<details>
+<summary><strong>Removed Components</strong></summary>
+
+| Removed | Replacement |
+|---------|-------------|
+| `.media` | Flexbox utilities |
+| `.jumbotron` | Utility classes |
+| `.card-deck` | Grid system |
+| jQuery dependency | Vanilla JS |
+
+</details>
 
 ## Resources
 
 ### Official Bootstrap
-- [Bootstrap 5 Migration Guide](https://getbootstrap.com/docs/5.3/migration/)
-- [Bootstrap 5 Documentation](https://getbootstrap.com/docs/5.3/)
+
+| Resource | Link |
+|----------|------|
+| Migration Guide | [getbootstrap.com/docs/5.3/migration](https://getbootstrap.com/docs/5.3/migration/) |
+| Documentation | [getbootstrap.com/docs/5.3](https://getbootstrap.com/docs/5.3/) |
+| GitHub | [github.com/twbs/bootstrap](https://github.com/twbs/bootstrap) |
 
 ### Testing Tools
-- [BackstopJS](https://github.com/garris/BackstopJS) - Visual regression
-- [Pa11y](https://pa11y.org/) - Accessibility
-- [Lighthouse](https://developers.google.com/web/tools/lighthouse) - Performance
+
+| Tool | Purpose | Link |
+|------|---------|------|
+| BackstopJS | Visual regression | [github.com/garris/BackstopJS](https://github.com/garris/BackstopJS) |
+| Pa11y | Accessibility | [pa11y.org](https://pa11y.org/) |
+| Lighthouse | Performance | [developers.google.com](https://developers.google.com/web/tools/lighthouse) |
 
 ### Migration Tools
-- [Bootstrap 5 Migrate Tool](https://github.com/coliff/bootstrap-5-migrate-tool)
-- [Bootstrap Diff](https://bootstrapdiff.com/)
+
+| Tool | Description |
+|------|-------------|
+| [Bootstrap 5 Migrate Tool](https://github.com/coliff/bootstrap-5-migrate-tool) | Automated class replacement |
+| [Bootstrap Diff](https://bootstrapdiff.com/) | Visual diff between versions |
 
 ### Y USA Resources
-- [Y USA Docs](https://sd-docs.y.org)
-- [GitHub Repository](https://github.com/YCloudYUSA/yusaopeny-project)
+
+| Resource | Link |
+|----------|------|
+| Y USA Docs | [ds-docs.y.org](https://ds-docs.y.org) |
+| GitHub Repository | [github.com/YCloudYUSA/yusaopeny-project](https://github.com/YCloudYUSA/yusaopeny-project) |
+| Discussions | [github.com/YCloudYUSA/yusaopeny/discussions](https://github.com/YCloudYUSA/yusaopeny/discussions) |
 
 ## Success Metrics
 
-**Technical:**
+### Technical
+
 - [ ] All ~70 modules migrated to Bootstrap 5.3+
 - [ ] Zero jQuery dependencies (except Drupal core)
 - [ ] Lighthouse scores 90+
@@ -233,61 +326,118 @@ modal.show();
 - [ ] WCAG 2.2 AA compliance maintained
 - [ ] Zero visual regressions
 
-**Quality:**
+### Quality
+
 - [ ] 100% templates use Bootstrap 5 syntax
 - [ ] All interactive components functional
 - [ ] Cross-browser compatibility verified
-- [ ] Mobile responsive (including new xxl breakpoint)
+- [ ] Mobile responsive (including new `xxl` breakpoint)
 
-**Business:**
+### Business
+
 - [ ] Zero site downtime
 - [ ] Positive user feedback
 - [ ] On-time delivery
 - [ ] On-budget delivery
 
+> [!NOTE]
+> Track progress against these metrics throughout the migration. Update checkboxes as milestones are completed.
+
 ## FAQ
 
-### Q: Can we migrate just part of the site to Bootstrap 5?
-**A:** Yes, temporarily. We recommend the "Isolation" approach for Activity Finder, which allows the theme to use Bootstrap 5 while Activity Finder stays on Bootstrap 4 temporarily. However, maintaining two Bootstrap versions long-term is not recommended.
+<details>
+<summary><strong>Can we migrate just part of the site to Bootstrap 5?</strong></summary>
 
-### Q: How risky is this migration?
-**A:** Medium risk overall. The theme migration is well-understood with low risk. Activity Finder is the highest-risk component due to BootstrapVue incompatibility. Proper testing and staged rollout mitigate risk.
+Yes, temporarily. We recommend the "Isolation" approach for Activity Finder, which allows the theme to use Bootstrap 5 while Activity Finder stays on Bootstrap 4 temporarily.
 
-### Q: What's the minimum viable migration?
-**A:** At minimum:
-1. Migrate openy_carnation theme (4-6 weeks)
-2. Isolate Activity Finder with scoped CSS (2-3 weeks)
-3. Basic testing (2 weeks)
-Total: ~8-11 weeks minimum
+> [!WARNING]
+> Maintaining two Bootstrap versions long-term is not recommended due to increased bundle size and maintenance overhead.
 
-### Q: Can we skip some modules?
-**A:** Yes! If you're not using certain modules (e.g., ws_small_y, specific lb_* modules), you can skip them. Review the module inventory and identify which are actually in use.
+</details>
 
-### Q: What if we find bugs after rollout?
-**A:** We recommend a staged rollout (internal → beta → production) to catch issues early. Maintain a rollback plan and provide support during rollout. Most issues should be caught during testing phases.
+<details>
+<summary><strong>How risky is this migration?</strong></summary>
 
-### Q: How much will this cost?
-**A:** Estimated costs:
-- **Standard (6-9 months, 2-3 devs):** $150K-$250K
-- **Aggressive (3-4 months, 3-4 devs):** $200K-$350K
-- **Gradual (9-12 months, 1-2 devs):** $100K-$180K
+**Medium risk overall.**
+
+| Component | Risk Level | Reasoning |
+|-----------|------------|-----------|
+| Theme (openy_carnation) | 🟢 Low | Well-understood process |
+| Layout Builder modules | 🟡 Medium | Many modules, but straightforward |
+| Activity Finder | 🔴 High | BootstrapVue incompatibility |
+
+Proper testing and staged rollout mitigate risk.
+
+</details>
+
+<details>
+<summary><strong>What's the minimum viable migration?</strong></summary>
+
+| Phase | Duration | Scope |
+|-------|----------|-------|
+| 1. Theme migration | 4-6 weeks | openy_carnation |
+| 2. Activity Finder isolation | 2-3 weeks | Scoped CSS |
+| 3. Basic testing | 2 weeks | Manual QA |
+| **Total** | **~8-11 weeks** | Minimum viable |
+
+</details>
+
+<details>
+<summary><strong>Can we skip some modules?</strong></summary>
+
+**Yes!** If you're not using certain modules (e.g., ws_small_y, specific lb_* modules), you can skip them.
+
+> [!TIP]
+> Review your site's module inventory and identify which are actually in use before planning.
+
+</details>
+
+<details>
+<summary><strong>What if we find bugs after rollout?</strong></summary>
+
+We recommend a staged rollout to catch issues early:
+
+1. **Internal** → Development/staging environment
+2. **Beta** → Limited production users
+3. **Production** → Full rollout
+
+Maintain a rollback plan and provide support during rollout. Most issues should be caught during testing phases.
+
+</details>
+
+<details>
+<summary><strong>How much will this cost?</strong></summary>
+
+| Approach | Timeline | Team Size | Estimated Cost |
+|----------|----------|-----------|----------------|
+| Standard | 6-9 months | 2-3 devs | $150K-$250K |
+| Aggressive | 3-4 months | 3-4 devs | $200K-$350K |
+| Gradual | 9-12 months | 1-2 devs | $100K-$180K |
+
+</details>
 
 ## Next Steps
 
-1. ✅ Read [MIGRATION_STRATEGY.md](MIGRATION_STRATEGY.md)
-2. ⬜ Complete [decisions/QUESTIONNAIRE.md](decisions/QUESTIONNAIRE.md)
-3. ⬜ Review with stakeholders
-4. ⬜ Get approval for timeline and resources
-5. ⬜ Begin Phase 1: Preparation
+| Step | Status | Action |
+|------|--------|--------|
+| 1 | ✅ | Read [MIGRATION_STRATEGY.md](MIGRATION_STRATEGY.md) |
+| 2 | ⬜ | Complete [decisions/QUESTIONNAIRE.md](decisions/QUESTIONNAIRE.md) |
+| 3 | ⬜ | Review with stakeholders |
+| 4 | ⬜ | Get approval for timeline and resources |
+| 5 | ⬜ | Begin Phase 1: Preparation |
 
 ## Questions?
 
-- **GitHub Issues:** https://github.com/YCloudYUSA/yusaopeny-project/issues
-- **GitHub Discussions:** https://github.com/YCloudYUSA/yusaopeny/discussions
-- **Documentation:** https://sd-docs.y.org
+| Channel | Link |
+|---------|------|
+| GitHub Issues | [yusaopeny-project/issues](https://github.com/YCloudYUSA/yusaopeny-project/issues) |
+| GitHub Discussions | [yusaopeny/discussions](https://github.com/YCloudYUSA/yusaopeny/discussions) |
+| Documentation | [ds-docs.y.org](https://ds-docs.y.org) |
 
 ---
 
-**Last Updated:** 2025-10-08
-**Document Version:** 1.0
-**Status:** Planning Phase
+| | |
+|---|---|
+| **Last Updated** | 19 December 2025 |
+| **Document Version** | 1.1 |
+| **Status** | Planning Phase |

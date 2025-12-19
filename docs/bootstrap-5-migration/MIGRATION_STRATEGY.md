@@ -1,9 +1,11 @@
 # Bootstrap 4 to 5 Migration Strategy for Y USA Open YMCA
 
-**Document Version:** 1.0
-**Date:** 2025-10-08
-**Status:** Planning Phase
-**Estimated Timeline:** 6-9 months
+| | |
+|---|---|
+| **Document Version** | 1.1 |
+| **Date** | 19 December 2025 |
+| **Status** | Planning Phase |
+| **Timeline** | 6-9 months |
 
 ---
 
@@ -11,12 +13,15 @@
 
 This document outlines a comprehensive strategy to upgrade from Bootstrap 4 to Bootstrap 5 across the Y USA Open YMCA distribution. The migration affects ~70 modules/themes and requires careful planning, testing, and phased rollout.
 
-**Key Findings:**
-- 1 theme (openy_carnation) using Bootstrap 4.4.1
-- 3 Activity Finder Vue apps using Bootstrap 4.6.1 + BootstrapVue 2
-- ~50+ Layout Builder modules using Bootstrap 4.4.1
-- 1 module (lb_accordion) **already migrated to Bootstrap 5.3.3** ✅
-- Critical dependency: BootstrapVue 2 is NOT compatible with Bootstrap 5
+> [!IMPORTANT]
+> **Key Findings:**
+> - 1 theme (openy_carnation) using Bootstrap 4.4.1
+> - 3 Activity Finder Vue apps using Bootstrap 4.6.1 + BootstrapVue 2
+> - ~50+ Layout Builder modules using Bootstrap 4.4.1
+> - 1 module (lb_accordion) **already migrated to Bootstrap 5.3.3** ✅
+
+> [!CAUTION]
+> **Critical dependency:** BootstrapVue 2 is **NOT** compatible with Bootstrap 5. This is the most significant challenge in the migration.
 
 ---
 
@@ -77,7 +82,8 @@ This document outlines a comprehensive strategy to upgrade from Bootstrap 4 to B
    - Vue 2.6.10 + BootstrapVue 2.22.0
    - Similar to Activity Finder
 
-**Critical Issue:** BootstrapVue 2.x **ONLY** supports Bootstrap 4 and Vue 2. Not compatible with Bootstrap 5.
+> [!WARNING]
+> **Critical Issue:** BootstrapVue 2.x **ONLY** supports Bootstrap 4 and Vue 2. Not compatible with Bootstrap 5.
 
 ---
 
@@ -745,7 +751,8 @@ document.querySelectorAll('[data-bs-toggle="dropdown"]').forEach(el => {
 });
 ```
 
-**Note:** Keep jQuery for Drupal compatibility, but remove Bootstrap jQuery dependency
+> [!NOTE]
+> Keep jQuery for Drupal compatibility, but remove Bootstrap jQuery dependency
 
 #### 2.5 Update Libraries
 
@@ -980,7 +987,8 @@ npm run build
 
 **Priority:** CRITICAL - Complex, high-impact component
 
-⚠️ **Major Challenge:** BootstrapVue 2 is NOT compatible with Bootstrap 5
+> [!CAUTION]
+> **Major Challenge:** BootstrapVue 2 is NOT compatible with Bootstrap 5. This phase requires the most careful planning.
 
 #### 4.1 Decision Matrix
 
@@ -1324,7 +1332,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 #### 4.4 Vue 3 Migration (Optional - Future Phase)
 
-**Note:** Vue 2 reached End of Life on December 31, 2023
+> [!WARNING]
+> Vue 2 reached End of Life on December 31, 2023. Consider Vue 3 migration as a future phase.
 
 If migrating to Vue 3:
 - Use Vue 3 Migration Build for gradual migration
@@ -1782,7 +1791,7 @@ All modules now use Bootstrap 5. Follow the pattern in lb_accordion for referenc
 - Bootstrap 5 docs: https://getbootstrap.com/docs/5.3/
 ```
 
-**sd-docs.y.org Updates:**
+**ds-docs.y.org Updates:**
 - Create Bootstrap 5 migration guide
 - Update theme documentation
 - Update developer documentation
@@ -2167,7 +2176,7 @@ grep -r "b-" openy_af4_vue_app/src/ > bootstrap-vue-audit.txt
 ### Community Resources
 - [Bootstrap 5 Discussions](https://github.com/twbs/bootstrap/discussions)
 - [Bootstrap 5 Stack Overflow](https://stackoverflow.com/questions/tagged/bootstrap-5)
-- [Y USA Open YMCA Docs](https://sd-docs.y.org)
+- [Y USA Open YMCA Docs](https://ds-docs.y.org)
 - [Y USA GitHub](https://github.com/YCloudYUSA)
 - [Drupal Bootstrap Theme](https://www.drupal.org/project/bootstrap)
 
@@ -2240,7 +2249,8 @@ See: `docs/bootstrap-5-migration/testing/TESTING_CHECKLIST.md`
 
 | Version | Date | Author | Changes |
 |---------|------|--------|---------|
-| 1.0 | 2025-10-08 | AI Assistant | Initial comprehensive strategy document |
+| 1.0 | 2025-10-08 | - | Initial comprehensive strategy document |
+| 1.1 | 19 December 2025 | - | Added GitHub Advanced Markdown formatting |
 
 **Review Schedule:**
 - Weekly during active migration
@@ -2252,10 +2262,11 @@ See: `docs/bootstrap-5-migration/testing/TESTING_CHECKLIST.md`
 - [ ] Project Manager
 - [ ] Product Owner
 
-**Questions?**
-- GitHub Issues: https://github.com/YCloudYUSA/yusaopeny-project/issues
-- GitHub Discussions: https://github.com/YCloudYUSA/yusaopeny/discussions
-- Documentation: https://sd-docs.y.org
+> [!NOTE]
+> **Questions?**
+> - GitHub Issues: https://github.com/YCloudYUSA/yusaopeny-project/issues
+> - GitHub Discussions: https://github.com/YCloudYUSA/yusaopeny/discussions
+> - Documentation: https://ds-docs.y.org
 
 ---
 

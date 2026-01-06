@@ -5,14 +5,15 @@
 
 ## Executive Summary
 
-| Metric | Drupal 11.1 | Drupal 11.3 | 11.3 + Profile Fix | Best Improvement |
-|--------|-------------|-------------|---------------------|------------------|
-| **Total Time** | 537 sec (9 min) | 339 sec (5.6 min) | **180 sec (3 min)** | **67% faster** |
-| **Peak Memory** | 4.38 GB | 955 MB | **326 MB** | **93% less** |
-| Container Rebuilds | 282 | 147 | ~7 | **97% fewer** |
+| Metric | Drupal 11.1 | Drupal 11.3 | 11.3 + Profile Fix | 11.3 + All Fixes | Best Improvement |
+|--------|-------------|-------------|---------------------|------------------|------------------|
+| **Total Time** | 537 sec (9 min) | 339 sec (5.6 min) | 180 sec (3 min) | **152 sec (2.5 min)** | **72% faster** |
+| **Peak Memory** | 4.38 GB | 955 MB | 326 MB | **325 MB** | **93% less** |
+| Container Rebuilds | 282 | 147 | ~7 | ~7 | **97% fewer** |
+| Menu Queries | 245K | 230K | 230K | **114K** | **53% fewer** |
 
 > [!IMPORTANT]
-> **Drupal 11.3 + profile batching fix delivers massive performance gains: 67% faster than 11.1, 47% faster than 11.3 alone.**
+> **Drupal 11.3 + profile batching + MenuTreeStorage fix delivers: 72% faster than 11.1, 55% faster than 11.3 alone.**
 
 ---
 
@@ -215,9 +216,56 @@ $settings['core.multi_module_install_batch_size'] = 30;
 $settings['openy.module_install_batch_size'] = 30;
 ```
 
-### 4. Future Investigation
+### 4. MenuTreeStorage Optimization (Drupal Core Issue #3493290)
 
-- `MenuTreeStorage` still generates 230K+ queries
+> [!TIP]
+> **Additional 55% speedup achieved** by batch-loading menu links during `rebuild()`.
+
+#### The Problem
+
+`MenuTreeStorage::rebuild()` queries database **per-link** to check if link exists:
+
+```php
+// BEFORE: One query per menu link
+protected function doSave(array $link) {
+    $query = $this->connection->select($this->table);
+    $query->condition('id', $link['id']);
+    $original = $this->safeExecuteSelect($query)->fetchAssoc(); // 230K calls!
+}
+```
+
+#### The Fix
+
+Pre-load all existing links at start of `rebuild()`:
+
+```php
+// AFTER: One query for ALL links
+public function rebuild(array $definitions) {
+    $this->preloadedOriginals = $this->loadAllOriginals(array_keys($definitions));
+    // ... proceed with rebuild using cached data
+}
+```
+
+#### Results
+
+| Function | Before (calls) | After (calls) | Before (sec) | After (sec) | Improvement |
+|----------|----------------|---------------|--------------|-------------|-------------|
+| `safeExecuteSelect` | 230,127 | 113,787 | 16.16 | 8.71 | **-46%** |
+| `MenuTreeStorage::doSave` | 77,763 | 57,779 | 22.24 | 11.98 | **-46%** |
+| `MenuLinkManager::rebuild` | 181 | 180 | 49.57 | 22.06 | **-56%** |
+| `ModuleInstaller::install` | 131 | 18 | 275.85 | 98.53 | **-64%** |
+| **Total (`main()`)** | 1 | 1 | **338.86** | **151.69** | **-55%** |
+
+| Metric | Before | After | Saved |
+|--------|--------|-------|-------|
+| **Total Time** | 338.86 sec | 151.69 sec | **187 sec (55%)** |
+| **Peak Memory** | 954 MB | 325 MB | **629 MB (66%)** |
+
+> [!NOTE]
+> See [Drupal Core Issue #3493290](https://www.drupal.org/project/drupal/issues/3493290) for the upstream patch.
+
+### 5. Future Investigation
+
 - `ModuleHandler::invokeAllWith` time increased in 11.3 (investigate hooks)
 
 ---
@@ -231,12 +279,14 @@ Raw logs available in [`docs/profiling-logs/`](profiling-logs/):
 | [`drush_si_profiling_standard_11.1.log`](profiling-logs/drush_si_profiling_standard_11.1.log) | Drupal 11.1.9 install log |
 | [`drush_si_profiling_standard_11_3.log`](profiling-logs/drush_si_profiling_standard_11_3.log) | Drupal 11.3.1 install log |
 | [`drush_si_profiling_standard_11_3_fix1.log`](profiling-logs/drush_si_profiling_standard_11_3_fix1.log) | Drupal 11.3.1 + profile batching fix |
+| [`drush_si_profiling_standard_11_3_menutree_fix.log`](profiling-logs/drush_si_profiling_standard_11_3_menutree_fix.log) | Drupal 11.3.1 + profile batching + MenuTreeStorage fix |
 
 ---
 
 ## Related Issues
 
 - [Drupal #3416522: Add ability to install multiple modules with single container rebuild](https://www.drupal.org/project/drupal/issues/3416522)
+- [Drupal #3493290: Reduce database queries in MenuTreeStorage::rebuild()](https://www.drupal.org/project/drupal/issues/3493290)
 - [Drupal #3395260: Performance improvements for AttributeClassDiscovery](https://www.drupal.org/project/drupal/issues/3395260)
 - [Drupal #3473563: Change record for container_rebuild_required](https://www.drupal.org/node/3473563)
 

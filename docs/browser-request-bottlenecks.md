@@ -62,27 +62,130 @@
 
 ---
 
+## Deep Dive: Issue Analysis
+
+### Quick Win: #3565604 (RTBC)
+
+**Remove unnecessary isset() from Renderer::doRender()**
+
+<details>
+<summary>Patch Details</summary>
+
+Removes redundant `if (isset($elements))` check around XSS sanitization since `$elements` is a required parameter. Also removes corresponding PHPStan baseline entry.
+
+```php
+// Before: unnecessary check
+if (isset($elements)) {
+  // sanitize markup keys
+}
+
+// After: direct execution
+// sanitize markup keys
+```
+
+</details>
+
+- **Impact**: Minor code cleanup
+- **Risk**: None - straightforward refactor
+- **Action**: Will be merged soon (created by catch)
+
+---
+
+### High Impact: #2012800
+
+**Renderer::doRender() could be lazier about calling Element::children()**
+
+<details>
+<summary>Technical Details</summary>
+
+**Problem**: `Element::children()` sorts elements by weight but result is unused when `#theme` is set. This wastes CPU on every themed element render.
+
+**Performance Data**: Testing with 50 threaded comments showed:
+- Wall time decreased by 0.3%
+- CPU time decreased by 0.5%
+
+**Patch**: `2012800-37.patch` (April 2023, Drupal 10.1.x)
+
+</details>
+
+- **Impact**: 0.3-0.5% improvement per render
+- **Status**: Needs work - requires re-profiling for 11.x
+- **Action**: Consider testing patch in YMCA WS
+
+---
+
+### Architectural: #3001284
+
+**Allow plugin derivers to specify cache tags**
+
+<details>
+<summary>Context</summary>
+
+Currently, external code must manually clear plugin caches when source data changes (e.g., when menu entities change, block plugin cache is cleared separately). This issue proposes letting derivers specify cache tags for automatic invalidation.
+
+**Maintainer Concerns**:
+- Some derivative patterns may be deprecated
+- Cache tags have performance costs
+- Valid use cases remain (e.g., Group module)
+
+</details>
+
+- **Impact**: Improved cache invalidation
+- **Status**: Postponed - architectural concerns
+- **Action**: Monitor for progress
+
+---
+
+### Meta: #3492233 (Major)
+
+**[meta] Reduce memory/cpu/io cost of attribute discovery**
+
+Active umbrella issue tracking multiple related efforts:
+
+| Child Issue | Description | Status |
+|-------------|-------------|--------|
+| [#3486503](https://www.drupal.org/project/drupal/issues/3486503) | Database-backed FileCache | Needs work |
+| [#3416522](https://www.drupal.org/project/drupal/issues/3416522) | Multi-module install | **Committed** |
+| Container rebuild optimization | Various | In progress |
+
+---
+
+### Reference: #2294569 (Memory Analysis)
+
+**Key Findings from fabianx's Analysis:**
+
+| Component | Memory Usage |
+|-----------|--------------|
+| Loaded classes (with opcache) | 8-17 MB |
+| Views configuration | 24.25 MB |
+| Container compilation | 13 MB |
+| DefaultPluginManager static | **3.9 MB** |
+| YAML file loader | 2 MB |
+
+**Recommended Optimizations**:
+1. Disable caches during installation (35s → 9s)
+2. Use FileCache for annotations
+3. Pre-generate container and plugin definitions
+4. Optimize Config::save schema validation
+
+---
+
 ## Recommended Investigation
 
-### High Impact
+### Immediate Actions
 
-1. **[#2012800](https://www.drupal.org/project/drupal/issues/2012800)** - Lazy Element::children() in doRender
-   - Directly addresses 1.97 sec Renderer bottleneck
-   - Status: Needs work (stalled since 2021)
+1. **[#3565604](https://www.drupal.org/project/drupal/issues/3565604)** - Will merge soon
+   - No action needed, monitoring only
 
-2. **[#3001284](https://www.drupal.org/project/drupal/issues/3001284)** - Cache tags for plugin derivers
-   - Addresses DerivativeDiscoveryDecorator cache invalidation
-   - Status: Needs work, Major priority
+2. **[#2012800](https://www.drupal.org/project/drupal/issues/2012800)** - Test patch
+   - Download and test `2012800-37.patch`
+   - Profile before/after with XHProf
 
-3. **[#2294569](https://www.drupal.org/project/drupal/issues/2294569)** - High memory consumption root cause
-   - Meta-analysis by fabianx
-   - May provide insights for plugin manager optimization
+### Future Consideration
 
-### Quick Wins
-
-4. **[#3565604](https://www.drupal.org/project/drupal/issues/3565604)** - Remove unnecessary isset() in doRender
-   - Status: RTBC, ready for merge
-   - Minor impact but easy
+3. **[#3492233](https://www.drupal.org/project/drupal/issues/3492233)** - Attribute discovery meta
+   - Track child issues for potential patches
+   - Database-backed FileCache when ready
 
 ---
 

@@ -214,7 +214,8 @@
          "drupal/core-composer-scaffold": true,
          "drupal/core-project-message": true,
          "oomphinc/composer-installers-extender": true,
-         "mglaman/composer-drupal-lenient": true
+         "mglaman/composer-drupal-lenient": true,
+         "symfony/runtime": true
       }
    }
 }
